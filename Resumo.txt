@@ -1,0 +1,32 @@
+﻿bERNARDO dRIVER mASSACRETION
+
+HISTÓRIA:
+	Após se tornar o homem mais based do mundo, Bernardo é perseguido pelos seus inúmeros crimes.
+	Com incontáveis organizações governamentais no seu rastro, você deve assumir o volante e despistar
+	seus perseguidores com seu carro blindado feito em sua garagem.
+	Bernardo tenta fugir de tudo e todos dirigindo como se não tivesse medo de morrer, apenas de ser pego.
+
+GAMEPLAY:
+	Você controla um carro que tu vê de cima. Controlando-o você deve navegar pelo cenário e tentar fugir daqueles
+que tentam te alcançar. Você deve tentar se safar fugindo e provocando colisões para destruir os outros carros.
+
+MECÂNICAS:
+	Sistema vetorial de velocidade, aceleração e colisão realista. Controle da velocidade, e direção do carro do Bernardo.
+Inimigos que tentam te atingir e figurantes que não tentam interagir com você nem com os policiais.
+	O jogo de câmera é dinâmico, com o carro do Bernardo tentendo ao meio da tela porém sempre mostrando um pouco mais na direção
+que o carro está indo. O zoom diminui um pouco com a velocidade maior e aumenta com a velocidade menor.
+
+Estruturas:
+-Carro do jogador
+-Carros passivos que andam
+-carros que te perseguem
+
+Funções:
+-funções para atualizar a posição e os status dos carros
+-funções que controlam a direção dos carros
+-funçoes 
+-função que detecta final do nível
+
+Melhorias Futuras:
+-aprimorar a fisica da inércia angular, torque e rotações
+-aprimorar o comportamento dos carros que te perseguem
