@@ -35,6 +35,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="desenho.h" />
+		<Unit filename="entidades.h" />
 		<Unit filename="fisica.c">
 			<Option compilerVar="CC" />
 		</Unit>

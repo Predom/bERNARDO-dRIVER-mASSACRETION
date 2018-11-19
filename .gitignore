@@ -10,6 +10,7 @@
 # Libraries
 
 # Shared objects (inc. Windows DLLs)
+*.odg#
 
 # Executables
 
@@ -21,3 +22,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.odg#
+*.odg#
