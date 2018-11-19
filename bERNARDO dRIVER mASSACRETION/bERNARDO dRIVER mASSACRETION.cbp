@@ -31,9 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="desenho.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="desenho.h" />
+		<Unit filename="fisica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fisica.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="matematica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="matematica.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
