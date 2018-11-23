@@ -2,6 +2,7 @@
 #include <allegro5\allegro_primitives.h>
 #include "fisica.h"
 #include "matematica.h"
+#include "entidades.h"
 
 /********************************************************
  *      Este arquivo deve conter as rotinas para        *
