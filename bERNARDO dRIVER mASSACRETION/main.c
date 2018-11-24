@@ -14,6 +14,9 @@ const int windowY = 0;
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE};
 bool keys[5] = {false, false, false, false, false};
 
+struct Vetor2D teste={100,0};
+
+
 int main()
 {
     bool done = false;
@@ -26,6 +29,8 @@ int main()
 
     if(!TestCheckPenetration())
         printf("\nA colisao de poligonos esta funcionando corretamente\n");
+
+
     else
         printf("\nHouve algum erro! A colisao de poligonos nao esta funcionando corretamente\n");
 
@@ -162,6 +167,7 @@ int main()
         //al_destroy_timer(timer);
         al_destroy_display(display);
     }
+
 
     return 0;
 }
