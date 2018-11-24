@@ -7,3 +7,7 @@
 /**************************************
  * Essa é a header do desenho.c
  **************************************/
+
+
+ //Inicio geral do allegro. Display, keyboard, primitives, font, timer, event queue... Mas ainda não está pronto
+ int InitAllegro(int WIDTH, int HEIGHT, int windowX, int windowY, ALLEGRO_DISPLAY *display, ALLEGRO_EVENT_QUEUE *event_queue);
