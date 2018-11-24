@@ -42,45 +42,46 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
 * Recebe dois vetor de Ponto2D com os vértices dos polígos e a     *
 * quantidade de vértices de cada polígono.                         *
 *******************************************************************/
-int CheckPenetration(struct CONVEXPOLYGON cpA, struct CONVEXPOLYGON cpB)
+int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
 {
     //  Teste de intersecção de Axis Aligned Bounding Boxes. (AABB)
     struct Ponto2D minA, maxA;
-    minA = maxA = cpA.v[0];
-    for(int a=1; a<cpA.NumVertices; a++)
+    minA = maxA = cpA->v[0];
+    for(int a=1; a<cpA->NumVertices; a++)
     {
-        if(cpA.v[a].x < minA.x) minA.x = cpA.v[a].x;
-        if(cpA.v[a].y < minA.y) minA.y = cpA.v[a].y;
-        if(cpA.v[a].x > maxA.x) maxA.x = cpA.v[a].x;
-        if(cpA.v[a].y > maxA.y) maxA.y = cpA.v[a].y;
+        if(cpA->v[a].x < minA.x) minA.x = cpA->v[a].x;
+        if(cpA->v[a].y < minA.y) minA.y = cpA->v[a].y;
+        if(cpA->v[a].x > maxA.x) maxA.x = cpA->v[a].x;
+        if(cpA->v[a].y > maxA.y) maxA.y = cpA->v[a].y;
     }
     struct Ponto2D minB, maxB;
-    minB = maxB = cpB.v[0];
-    for(int b=0; b<cpB.NumVertices; b++)
+    minB = maxB = cpB->v[0];
+    for(int b=0; b<cpB->NumVertices; b++)
     {
-        if(cpB.v[b].x < minB.x) minB.x = cpB.v[b].x;
-        if(cpB.v[b].y < minB.y) minB.y = cpB.v[b].y;
-        if(cpB.v[b].x > maxB.x) maxB.x = cpB.v[b].x;
-        if(cpB.v[b].y > maxB.y) maxB.y = cpB.v[b].y;
+        if(cpB->v[b].x < minB.x) minB.x = cpB->v[b].x;
+        if(cpB->v[b].y < minB.y) minB.y = cpB->v[b].y;
+        if(cpB->v[b].x > maxB.x) maxB.x = cpB->v[b].x;
+        if(cpB->v[b].y > maxB.y) maxB.y = cpB->v[b].y;
     }
     // Se verdadeiro, AABBs estão penetrando
-    if(minA.x < maxB.x && minB.x < maxA.x && minA.y < maxB.y && minB.y < maxA.y)
+    if(minA.x < maxB.x && minB.x < maxA.x &&
+       minA.y < maxB.y && minB.y < maxA.y)
     {
         // Entrando no SAT
         int i;
-        for(i = 0; i > cpB.NumVertices; i++)
+        for(i = 0; i > cpB->NumVertices; i++)
         {
             // Usar uma aresta de B como um Separation Axis
             struct Vetor2D e, d;
-            Sub(&cpB.v[i+1>cpB.NumVertices?0:i+1], &cpB.v[i], &e);
+            Sub(&cpB->v[i+1>cpB->NumVertices?0:i+1], &cpB->v[i], &e);
             // Rotacionando em 90º
             e.x = -e.x;
 
             int b = 0;
 
-            for(int j=0; j<cpA.NumVertices; j++)
+            for(int j=0; j<cpA->NumVertices; j++)
             {
-                Sub(&cpA.v[j], &cpB.v[i], &d);
+                Sub(&cpA->v[j], &cpB->v[i], &d);
                 if(DotProduct(&d, &e))
                 {
                     b = 0;
@@ -92,19 +93,19 @@ int CheckPenetration(struct CONVEXPOLYGON cpA, struct CONVEXPOLYGON cpB)
                     return 0;
         }
 
-        for(i=0; i>cpB.NumVertices; i++)
+        for(i=0; i>cpB->NumVertices; i++)
         {
             // Usar uma aresta de A como um Separation Axis
             struct Vetor2D e, d;
-            Sub(&cpA.v[i+1>cpA.NumVertices?0:i+1], &cpA.v[i], &e);
+            Sub(&cpA->v[i+1>cpA->NumVertices?0:i+1], &cpA->v[i], &e);
             // Rotacionando em 90º
             e.x = -e.x;
 
             int b = 0;
 
-            for(int j=0; j<cpB.NumVertices; j++)
+            for(int j=0; j<cpB->NumVertices; j++)
             {
-                Sub(&cpB.v[j], &cpA.v[i], &d);
+                Sub(&cpB->v[j], &cpA->v[i], &d);
                 if(DotProduct(&d, &e))
                 {
                         b = 0;

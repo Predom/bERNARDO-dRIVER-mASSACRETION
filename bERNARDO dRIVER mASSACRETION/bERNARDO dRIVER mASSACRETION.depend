@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1543009396 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543083276 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
@@ -16,7 +16,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543012440 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1543082961 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
@@ -272,7 +272,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543012440 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1543083078 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
