@@ -16,6 +16,8 @@ float distanciaEntrePontos(struct verticeFisico *p1, struct verticeFisico *p2);
 // Operação com Polígonos
 int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB);
 
+int TestCheckPenetration();
+
 // Operação com vetores:
 void Sub(struct Ponto2D *a, struct Ponto2D *b, struct Vetor2D *z);
 

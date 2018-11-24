@@ -10,18 +10,11 @@ int main()
     //testando a edição simultânea
     printf("\nBerardo Piranha\n");
 
-    struct Ponto2D vetorA[] = {{3, 5}, {2, 1}, {-1, 3}, {1, 7}};
-    struct Ponto2D vetorB[] = {{6, 8}, {5, 3}, {2, 6}, {4, 10}};
-    struct CONVEXPOLYGON cpA;
-    struct CONVEXPOLYGON cpB;
-    cpA.v = vetorA;
-    cpA.NumVertices = 4;
-    cpB.v = vetorB;
-    cpB.NumVertices = 4;
-
-    if(CheckPenetration(&cpA, &cpB))
-        printf("Dentro");
+    if(!TestCheckPenetration())
+        printf("\nA colisao de poligonos esta funcionando corretamente\n");
     else
-        printf("Fora");
+        printf("\nHouve algum erro! A colisao de poligonos nao esta funcionando corretamente\n");
+
+
     return 0;
 }

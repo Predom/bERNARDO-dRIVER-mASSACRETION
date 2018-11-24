@@ -124,9 +124,36 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
     return 0;
 }
 
+/**************************************************************************
+* Operação para testar a função de colisão entre dois polígonos convexos. *
+**************************************************************************/
 
+int TestCheckPenetration()
+{
+    struct Ponto2D vetorA[] = {{3, 5}, {2, 1}, {-1, 3}, {1, 7}};
+    struct Ponto2D vetorB[] = {{6, 8}, {5, 3}, {2, 6}, {4, 10}};
+    struct CONVEXPOLYGON cpA;
+    struct CONVEXPOLYGON cpB;
+    cpA.v = vetorA;
+    cpA.NumVertices = 4;
+    cpB.v = vetorB;
+    cpB.NumVertices = 4;
 
+    if(CheckPenetration(&cpA, &cpB))
+    {
+        struct Ponto2D vetorC[] = {{7, 9}, {6, 4}, {3, 7}, {5, 11}};
+        struct CONVEXPOLYGON cpC;
+        cpC.v = vetorC;
+        cpC.NumVertices = 4;
 
+        if(!CheckPenetration(&cpA, &cpC))
+            return 0;
+        else
+            return 1;
+    }
+    else
+        return 1;
+}
 
 
 
