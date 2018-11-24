@@ -2,8 +2,10 @@
 *.d
 
 # Object files
+.o
 
 # Linker output
+.exe
 
 # Precompiled Headers
 
