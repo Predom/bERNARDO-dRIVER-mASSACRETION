@@ -21,6 +21,11 @@ struct Vetor2D
     float coord[2];
 };
 
+struct Matriz2x2{
+
+    float elementos[2][2];
+};
+
 struct CONVEXPOLYGON
 {
     struct Ponto2D* v; // Aray de vértices
