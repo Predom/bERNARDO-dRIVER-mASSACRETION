@@ -8,16 +8,19 @@
  * em fisica.c e desenho.c.                       *
  **************************************************/
 
+#define x coord<:0:>
+#define y coord<:1:>
+
 struct Ponto2D
 {
-    float x;
-    float y;
+    float coord[2];
 };
+
 struct Vetor2D
 {
-    float x;
-    float y;
+    float coord[2];
 };
+
 struct CONVEXPOLYGON
 {
     struct Ponto2D* v; // Aray de vértices
