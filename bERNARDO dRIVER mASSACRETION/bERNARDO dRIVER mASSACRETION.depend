@@ -3,12 +3,14 @@
 	<stdio.h>
 	<stdlib.h>
 
-1543009396 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543087753 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
 	"desenho.h"
 	"entidades.h"
+	<allegro5\allegro.h>
+	<allegro5\allegro_primitives.h>
 
 1543009396 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
@@ -16,18 +18,18 @@
 	"matematica.h"
 	"entidades.h"
 
-1543012440 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1543084162 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1543009396 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
+1543087522 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
 	"fisica.h"
 	"entidades.h"
 
-1543009443 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1543087509 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -272,7 +274,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543012440 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1543084035 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
