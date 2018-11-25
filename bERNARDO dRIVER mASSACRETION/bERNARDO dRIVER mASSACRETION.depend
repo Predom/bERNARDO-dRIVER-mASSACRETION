@@ -1,7 +1,12 @@
 # depslib dependency file v1.0
-1542650054 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543114101 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
+	"fisica.h"
+	"desenho.h"
+	"entidades.h"
+	<allegro5\allegro.h>
+	<allegro5\allegro_primitives.h>
 
 1543096021 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
@@ -515,7 +520,7 @@
 1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1543095815 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1543114925 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
