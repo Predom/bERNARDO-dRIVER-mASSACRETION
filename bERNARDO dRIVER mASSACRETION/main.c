@@ -6,6 +6,9 @@
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 
+//este comentário é um teste
+
+
 //GLOBALS
 const int WIDTH = 1300;
 const int HEIGHT = 800;
