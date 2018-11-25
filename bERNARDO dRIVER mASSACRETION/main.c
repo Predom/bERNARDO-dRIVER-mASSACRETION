@@ -36,7 +36,7 @@ int main()
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
-    //ALLEGRO_TIMER *timer = NULL;
+    ALLEGRO_TIMER *timer = NULL;
 
     if(!al_init())										//initialize Allegro
 		return -1;
@@ -64,7 +64,7 @@ int main()
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
-        /*if(ev.type == ALLEGRO_EVENT_TIMER)
+        if(ev.type == ALLEGRO_EVENT_TIMER)
         {
             redraw = true;
 
@@ -87,14 +87,14 @@ int main()
                 //TESTA COLISÕES
                 //TESTE SE DEU GAME OVER
             }
-        }*/
+        }
 
         if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
         {
             done = true;
         }
 
-        /*else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+        else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
         {
             switch(ev.keyboard.keycode)
             {
@@ -161,12 +161,11 @@ int main()
 
             al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
-        }*/
-
-        al_destroy_event_queue(event_queue);
-        //al_destroy_timer(timer);
-        al_destroy_display(display);
+        }
     }
+        al_destroy_event_queue(event_queue);
+        al_destroy_timer(timer);
+        al_destroy_display(display);
 
 
     return 0;
