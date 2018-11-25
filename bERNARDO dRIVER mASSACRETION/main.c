@@ -10,9 +10,9 @@
 
 
 //GLOBALS
-const int WIDTH = 1300;
+const int WIDTH = 800;
 const int HEIGHT = 800;
-const int windowX = 100;
+const int windowX = 350;
 const int windowY = 0;
 
 #define bool int
@@ -26,7 +26,7 @@ int main()
 {
     bool done = false;
 	bool redraw = true;
-	const int FPS = 60;
+	const int FPS = 10;
 	bool isGameOver = false;
 
     //testando a edição simultânea
@@ -39,7 +39,7 @@ int main()
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
-    //ALLEGRO_TIMER *timer = NULL;
+    ALLEGRO_TIMER *timer = NULL;
 
     if(!al_init())										//initialize Allegro
 		return -1;
@@ -55,13 +55,13 @@ int main()
 	al_install_keyboard();
 
 	event_queue = al_create_event_queue();
-	//timer = al_create_timer(1 / FPS);
+	timer = al_create_timer(0.0167);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
-	//al_register_event_source(event_queue, al_get_timer_event_source(timer));
+	al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_display_event_source(display));
 
-    //al_start_timer(timer);
+    al_start_timer(timer);
     while(!done)
     {
         ALLEGRO_EVENT ev;
@@ -169,7 +169,7 @@ int main()
     }
 
     al_destroy_event_queue(event_queue);
-    //al_destroy_timer(timer);
+    al_destroy_timer(timer);
     al_destroy_display(display);
 
 
