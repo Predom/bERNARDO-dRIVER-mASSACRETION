@@ -30,6 +30,8 @@ int main()
 	bool redraw = true;
 	bool isGameOver = false;
 	int selecty = 0;
+	bool in_display = true;
+	bool in_play_button = false;
 
     //testando a edição simultânea
     printf("\nBerardo Piranha 3.0\n");
@@ -42,6 +44,7 @@ int main()
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
     ALLEGRO_TIMER *timer = NULL;
+    ALLEGRO_BITMAP *play_button = NULL, *area_central = 0;
 
 
     if(!al_init())										//initialize Allegro
@@ -58,6 +61,12 @@ int main()
 
 	al_init_primitives_addon();
 	al_install_keyboard();
+	al_install_mouse();
+
+	al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT);
+
+	area_central = al_create_bitmap(WIDTH/2,HEIGHT/2);
+	play_button = al_create_bitmap(100,50);
 
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.0167);
@@ -65,6 +74,7 @@ int main()
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_display_event_source(display));
+    al_register_event_source(event_queue, al_get_mouse_event_source());
 
     al_start_timer(timer);
 
@@ -76,12 +86,6 @@ int main()
         if(ev.type == ALLEGRO_EVENT_TIMER)
         {
             redraw = true;
-
-            if(!play)
-            {
-                printf("atualizacoes dos corpos da tela\n");
-                //ATUALIZÃO TUDO
-            }
         }
 
         if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
@@ -89,6 +93,31 @@ int main()
             play = true;
             quit = true;
         }
+
+        /*else if(ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+        {
+            if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(area_central) / 2 &&
+                ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(area_central) / 2 &&
+                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(area_central) / 2 &&
+                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(area_central) / 2)
+                {
+                    in_display = true;
+                }
+            else
+                in_display = false;
+        }
+
+        else if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+        {
+            if(ev.mouse.x >= WIDTH - al_get_bitmap_width(play_button) - 10 &&
+                ev.mouse.x <= WIDTH - 10 && ev.mouse.y <= HEIGHT - 10 &&
+                ev.mouse.y >= HEIGHT - al_get_bitmap_height(play_button) - 10)
+                {
+                    in_play_button = true;
+                }
+                else
+                    in_play_button = false;
+        }*/
 
         else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
         {
@@ -137,6 +166,16 @@ int main()
                 al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2-20,WIDTH/2+100,HEIGHT/2+50,10,10,al_map_rgb(255,255,255));
                 al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+70,WIDTH/2+100,HEIGHT/2+140,10,10,al_map_rgb(255,255,255));
                 al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+160,WIDTH/2+100,HEIGHT/2+230,10,10,al_map_rgb(255,255,255));
+
+                if(in_display)
+                    al_draw_filled_circle(100,100,20,al_map_rgb(255,255,0));
+
+                if(in_play_button)
+                {
+                    al_draw_rounded_rectangle(WIDTH/2-100,HEIGHT/2-20,WIDTH/2+100,HEIGHT/2+50,10,10,al_map_rgb(255,255,0), 5);
+                }
+                else
+                    al_draw_rounded_rectangle(WIDTH/2-100,selecty*90+HEIGHT/2-20,WIDTH/2+100,selecty*90+HEIGHT/2+50,10,10,al_map_rgb(255,255,0), 5);
             }
 
             al_flip_display();
@@ -179,13 +218,13 @@ int main()
             redraw = true;
 
             if(keys[UP])
-                o--;            //FALTA A FUNÇÃO PRA MOVIMENTAR PARA FRENTE
+                o-=3;            //FALTA A FUNÇÃO PRA MOVIMENTAR PARA FRENTE
             if(keys[DOWN])
-                o++;            //FALTA A FUNÇÃO PRA FREAR
+                o+=3;            //FALTA A FUNÇÃO PRA FREAR
             if(keys[RIGHT])
-                p++;            //FALTA A FUNÇÃO PRA VIRAR PARA A DIREITA
+                p+=3;            //FALTA A FUNÇÃO PRA VIRAR PARA A DIREITA
             if(keys[LEFT])
-                p--;            //FALTA A FUNÇÃO PRA VIRAR PARA A ESQUERDA
+                p-=3;            //FALTA A FUNÇÃO PRA VIRAR PARA A ESQUERDA
             if(keys[SPACE])
                 printf(" _ KEY SCAPE ");    //FALTA A FUNÇÃO PRA MOVIMENTAR PARA BOZINAR(?)
 
@@ -260,7 +299,7 @@ int main()
 
             if(!isGameOver)
             {
-                al_draw_line(300+p,300+o,700+p,700+o,al_map_rgb(255,255,0),3);
+                al_draw_filled_circle(300+p,300+o,20,al_map_rgb(255,255,0));
                 //DESENHA TUDO
             }
             else
