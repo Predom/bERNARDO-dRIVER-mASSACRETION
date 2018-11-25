@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1543096021 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543115014 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
@@ -18,18 +18,18 @@
 	"matematica.h"
 	"entidades.h"
 
-1543084162 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1543096194 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1543087968 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
+1543114990 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
 	"fisica.h"
 	"entidades.h"
 
-1543089875 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1543115014 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -265,7 +265,7 @@
 1372631932 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1543095514 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1543113323 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 
 1543009396 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
 	<allegro5\allegro.h>
@@ -274,8 +274,11 @@
 	"matematica.h"
 	"entidades.h"
 
-1543084035 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1543113323 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
+
+1372631932 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_native_dialog.h
+	"allegro5/allegro.h"
 

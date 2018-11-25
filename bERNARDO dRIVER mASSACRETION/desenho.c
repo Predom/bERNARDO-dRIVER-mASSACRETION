@@ -35,3 +35,9 @@ int InitAllegro(int WIDTH, int HEIGHT, int windowX, int windowY, ALLEGRO_DISPLAY
 	return 0;
 }
 
+/*void error_msg(char *text)
+{
+	al_show_native_message_box(NULL,"ERRO",
+		"Ocorreu o seguinte erro e o programa sera finalizado:",
+		text,NULL,ALLEGRO_MESSAGEBOX_ERROR);
+}*/
