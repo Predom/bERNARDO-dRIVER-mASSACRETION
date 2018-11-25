@@ -46,7 +46,7 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
  * matrizes 2x2.
  *************************************************************************************/
 
- void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz){
+void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz){
      float memoria[2];
      //guarda o conteudo original do vetor na memória e zera-o
     for(int i=0; i<2; i++){
@@ -59,10 +59,10 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
             vetor->coord[i]+=memoria[ii]*matriz->elementos[i][ii];
         }
     }
- }
+}
 
 
- void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz){
+void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz){
      for(int i=0; i<2; i++){
             //zera o elemento a ser sobreescrito na saída
             vetorSaida->coord[i]=0;
@@ -70,13 +70,13 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
              vetorSaida->coord[i]+=vetorEntrada->coord[ii]*matriz->elementos[i][ii];
         }
     }
- }
+}
  /*********************************************
 * Estas outras pegam um vetor e o rotacionam *
 *        um certo numero de graus.           *
 *********************************************/
 
- void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
+void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 
      float grausConv=(graus/180)* M_PI;
 
@@ -87,8 +87,8 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
 
      transVet2DRetOrig(vetor,&matriz);
 
- }
- void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus){
+}
+void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus){
 
      float grausConv=(graus/180)* M_PI;
 
@@ -98,7 +98,7 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
      struct Matriz2x2 matriz={c,-s,s,c};
 
      transVet2D(vetorEntrada,vetorSaida,&matriz);
- }
+}
 
 
 
