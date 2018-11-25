@@ -7,3 +7,8 @@
  * Essa é a header da fisica.c
  **************************************/
 
+struct Carro{
+
+
+
+};
