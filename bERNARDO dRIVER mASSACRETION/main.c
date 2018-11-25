@@ -11,6 +11,11 @@ const int WIDTH = 1300;
 const int HEIGHT = 800;
 const int windowX = 100;
 const int windowY = 0;
+
+#define bool int
+#define true !0
+#define false 0
+
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE};
 bool keys[5] = {false, false, false, false, false};
 
