@@ -6,7 +6,7 @@
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 
-//este coment√°rio √© um teste
+//este coment·rio È um teste
 
 
 //GLOBALS
@@ -14,22 +14,24 @@ const int WIDTH = 800;
 const int HEIGHT = 800;
 const int windowX = 350;
 const int windowY = 0;
+int p, o = 0;
 
 #define bool int
 #define true !0
 #define false 0
 
-enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE};
-bool keys[5] = {false, false, false, false, false};
+enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE, ENTER};
+bool keys[6] = {false, false, false, false, false, false};
 
 int main()
 {
-    bool done = false;
+    bool play = false;
+    bool quit = false;
 	bool redraw = true;
-	const int FPS = 10;
 	bool isGameOver = false;
+	int selecty = 0;
 
-    //testando a edi√ß√£o simult√¢nea
+    //testando a ediÁ„o simult‚nea
     printf("\nBerardo Piranha 3.0\n");
 
     if(!TestCheckPenetration())
@@ -41,8 +43,113 @@ int main()
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
     ALLEGRO_TIMER *timer = NULL;
 
+
     if(!al_init())										//initialize Allegro
 		return -1;
+
+    //START MENU =======================================================================================
+
+    display = al_create_display(WIDTH, HEIGHT);			//create our display object
+
+    if(!display)										//test display object
+		return -1;
+
+    al_set_window_position(display, windowX, windowY);
+
+	al_init_primitives_addon();
+	al_install_keyboard();
+
+	event_queue = al_create_event_queue();
+	timer = al_create_timer(0.0167);
+
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
+	al_register_event_source(event_queue, al_get_timer_event_source(timer));
+    al_register_event_source(event_queue, al_get_display_event_source(display));
+
+    al_start_timer(timer);
+
+    while(!play)
+    {
+        ALLEGRO_EVENT ev;
+        al_wait_for_event(event_queue, &ev);
+
+        if(ev.type == ALLEGRO_EVENT_TIMER)
+        {
+            redraw = true;
+
+            if(!play)
+            {
+                printf("atualizacoes dos corpos da tela\n");
+                //ATUALIZ√O TUDO
+            }
+        }
+
+        if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+        {
+            play = true;
+            quit = true;
+        }
+
+        else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+        {
+            switch(ev.keyboard.keycode)
+            {
+                case ALLEGRO_KEY_ESCAPE:
+                    {
+                        play = true;
+                        quit = true;
+
+                    }break;
+                case ALLEGRO_KEY_UP:
+                    {
+                        if(selecty==0)
+                            selecty = 2;
+                        else
+                            selecty--;
+                    }break;
+                case ALLEGRO_KEY_DOWN:
+                    {
+                        if(selecty==2)
+                            selecty = 0;
+                        else
+                            selecty++;
+                    }break;
+                case ALLEGRO_KEY_ENTER:
+                    {
+                        if(selecty==0)
+                            play = true;
+                    }break;
+                case ALLEGRO_KEY_SPACE:
+                    {
+                        if(selecty==0)
+                            play = true;
+                    }break;
+            }
+        }
+
+		if(redraw && al_is_event_queue_empty(event_queue))
+        {
+            redraw = false;
+
+            if(!play)
+            {
+                //DESENHA TUDO
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2-20,WIDTH/2+100,HEIGHT/2+50,10,10,al_map_rgb(255,255,255));
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+70,WIDTH/2+100,HEIGHT/2+140,10,10,al_map_rgb(255,255,255));
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+160,WIDTH/2+100,HEIGHT/2+230,10,10,al_map_rgb(255,255,255));
+            }
+
+            al_flip_display();
+			al_clear_to_color(al_map_rgb(0,0,0));
+        }
+
+    }
+
+    al_destroy_event_queue(event_queue);
+    al_destroy_timer(timer);
+    al_destroy_display(display);
+
+    //START GAME ========================================================================================
 
 	display = al_create_display(WIDTH, HEIGHT);			//create our display object
 
@@ -62,7 +169,7 @@ int main()
     al_register_event_source(event_queue, al_get_display_event_source(display));
 
     al_start_timer(timer);
-    while(!done)
+    while(!quit)
     {
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
@@ -72,29 +179,29 @@ int main()
             redraw = true;
 
             if(keys[UP])
-                printf(" ^ KEY UP ");       //FALTA A FUN√á√ÉO PRA MOVIMENTAR PARA FRENTE
+                o--;            //FALTA A FUN«√O PRA MOVIMENTAR PARA FRENTE
             if(keys[DOWN])
-                printf(" | KEY DOWN ");     //FALTA A FUN√á√ÉO PRA FREAR
+                o++;            //FALTA A FUN«√O PRA FREAR
             if(keys[RIGHT])
-                printf(" -> KEY RIGHT ");   //FALTA A FUN√á√ÉO PRA VIRAR PARA A DIREITA
+                p++;            //FALTA A FUN«√O PRA VIRAR PARA A DIREITA
             if(keys[LEFT])
-                printf(" <- KEY LEFT ");    //FALTA A FUN√á√ÉO PRA VIRAR PARA A ESQUERDA
+                p--;            //FALTA A FUN«√O PRA VIRAR PARA A ESQUERDA
             if(keys[SPACE])
-                printf(" _ KEY SCAPE ");    //FALTA A FUN√á√ÉO PRA MOVIMENTAR PARA BOZINAR(?)
+                printf(" _ KEY SCAPE ");    //FALTA A FUN«√O PRA MOVIMENTAR PARA BOZINAR(?)
 
             if(!isGameOver)
             {
                 printf("atualizacooes dos corpos na tela e teste de game over\n");
                 //CRIA NOVOS CARROS NA PISTA
-                //ATUALIZ√ÉO TUDO
-                //TESTA COLIS√ïES
+                //ATUALIZ√O TUDO
+                //TESTA COLIS’ES
                 //TESTE SE DEU GAME OVER
             }
         }
 
         if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
         {
-            done = true;
+            quit = true;
         }
 
         else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
@@ -102,7 +209,7 @@ int main()
             switch(ev.keyboard.keycode)
             {
                 case ALLEGRO_KEY_ESCAPE:
-                    done = true;
+                    quit = true;
                     break;
                 case ALLEGRO_KEY_UP:
                     keys[UP] = true;
@@ -127,7 +234,7 @@ int main()
 			switch(ev.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
-				done = true;
+				quit = true;
 				break;
 			case ALLEGRO_KEY_UP:
 				keys[UP] = false;
@@ -153,7 +260,7 @@ int main()
 
             if(!isGameOver)
             {
-                al_draw_line(300,300,700,700,al_map_rgb(255,255,0),3);
+                al_draw_line(300+p,300+o,700+p,700+o,al_map_rgb(255,255,0),3);
                 //DESENHA TUDO
             }
             else
