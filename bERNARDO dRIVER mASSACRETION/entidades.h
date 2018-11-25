@@ -8,10 +8,6 @@
  * em fisica.c e desenho.c.                       *
  **************************************************/
 
- #define M_PI		3.14159265358979323846
- #define SQ(n) n*n
- #define CUBE(n) n*n*n
-
 #define x coord<:0:>
 #define y coord<:1:>
 
