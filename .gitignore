@@ -26,3 +26,4 @@ Mkfile.old
 dkms.conf
 *.odg#
 *.odg#
+*.layout
