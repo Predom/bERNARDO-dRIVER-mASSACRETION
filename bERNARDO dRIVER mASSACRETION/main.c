@@ -17,7 +17,7 @@ const int WIDTH = 1300;
 const int HEIGHT = 800;
 const int windowX = 100;
 const int windowY = 0;
-int p, o = 0;
+
 
 #define bool int
 #define true !0
@@ -37,7 +37,9 @@ int main()
 	bool in_play_button = false;
 	bool in_config_button = false;
 	bool in_credit_button = false;
-
+    int vx = 0;
+    int vy = 0;
+    int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
     //testando a edição simultânea
     printf("\nBerardo Piranha 3.0\n");
 
@@ -202,9 +204,10 @@ int main()
                 //DESENHA TUDO
                 al_draw_scaled_bitmap(imagem_menu,0,0,imagem_menu_width,imagem_menu_height,0,0,WIDTH,HEIGHT,0);
 
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+110,WIDTH/2+100,HEIGHT/2+180,10,10,al_map_rgb(255,50,0));
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+210,WIDTH/2+100,HEIGHT/2+280,10,10,al_map_rgb(255,50,0));
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+310,WIDTH/2+100,HEIGHT/2+380,10,10,al_map_rgb(255,50,0));
+                for(int k=110; k<=310; k+=100)
+                {
+                    al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(255,50,0));
+                }
 
                 al_draw_rounded_rectangle(WIDTH/2-100,selecty*100+HEIGHT/2+110,WIDTH/2+100,selecty*100+HEIGHT/2+180,10,10,al_map_rgb(227,254,50), 5);
             }
@@ -249,13 +252,21 @@ int main()
             redraw = true;
 
             if(keys[UP])
-                o-=3;            //FALTA A FUNÇÃO PRA MOVIMENTAR PARA FRENTE
+                vy-=3;                      //FALTA A FUNÇÃO PRA MOVIMENTAR PARA FRENTE
             if(keys[DOWN])
-                o+=3;            //FALTA A FUNÇÃO PRA FREAR
+                vy+=3;                      //FALTA A FUNÇÃO PRA FREAR
             if(keys[RIGHT])
-                p+=3;            //FALTA A FUNÇÃO PRA VIRAR PARA A DIREITA
-            if(keys[LEFT])
-                p-=3;            //FALTA A FUNÇÃO PRA VIRAR PARA A ESQUERDA
+                {
+                    for(int k=0;k<6;k++)
+                    {
+                        if(vet_linhas[k]<=-200)
+                            vet_linhas[k]=WIDTH;
+                        else
+                            vet_linhas[k]-=10;
+                    }
+                }
+            if(keys[LEFT]);
+                                            //FALTA A FUNÇÃO PRA VIRAR PARA A ESQUERDA
             if(keys[SPACE])
                 printf(" _ KEY SCAPE ");    //FALTA A FUNÇÃO PRA MOVIMENTAR PARA BOZINAR(?)
 
@@ -330,8 +341,12 @@ int main()
 
             if(!isGameOver)
             {
-                al_draw_filled_circle(300+p,300+o,20,al_map_rgb(255,255,0));
                 //DESENHA TUDO
+                for(int i=0;i<6;i++)
+                {
+                    al_draw_filled_rectangle(vet_linhas[i],2*HEIGHT/3,vet_linhas[i]+200,2*HEIGHT/3+20,al_map_rgb(255,255,255));
+                }
+                al_draw_filled_circle(300,300+vy,20,al_map_rgb(255,255,0));
             }
             else
             {

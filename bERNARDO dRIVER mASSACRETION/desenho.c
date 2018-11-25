@@ -29,7 +29,7 @@ int InitAllegro(int WIDTH, int HEIGHT, int windowX, int windowY, ALLEGRO_DISPLAY
 
 	event_queue = al_create_event_queue();
 
-	//al_register_event_source(event_queue, al_get_keyboard_event_source());
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_display_event_source(display));
 
 	return 0;
