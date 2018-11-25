@@ -36,7 +36,7 @@ int main()
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
-    ALLEGRO_TIMER *timer = NULL;
+    //ALLEGRO_TIMER *timer = NULL;
 
     if(!al_init())										//initialize Allegro
 		return -1;
@@ -52,13 +52,13 @@ int main()
 	al_install_keyboard();
 
 	event_queue = al_create_event_queue();
-	timer = al_create_timer(1 / FPS);
+	//timer = al_create_timer(1 / FPS);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
-	al_register_event_source(event_queue, al_get_timer_event_source(timer));
+	//al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_display_event_source(display));
 
-    al_start_timer(timer);
+    //al_start_timer(timer);
     while(!done)
     {
         ALLEGRO_EVENT ev;
@@ -81,7 +81,7 @@ int main()
 
             if(!isGameOver)
             {
-                printf("atualizacooes dos corpos na tela\ne teste de game over\n");
+                printf("atualizacooes dos corpos na tela e teste de game over\n");
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
@@ -146,7 +146,7 @@ int main()
 
 		if(redraw && al_is_event_queue_empty(event_queue))
         {
-            //redraw = false;
+            redraw = false;
 
             if(!isGameOver)
             {
@@ -162,11 +162,12 @@ int main()
             al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
         }
+
     }
 
-        al_destroy_event_queue(event_queue);
-        al_destroy_timer(timer);
-        al_destroy_display(display);
+    al_destroy_event_queue(event_queue);
+    //al_destroy_timer(timer);
+    al_destroy_display(display);
 
 
     return 0;
