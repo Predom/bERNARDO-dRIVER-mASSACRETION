@@ -8,7 +8,7 @@
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 
-1543129201 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543138075 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
@@ -16,6 +16,7 @@
 	"entidades.h"
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
+	<allegro5/allegro_image.h>
 
 1543117354 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
@@ -550,4 +551,6 @@
 	<math.h>
 	"matematica.h"
 	"entidades.h"
+
+1543117349 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_image.h
 
