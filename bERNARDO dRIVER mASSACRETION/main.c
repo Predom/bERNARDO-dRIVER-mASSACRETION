@@ -11,6 +11,11 @@ const int WIDTH = 1300;
 const int HEIGHT = 800;
 const int windowX = 100;
 const int windowY = 0;
+
+#define bool int
+#define true !0
+#define false 0
+
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE};
 bool keys[5] = {false, false, false, false, false};
 
@@ -31,7 +36,7 @@ int main()
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
-    //ALLEGRO_TIMER *timer = NULL;
+    ALLEGRO_TIMER *timer = NULL;
 
     if(!al_init())										//initialize Allegro
 		return -1;
@@ -47,19 +52,19 @@ int main()
 	al_install_keyboard();
 
 	event_queue = al_create_event_queue();
-	//timer = al_create_timer(1 / FPS);
+	timer = al_create_timer(1 / FPS);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
-	//al_register_event_source(event_queue, al_get_timer_event_source(timer));
+	al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_display_event_source(display));
 
-    //al_start_timer(timer);
+    al_start_timer(timer);
     while(!done)
     {
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
-        /*if(ev.type == ALLEGRO_EVENT_TIMER)
+        if(ev.type == ALLEGRO_EVENT_TIMER)
         {
             redraw = true;
 
@@ -82,14 +87,14 @@ int main()
                 //TESTA COLISÕES
                 //TESTE SE DEU GAME OVER
             }
-        }*/
+        }
 
         if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
         {
             done = true;
         }
 
-        /*else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+        else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
         {
             switch(ev.keyboard.keycode)
             {
@@ -156,12 +161,13 @@ int main()
 
             al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
-        }*/
+        }
+    }
 
         al_destroy_event_queue(event_queue);
-        //al_destroy_timer(timer);
+        al_destroy_timer(timer);
         al_destroy_display(display);
-    }
+
 
     return 0;
 }
