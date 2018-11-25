@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1543096467 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543106582 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
@@ -524,7 +524,7 @@
 	<math.h>
 	"entidades.h"
 
-1543106365 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1543111858 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 
 1543013990 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
