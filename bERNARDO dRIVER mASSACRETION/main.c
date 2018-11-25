@@ -80,8 +80,8 @@ int main()
 	al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT);
 
 	play_button = al_create_bitmap(100,10);
-	config_button = al_create_bitmap(100,70);
-	credit_button = al_create_bitmap(100,80);
+	config_button = al_create_bitmap(100,10);
+	credit_button = al_create_bitmap(100,10);
 
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.0167);
@@ -113,8 +113,8 @@ int main()
         {
             if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(play_button)&&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(play_button)&&
-                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(play_button) * 2 &&
-                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 5)
+                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(play_button) * 11 &&
+                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
             {
                 in_play_button = true;
                 selecty = 0;
@@ -124,8 +124,8 @@ int main()
 
             if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(config_button) &&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(config_button) &&
-                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(config_button) &&
-                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(config_button) * 2)
+                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(config_button) * 21 &&
+                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(config_button) * 28)
             {
                 in_config_button = true;
                 selecty = 1;
@@ -135,8 +135,8 @@ int main()
 
             if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(credit_button) &&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(credit_button) &&
-                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 2 &&
-                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 2.875)
+                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 31 &&
+                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 38)
             {
                 in_credit_button = true;
                 selecty = 2;
@@ -149,8 +149,8 @@ int main()
         {
             if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(play_button)&&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(play_button)&&
-                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(play_button) * 2 &&
-                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 5)
+                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(play_button) * 11 &&
+                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
             {
                 play = true;
             }
@@ -202,11 +202,11 @@ int main()
                 //DESENHA TUDO
                 al_draw_scaled_bitmap(imagem_menu,0,0,imagem_menu_width,imagem_menu_height,0,0,WIDTH,HEIGHT,0);
 
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2-20,WIDTH/2+100,HEIGHT/2+50,10,10,al_map_rgb(255,0,0));
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+70,WIDTH/2+100,HEIGHT/2+140,10,10,al_map_rgb(255,0,0));
-                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+160,WIDTH/2+100,HEIGHT/2+230,10,10,al_map_rgb(255,0,0));
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+110,WIDTH/2+100,HEIGHT/2+180,10,10,al_map_rgb(255,50,0));
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+210,WIDTH/2+100,HEIGHT/2+280,10,10,al_map_rgb(255,50,0));
+                al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+310,WIDTH/2+100,HEIGHT/2+380,10,10,al_map_rgb(255,50,0));
 
-                al_draw_rounded_rectangle(WIDTH/2-100,selecty*90+HEIGHT/2-20,WIDTH/2+100,selecty*90+HEIGHT/2+50,10,10,al_map_rgb(255,255,0), 5);
+                al_draw_rounded_rectangle(WIDTH/2-100,selecty*100+HEIGHT/2+110,WIDTH/2+100,selecty*100+HEIGHT/2+180,10,10,al_map_rgb(227,254,50), 5);
             }
 
             al_flip_display();
