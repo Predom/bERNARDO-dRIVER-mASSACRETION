@@ -1,3 +1,6 @@
+#ifndef FISICA_H
+#define FISICA_H
+
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 #include "matematica.h"
@@ -12,3 +15,9 @@ struct Carro{
 
 
 };
+
+
+
+
+
+#endif
