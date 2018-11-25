@@ -37,13 +37,13 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
     return product;
 }
 
-/***********************************************************************************
- *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação
- * representada pela matriz no vetor. A transVet2DRetOrig() devolve o resultado
- * diretamente no vetor de entada, sobrescrevendo-o, já a transVet2D()
- * guarda o resultado em um outro vetor.
- *  Todas as funções são específicas para trabalhar com vetores bidimensionais e
- * matrizes 2x2.
+/*************************************************************************************
+ *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação  *
+ * representada pela matriz no vetor. A transVet2DRetOrig() devolve o resultado      *
+ * diretamente no vetor de entada, sobrescrevendo-o, já a transVet2D()               *
+ * guarda o resultado em um outro vetor.                                             *
+ *  Todas as funções são específicas para trabalhar com vetores bidimensionais e     *
+ * matrizes 2x2.                                                                     *
  *************************************************************************************/
 
 void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz){
@@ -71,6 +71,7 @@ void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct
         }
     }
 }
+
  /*********************************************
 * Estas outras pegam um vetor e o rotacionam *
 *        um certo numero de graus.           *
