@@ -25,6 +25,68 @@ void Sub(struct Ponto2D *a, struct Ponto2D *b, struct Vetor2D *z)
         z->y = a->y - b->y;
 }
 
+/**************************************************
+* Operações de soma e subtração com ponto e vetor *
+***************************************************/
+
+/*********************************
+ * SUMÁRIO
+ *
+ * Ponto + Ponto = ???   <-N existe
+ * Ponto - Ponto = Vetor
+ * Ponto + Vetor = Ponto
+ * Ponto - Vetor = Ponto
+ *
+ * Vetor + Ponto = ??? <- O que você tá tentando fazer?
+ * Vetor - Ponto = ??? <-            \\
+ *
+ * Vetor + Vetor = Vetor
+ * Vetor - Vetor = Vetor
+ *
+ **********************************/
+
+
+void diferencaEntrePontos(struct Ponto2D *Pa, struct Ponto2D *Pb, struct Vetor2D *Vr)
+{
+    Vr->x = Pa->x - Pb->x;
+    Vr->y = Pa->y - Pb->y;
+}
+
+void somaVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr)
+{
+    Pr->x = Pa->x + Vb->x;
+    Pr->y = Pa->y + Vb->y;
+}
+
+void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr)
+{
+    Pr->x = Pa->x - Vb->x;
+    Pr->y = Pa->y - Vb->y;
+}
+
+void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr)
+{
+    Vr->x = Va->x + Vb->x;
+    Vr->y = Va->y + Vb->y;
+}
+
+void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr)
+{
+    Vr->x = Va->x - Vb->x;
+    Vr->y = Va->y - Vb->y;
+}
+
+//Pra multiplicar um vetor por uma escalar
+void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar){
+    V->x=V->x*Escalar;
+    V->y=V->y*Escalar;
+}
+
+void produtoVetEscaL(struct Vetor2D *VA, struct Vetor2D *VR, float Escalar){
+    VR->x=VA->x*Escalar;
+    VR->y=VA->y*Escalar;
+}
+
 /*********************************************
 * Operação entre dois vetores (Dot Product)  *
 * Recebe um ponteiro para cada Vetor2D       *
@@ -37,69 +99,79 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
     return product;
 }
 
-/*************************************************************************************
- *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação  *
- * representada pela matriz no vetor. A transVet2DRetOrig() devolve o resultado      *
- * diretamente no vetor de entada, sobrescrevendo-o, já a transVet2D()               *
- * guarda o resultado em um outro vetor.                                             *
- *  Todas as funções são específicas para trabalhar com vetores bidimensionais e     *
- * matrizes 2x2.                                                                     *
+/***********************************************************************************
+ *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação
+ * representada pela matriz no vetor. A transVet2DRetOrig() devolve o resultado
+ * diretamente no vetor de entada, sobrescrevendo-o, já a transVet2D()
+ * guarda o resultado em um outro vetor.
+ *  Todas as funções são específicas para trabalhar com vetores bidimensionais e
+ * matrizes 2x2.
  *************************************************************************************/
 
+/******************************************************************************/
 void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz){
-     float memoria[2];
-     //guarda o conteudo original do vetor na memória e zera-o
+
+    float memoria[2];
+
+    //guarda o conteudo original do vetor na memória e zera-o
     for(int i=0; i<2; i++){
             memoria[i]=vetor->coord[i];
             vetor->coord[i]=0;
     }
-     //reescreve o original com seus valores originais transformados
+
+    //reescreve o original com seus valores originais transformados
     for(int i=0; i<2; i++){
         for(int ii=0; ii<2; ii++){
             vetor->coord[i]+=memoria[ii]*matriz->elementos[i][ii];
         }
     }
-}
 
+
+}
 
 void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz){
-     for(int i=0; i<2; i++){
+
+
+    for(int i=0; i<2; i++){
             //zera o elemento a ser sobreescrito na saída
             vetorSaida->coord[i]=0;
-         for(int ii=0; ii<2; ii++){
-             vetorSaida->coord[i]+=vetorEntrada->coord[ii]*matriz->elementos[i][ii];
+
+        for(int ii=0; ii<2; ii++){
+
+            vetorSaida->coord[i]+=vetorEntrada->coord[ii]*matriz->elementos[i][ii];
         }
     }
-}
 
- /*********************************************
-* Estas outras pegam um vetor e o rotacionam *
-*        um certo numero de graus.           *
-*********************************************/
+
+}
+/******************************************************************************/
 
 void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 
-     float grausConv=(graus/180)* 3.14159265358979323846;
+    float grausConv=(graus/180)* M_PI;
+    float s=cos(grausConv);
+    float c=sin(grausConv);
 
-     float s=cos(grausConv);
-     float c=sin(grausConv);
+    struct Matriz2x2 matriz={c,-s,s,c};
 
-     struct Matriz2x2 matriz={c,-s,s,c};
-
-     transVet2DRetOrig(vetor,&matriz);
+    transVet2DRetOrig(vetor,&matriz);
 
 }
+
 void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus){
 
-     float grausConv=(graus/180)* 3.14159265358979323846;
+    float grausConv=(graus/180)* M_PI;
+    float s=cos(grausConv);
+    float c=sin(grausConv);
 
-     float s=cos(grausConv);
-     float c=sin(grausConv);
+    struct Matriz2x2 matriz={c,-s,s,c};
 
-     struct Matriz2x2 matriz={c,-s,s,c};
+    transVet2D(vetorEntrada,vetorSaida,&matriz);
 
-     transVet2D(vetorEntrada,vetorSaida,&matriz);
 }
+
+
+
 
 
 

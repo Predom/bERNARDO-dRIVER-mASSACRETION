@@ -18,7 +18,22 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB);
 int TestCheckPenetration();
 
 // Operação com vetores:
-void Sub(struct Ponto2D *a, struct Ponto2D *b, struct Vetor2D *z);
+void diferencaEntrePontos(struct Ponto2D *Pa, struct Ponto2D *Pb, struct Vetor2D *Vr);
+
+void somaVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+
+void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+
+void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
+
+void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
+
+void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar);
+
+void produtoVetEscaL(struct Vetor2D *VA, struct Vetor2D *VR, float Escalar);
+
+float DotProduct(struct Vetor2D *z, struct Vetor2D *e);
+
 
 
 //transformar e girar vetores
@@ -30,8 +45,6 @@ void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus);
 
 void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus);
 
-
-float DotProduct(struct Vetor2D *z, struct Vetor2D *e);
 
 
 
