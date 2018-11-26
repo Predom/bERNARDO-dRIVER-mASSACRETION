@@ -34,6 +34,8 @@ void produtoVetEscaL(struct Vetor2D *VA, struct Vetor2D *VR, float Escalar);
 
 float DotProduct(struct Vetor2D *z, struct Vetor2D *e);
 
+float returnComp(struct Vetor2D *V);
+
 
 
 //transformar e girar vetores
@@ -68,5 +70,7 @@ void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, f
 #define M_2_SQRTPI	1.12837916709551257390
 #define M_SQRT2		1.41421356237309504880
 #define M_SQRT1_2	0.70710678118654752440
+#define SQUAR(n)    (n*n)
+#define CUBE(n)     (n*n*n)
 #endif
 

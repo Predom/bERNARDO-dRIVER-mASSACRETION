@@ -99,6 +99,12 @@ float DotProduct(struct Vetor2D *z, struct Vetor2D *e)
     return product;
 }
 
+float returnComp(struct Vetor2D *V){
+    return sqrt(SQUAR(V->x)+SQUAR(V->y));
+}
+
+
+
 /***********************************************************************************
  *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação
  * representada pela matriz no vetor. A transVet2DRetOrig() devolve o resultado
