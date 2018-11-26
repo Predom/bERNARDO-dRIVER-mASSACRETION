@@ -154,7 +154,7 @@ void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct
 
 void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 
-    float grausConv=(graus/180)* M_PI;
+    float grausConv=(graus/180)*M_PI;
     float s=cos(grausConv);
     float c=sin(grausConv);
 
@@ -195,6 +195,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
     {
         if(cpA->v[a].x < minA.x) minA.x = cpA->v[a].x;
         if(cpA->v[a].y < minA.y) minA.y = cpA->v[a].y;
+
         if(cpA->v[a].x > maxA.x) maxA.x = cpA->v[a].x;
         if(cpA->v[a].y > maxA.y) maxA.y = cpA->v[a].y;
     }
@@ -204,6 +205,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
     {
         if(cpB->v[b].x < minB.x) minB.x = cpB->v[b].x;
         if(cpB->v[b].y < minB.y) minB.y = cpB->v[b].y;
+
         if(cpB->v[b].x > maxB.x) maxB.x = cpB->v[b].x;
         if(cpB->v[b].y > maxB.y) maxB.y = cpB->v[b].y;
     }
@@ -217,7 +219,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
         {
             // Usar uma aresta de B como um Separation Axis
             struct Vetor2D e, d;
-            Sub(&cpB->v[i+1>cpB->NumVertices?0:i+1], &cpB->v[i], &e);
+            diferencaEntrePontos(&cpB->v[i+1>cpB->NumVertices?0:i+1], &cpB->v[i], &e);
             // Rotacionando em 90º
             e.x = -e.x;
 
@@ -225,7 +227,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
 
             for(int j=0; j<cpA->NumVertices; j++)
             {
-                Sub(&cpA->v[j], &cpB->v[i], &d);
+                diferencaEntrePontos(&cpA->v[j], &cpB->v[i], &d);//errado
                 if(DotProduct(&d, &e))
                 {
                     b = 0;
@@ -241,7 +243,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
         {
             // Usar uma aresta de A como um Separation Axis
             struct Vetor2D e, d;
-            Sub(&cpA->v[i+1>cpA->NumVertices?0:i+1], &cpA->v[i], &e);
+            diferencaEntrePontos(&cpA->v[i+1>cpA->NumVertices?0:i+1], &cpA->v[i], &e);
             // Rotacionando em 90º
             e.x = -e.x;
 
@@ -249,7 +251,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
 
             for(int j=0; j<cpB->NumVertices; j++)
             {
-                Sub(&cpB->v[j], &cpA->v[i], &d);
+                diferencaEntrePontos(&cpB->v[j], &cpA->v[i], &d);
                 if(DotProduct(&d, &e))
                 {
                         b = 0;

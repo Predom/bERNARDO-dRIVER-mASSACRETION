@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1543114101 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543201655 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fisica.h"
@@ -7,6 +7,7 @@
 	"entidades.h"
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
+	<allegro5/allegro_image.h>
 
 1543166824 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
@@ -285,7 +286,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543094864 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1543201655 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -521,11 +522,11 @@
 1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1543114925 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1543220900 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1543113844 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1543117106 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 
 1543114072 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
@@ -547,10 +548,12 @@
 	"matematica.h"
 	"entidades.h"
 
-1543113844 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1543221045 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
 
 1543117349 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_image.h
+
+1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_image.h
 
