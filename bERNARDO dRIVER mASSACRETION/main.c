@@ -1,15 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include "fisica.h"
 #include "desenho.h"
 #include "entidades.h"
-#include <allegro5\allegro.h>
-#include <allegro5\allegro_primitives.h>
-#include <allegro5/allegro_image.h>
 #undef x
 #undef y
+#include <allegro5\allegro.h>
+#include <allegro5\allegro_primitives.h>
+#include <allegro5/allegro_native_dialog.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 
-//este comentário é um teste
+
+void error_msg(char *text){
+	al_show_native_message_box(NULL,"ERRO",
+		"Ocorreu o seguinte erro e o programa sera finalizado:",
+		text,NULL,ALLEGRO_MESSAGEBOX_ERROR);
+}
 
 
 //GLOBALS
@@ -18,10 +29,6 @@ const int HEIGHT = 800;
 const int windowX = 100;
 const int windowY = 0;
 
-
-#define bool int
-#define true !0
-#define false 0
 
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE, ENTER};
 bool keys[6] = {false, false, false, false, false, false};
@@ -40,19 +47,25 @@ int main()
     int vx = 0;
     int vy = 0;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
+
+    setlocale(LC_ALL,"portuguese");
+
     //testando a edição simultânea
     printf("\nBerardo Piranha 3.0\n");
 
     if(!TestCheckPenetration())
-        printf("\nA colisao de poligonos esta funcionando corretamente\n");
+        printf("\nA colisão de polígonos está funcionando corretamente\n");
     else
-        printf("\nHouve algum erro! A colisao de poligonos nao esta funcionando corretamente\n");
+        printf("\nHouve algum erro! A colisão de polígonos não está funcionando corretamente\n");
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
     ALLEGRO_TIMER *timer = NULL;
     ALLEGRO_BITMAP *play_button = NULL, *config_button = NULL, *credit_button = NULL;
     ALLEGRO_BITMAP *imagem_menu = NULL;
+    ALLEGRO_FONT *font_menu_48 = NULL;
+    ALLEGRO_FONT *font_menu_40 = NULL;
+    ALLEGRO_AUDIO_STREAM *musica_menu = NULL;
 
 
     if(!al_init())										//initialize Allegro
@@ -70,9 +83,31 @@ int main()
 
 
 	al_init_primitives_addon();
+	al_init_font_addon();
+	al_init_ttf_addon();
 	al_init_image_addon();
 	al_install_keyboard();
 	al_install_mouse();
+	al_init_acodec_addon();
+	al_install_audio();
+
+    if (!al_reserve_samples(5)){
+        error_msg("Falha ao reservar amostrar de audio");
+        return 0;
+    }
+
+	musica_menu = al_load_audio_stream("Axel_Broke.ogg",4,1024);
+	if(!musica_menu)
+	{
+	    error_msg( "Audio nao carregado" );
+	    return -1;
+	}
+
+    al_attach_audio_stream_to_mixer(musica_menu, al_get_default_mixer());
+    al_set_audio_stream_playmode(musica_menu, ALLEGRO_PLAYMODE_LOOP);
+
+	font_menu_48 = al_load_font("arial.ttf",48,0);
+	font_menu_40 = al_load_font("arial.ttf",40,0);
 
     imagem_menu = al_load_bitmap("menu.bmp");
 
@@ -206,10 +241,14 @@ int main()
 
                 for(int k=110; k<=310; k+=100)
                 {
-                    al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(255,50,0));
+                    al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(34,31,117));
+                    al_draw_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(0,0,0), 5);
                 }
 
-                al_draw_rounded_rectangle(WIDTH/2-100,selecty*100+HEIGHT/2+110,WIDTH/2+100,selecty*100+HEIGHT/2+180,10,10,al_map_rgb(227,254,50), 5);
+                al_draw_text(font_menu_48, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+120,ALLEGRO_ALIGN_CENTRE,"Play");
+                al_draw_text(font_menu_40, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+220,ALLEGRO_ALIGN_CENTRE,"Options");
+                al_draw_text(font_menu_40, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+320,ALLEGRO_ALIGN_CENTRE,"Credits");
+                al_draw_rounded_rectangle(WIDTH/2-100,selecty*100+HEIGHT/2+110,WIDTH/2+100,selecty*100+HEIGHT/2+180,10,10,al_map_rgb(255,255,255), 5);
             }
 
             al_flip_display();
@@ -218,6 +257,7 @@ int main()
 
     }
 
+    al_destroy_audio_stream(musica_menu);
     al_destroy_event_queue(event_queue);
     al_destroy_timer(timer);
     al_destroy_display(display);
@@ -355,7 +395,7 @@ int main()
             }
 
             al_flip_display();
-			al_clear_to_color(al_map_rgb(0,0,0));
+			al_clear_to_color(al_map_rgb(100,100,100));
         }
 
     }
