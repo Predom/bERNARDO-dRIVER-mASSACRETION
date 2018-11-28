@@ -47,6 +47,8 @@ int main()
     int vx = 0;
     int vy = 0;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
+    struct Ponto2D vert_car[4] = {{150,200},{450,200},{450,400},{150,400}};
+
 
     setlocale(LC_ALL,"portuguese");
 
@@ -386,7 +388,7 @@ int main()
                 {
                     al_draw_filled_rectangle(vet_linhas[i],2*HEIGHT/3,vet_linhas[i]+200,2*HEIGHT/3+20,al_map_rgb(255,255,255));
                 }
-                al_draw_filled_circle(300,300+vy,20,al_map_rgb(255,255,0));
+               // al_draw_filled_rectangle(vert_car[0].x,vert_car[0].y,vert_car[2].x,vert_car[2].y,al_map_rgb(255,0,0));
             }
             else
             {
