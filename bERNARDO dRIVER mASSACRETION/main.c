@@ -152,7 +152,7 @@ int main()
         {
             if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(play_button)&&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(play_button)&&
-                ev.mouse.y >= HEIGHT / 2 - al_get_bitmap_height(play_button) * 11 &&
+                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(play_button) * 11 &&
                 ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
             {
                 in_play_button = true;
@@ -294,9 +294,9 @@ int main()
             redraw = true;
 
             if(keys[UP])
-                vy-=3;                      //FALTA A FUN플O PRA MOVIMENTAR PARA FRENTE
+                vy-=5;                      //FALTA A FUN플O PRA MOVIMENTAR PARA FRENTE
             if(keys[DOWN])
-                vy+=3;                      //FALTA A FUN플O PRA FREAR
+                vy+=5;                      //FALTA A FUN플O PRA FREAR
             if(keys[RIGHT])
                 {
                     for(int k=0;k<6;k++)
@@ -304,7 +304,7 @@ int main()
                         if(vet_linhas[k]<=-200)
                             vet_linhas[k]=WIDTH;
                         else
-                            vet_linhas[k]-=10;
+                            vet_linhas[k]-=20;
                     }
                 }
             if(keys[LEFT]);
@@ -388,7 +388,7 @@ int main()
                 {
                     al_draw_filled_rectangle(vet_linhas[i],2*HEIGHT/3,vet_linhas[i]+200,2*HEIGHT/3+20,al_map_rgb(255,255,255));
                 }
-               // al_draw_filled_rectangle(vert_car[0].x,vert_car[0].y,vert_car[2].x,vert_car[2].y,al_map_rgb(255,0,0));
+                al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
             else
             {
