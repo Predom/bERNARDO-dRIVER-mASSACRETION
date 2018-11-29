@@ -291,9 +291,9 @@ int main()
 
 	///IMAGENS-----------------------------------------------------------------------------
 	rua_vazia = al_load_bitmap("Bitmaps\\Rua_vazia.bmp");
-	rua_bus = al_load_bitmap("Bitmaps\\Rua_bus.bmp");                   //FALTA EDITAR
-	rua_lojas = al_load_bitmap("Bitmaps\\Rua_lojas.bmp");               //FALTA EDITAR
-	rua_obstaculo = al_load_bitmap("Bitmaps\\Rua_obstaculo.bmp");       //FALTA EDITAR
+	rua_bus = al_load_bitmap("Bitmaps\\Rua_bus.bmp");
+	rua_lojas = al_load_bitmap("Bitmaps\\Rua_lojas.bmp");
+	rua_obstaculo = al_load_bitmap("Bitmaps\\Rua_obstaculo.bmp");
 
 	int rua_width = al_get_bitmap_width(rua_vazia);
 	int rua_height = al_get_bitmap_height(rua_vazia);
@@ -403,9 +403,9 @@ int main()
             if(!isGameOver)
             {
                 //DESENHA TUDO
-                al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx,0,WIDTH,HEIGHT,0);
+                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx,0,WIDTH,HEIGHT,0);
                 al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,WIDTH+vx,0,WIDTH,HEIGHT,0);
-                al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
+                al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
 
                 al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
