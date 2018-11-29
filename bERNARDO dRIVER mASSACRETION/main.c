@@ -24,9 +24,9 @@ void error_msg(char *text){
 
 
 //GLOBALS
-const int WIDTH = 1300;
+const int WIDTH = 1000;
 const int HEIGHT = 800;
-const int windowX = 100;
+const int windowX = 250;
 const int windowY = 0;
 
 
@@ -65,16 +65,23 @@ int main()
     ALLEGRO_TIMER *timer = NULL;
     ALLEGRO_BITMAP *play_button = NULL, *config_button = NULL, *credit_button = NULL;
     ALLEGRO_BITMAP *imagem_menu = NULL;
+    ALLEGRO_BITMAP *rua_vazia = NULL;
+    ALLEGRO_BITMAP *rua_vazia_180 = NULL;
+    ALLEGRO_BITMAP *rua_bus = NULL;
+    ALLEGRO_BITMAP *rua_lojas = NULL;
+    ALLEGRO_BITMAP *rua_obstaculo = NULL;
     ALLEGRO_FONT *font_menu_48 = NULL;
     ALLEGRO_FONT *font_menu_40 = NULL;
     ALLEGRO_AUDIO_STREAM *musica_menu = NULL;
 
+    srand(time(NULL));
 
     if(!al_init())										//initialize Allegro
 		return -1;
 
-    //START MENU =======================================================================================
+    ///START MENU =======================================================================================
 
+    ///DISPLAY-------------------------------------------------------------------------
     display = al_create_display(WIDTH, HEIGHT);			//create our display object
 
     if(!display)										//test display object
@@ -82,8 +89,7 @@ int main()
 
     al_set_window_position(display, windowX, windowY);
 
-
-
+    ///INICIALIZAÇÕES E INSTALAÇÕES-----------------------------------------------------
 	al_init_primitives_addon();
 	al_init_font_addon();
 	al_init_ttf_addon();
@@ -93,12 +99,13 @@ int main()
 	al_init_acodec_addon();
 	al_install_audio();
 
+	///AUDIO-----------------------------------------------------------------------------
     if (!al_reserve_samples(5)){
         error_msg("Falha ao reservar amostrar de audio");
         return 0;
     }
 
-	musica_menu = al_load_audio_stream("Axel_Broke.ogg",4,1024);
+	musica_menu = al_load_audio_stream("Sons\\Axel_Broke.ogg",4,1024);
 	if(!musica_menu)
 	{
 	    error_msg( "Audio nao carregado" );
@@ -108,20 +115,23 @@ int main()
     al_attach_audio_stream_to_mixer(musica_menu, al_get_default_mixer());
     al_set_audio_stream_playmode(musica_menu, ALLEGRO_PLAYMODE_LOOP);
 
-	font_menu_48 = al_load_font("arial.ttf",48,0);
-	font_menu_40 = al_load_font("arial.ttf",40,0);
+    ///FONTES-----------------------------------------------------------------------------
+	font_menu_48 = al_load_font("Fontes\\arial.ttf",48,0);
+	font_menu_40 = al_load_font("Fontes\\arial.ttf",40,0);
 
-    imagem_menu = al_load_bitmap("menu.bmp");
-
+	///IMAGENS----------------------------------------------------------------------------
+    imagem_menu = al_load_bitmap("Bitmaps\\menu.bmp");
     int imagem_menu_width = al_get_bitmap_width(imagem_menu);
     int imagem_menu_height = al_get_bitmap_height(imagem_menu);
 
+    ///MOUSE
 	al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT);
 
 	play_button = al_create_bitmap(100,10);
 	config_button = al_create_bitmap(100,10);
 	credit_button = al_create_bitmap(100,10);
 
+	///EVENTOS
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.0167);
 
@@ -264,8 +274,9 @@ int main()
     al_destroy_timer(timer);
     al_destroy_display(display);
 
-    //START GAME ========================================================================================
+    ///START GAME ========================================================================================
 
+    ///DISPLAY-----------------------------------------------------------------------------
 	display = al_create_display(WIDTH, HEIGHT);			//create our display object
 
 	if(!display)										//test display object
@@ -273,9 +284,21 @@ int main()
 
     al_set_window_position(display, windowX, windowY);
 
+    ///INICIALIZAÇÕES E INSTALAÇÕES--------------------------------------------------------
 	al_init_primitives_addon();
 	al_install_keyboard();
+	al_init_image_addon();
 
+	///IMAGENS-----------------------------------------------------------------------------
+	rua_vazia = al_load_bitmap("Bitmaps\\Rua_vazia.bmp");
+	rua_bus = al_load_bitmap("Bitmaps\\Rua_bus.bmp");                   //FALTA EDITAR
+	rua_lojas = al_load_bitmap("Bitmaps\\Rua_lojas.bmp");               //FALTA EDITAR
+	rua_obstaculo = al_load_bitmap("Bitmaps\\Rua_obstaculo.bmp");       //FALTA EDITAR
+
+	int rua_width = al_get_bitmap_width(rua_vazia);
+	int rua_height = al_get_bitmap_height(rua_vazia);
+
+    ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.0167);
 
@@ -293,28 +316,24 @@ int main()
         {
             redraw = true;
 
-            if(keys[UP])
-                vy-=5;                      //FALTA A FUNÇÃO PRA MOVIMENTAR PARA FRENTE
-            if(keys[DOWN])
-                vy+=5;                      //FALTA A FUNÇÃO PRA FREAR
-            if(keys[RIGHT])
-                {
-                    for(int k=0;k<6;k++)
-                    {
-                        if(vet_linhas[k]<=-200)
-                            vet_linhas[k]=WIDTH;
-                        else
-                            vet_linhas[k]-=20;
-                    }
-                }
-            if(keys[LEFT]);
-                                            //FALTA A FUNÇÃO PRA VIRAR PARA A ESQUERDA
-            if(keys[SPACE])
-                printf(" _ KEY SCAPE ");    //FALTA A FUNÇÃO PRA MOVIMENTAR PARA BOZINAR(?)
+            if(keys[UP])                    //FALTA A FUNÇÃO PARA VIRAR PARA A ESQUERDA
+                vy-=5;
+            if(keys[DOWN])                  //FALTA A FUNÇÃO PARA VIRAR PARA A DIREITA
+                vy+=5;
+            if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
+            {
+                if(vx<=-3*WIDTH)
+                    vx=0;
+                else
+                    vx-=10;
+            }
 
+            if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
+                vx+=10;
+            if(keys[SPACE])                 //FALTA A FUNÇÃO A PARA BOZINAR(?)
+                printf(" _ KEY SCAPE ");
             if(!isGameOver)
             {
-                printf("atualizacooes dos corpos na tela e teste de game over\n");
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
@@ -384,10 +403,10 @@ int main()
             if(!isGameOver)
             {
                 //DESENHA TUDO
-                for(int i=0;i<6;i++)
-                {
-                    al_draw_filled_rectangle(vet_linhas[i],2*HEIGHT/3,vet_linhas[i]+200,2*HEIGHT/3+20,al_map_rgb(255,255,255));
-                }
+                al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx,0,WIDTH,HEIGHT,0);
+                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,WIDTH+vx,0,WIDTH,HEIGHT,0);
+                al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
+
                 al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
             else
