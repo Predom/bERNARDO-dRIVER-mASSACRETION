@@ -24,9 +24,9 @@ void error_msg(char *text){
 
 
 //GLOBALS
-const int WIDTH = 1000;
+const int WIDTH = 1300;
 const int HEIGHT = 800;
-const int windowX = 250;
+const int windowX = 100;
 const int windowY = 0;
 
 
@@ -405,7 +405,7 @@ int main()
                 //DESENHA TUDO
                 al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx,0,WIDTH,HEIGHT,0);
                 al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,WIDTH+vx,0,WIDTH,HEIGHT,0);
-                al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
+                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
 
                 al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
