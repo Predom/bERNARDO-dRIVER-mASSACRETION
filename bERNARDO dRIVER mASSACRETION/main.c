@@ -47,6 +47,7 @@ int main()
     int vx_1 = 0;
     int vx_2 = WIDTH;
     int vy = 0;
+    float x = 1;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
     struct Ponto2D vert_car[4] = {{200,200},{450,200},{450,350},{200,350}};
 
@@ -74,6 +75,9 @@ int main()
     ALLEGRO_FONT *font_menu_48 = NULL;
     ALLEGRO_FONT *font_menu_40 = NULL;
     ALLEGRO_AUDIO_STREAM *musica_menu = NULL;
+    ALLEGRO_AUDIO_STREAM *vrum = NULL;
+    ALLEGRO_SAMPLE *start_som = NULL;
+
 
     srand(time(NULL));
 
@@ -107,6 +111,8 @@ int main()
     }
 
 	musica_menu = al_load_audio_stream("Sons\\Axel_Broke.ogg",4,1024);
+	start_som = al_load_sample("Sons\\Engine_start.ogg");
+
 	if(!musica_menu)
 	{
 	    error_msg( "Audio nao carregado" );
@@ -203,6 +209,7 @@ int main()
                 ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
             {
                 play = true;
+
             }
         }
 
@@ -268,6 +275,9 @@ int main()
 			al_clear_to_color(al_map_rgb(0,0,0));
         }
 
+        if(play)
+            al_play_sample(start_som,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+
     }
 
     al_destroy_audio_stream(musica_menu);
@@ -275,7 +285,7 @@ int main()
     al_destroy_timer(timer);
     al_destroy_display(display);
 
-    ///START GAME ========================================================================================
+    ///IN GAME ==========================================================================================
 
     ///DISPLAY-----------------------------------------------------------------------------
 	display = al_create_display(WIDTH, HEIGHT);			//create our display object
@@ -289,6 +299,12 @@ int main()
 	al_init_primitives_addon();
 	al_install_keyboard();
 	al_init_image_addon();
+
+
+	///AUDIO-------------------------------------------------------------------------------
+    vrum = al_load_audio_stream("Sons\\Vrum.ogg",80,50);
+    al_attach_audio_stream_to_mixer(vrum, al_get_default_mixer());
+    al_set_audio_stream_playmode(vrum, ALLEGRO_PLAYMODE_LOOP);
 
 	///IMAGENS-----------------------------------------------------------------------------
 	rua_vazia = al_load_bitmap("Bitmaps\\Rua_vazia.bmp");
@@ -310,6 +326,7 @@ int main()
     al_start_timer(timer);
     while(!quit)
     {
+
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
 
@@ -323,6 +340,10 @@ int main()
                 vy++;
             if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
+                if(x<3)
+                    x+=0.01;
+                al_set_audio_stream_gain(vrum,x);
+                al_set_audio_stream_speed(vrum,x);
                 if(vx_1<-WIDTH+6)
                 {
                      vx_1=WIDTH;
@@ -340,8 +361,10 @@ int main()
 
             if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
             {
-                vx_1+=3;
-                vx_2+=3;
+                if(x>1)
+                    x-=0.01;
+                al_set_audio_stream_gain(vrum,x);
+                al_set_audio_stream_speed(vrum,x);
             }
 
             if(keys[SPACE])                 //FALTA A FUNÇÃO A PARA BOZINAR(?)
