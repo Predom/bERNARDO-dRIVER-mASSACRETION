@@ -340,7 +340,7 @@ int main()
                 vy++;
             if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
-                if(x<3)
+                if(x<2.5)
                     x+=0.01;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
