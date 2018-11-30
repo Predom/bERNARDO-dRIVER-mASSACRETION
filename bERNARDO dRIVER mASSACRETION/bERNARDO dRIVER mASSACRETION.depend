@@ -1,13 +1,19 @@
 # depslib dependency file v1.0
-1543201655 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1543471873 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
+	<locale.h>
 	"fisica.h"
 	"desenho.h"
 	"entidades.h"
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
 	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
 
 1543466347 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
@@ -532,9 +538,9 @@
 	<math.h>
 	"entidades.h"
 
-1543117106 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1543594098 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 
-1543114072 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
+1543594046 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -554,7 +560,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543221045 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1543222214 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
@@ -579,4 +585,21 @@
 
 1543117349 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_native_dialog.h
 	"allegro5/allegro.h"
+
+1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_native_dialog.h
+	"allegro5/allegro.h"
+
+1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_font.h
+	"allegro5/allegro.h"
+
+1543013980 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_ttf.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_font.h"
+
+1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_audio.h
+	"allegro5/allegro.h"
+
+1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_acodec.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_audio.h"
 
