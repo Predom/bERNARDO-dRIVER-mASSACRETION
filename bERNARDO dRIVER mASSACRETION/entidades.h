@@ -31,5 +31,7 @@ struct CONVEXPOLYGON
     struct Ponto2D* v; // Aray de vértices
     int NumVertices;
 };
+
+
 #endif
 

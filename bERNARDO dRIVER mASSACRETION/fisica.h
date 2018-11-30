@@ -7,17 +7,35 @@
 #include "entidades.h"
 
 /**************************************
- * Essa � a header da fisica.c        *
+ * Essa é a header da fisica.c        *
  **************************************/
+
+
+ struct Player
+{
+
+    struct CONVEXPOLYGON &modelo;    /// endereço do modelo
+
+    struct CONVEXPOLYGON locAtual;   /// para ser usado nas funções de desenho e detecção de colisão
+                                     /// é obtido transformando o modelo pelo ângulo atual
+    float angulo;                    /// em relação ao eixo x
+
+
+};
 
 struct Carro
 {
     int ID;
-    struct Ponto2D v[5];              /// Vertieces do poligono
-    struct Ponto2D centro;
-    float angulo;                    /// em rela��o ao eixo x
+    struct CONVEXPOLYGON &modelo;    /// endereço do modelo
 
+    struct CONVEXPOLYGON locAtual;   /// para ser usado nas funções de desenho e detecção de colisão
+                                     /// é obtido transformando o modelo pelo ângulo atual+ânugo do player e
+                                     /// somando o vetor local.
 
+    struct Vetor2D local;            ///localização em relação ao player
+    float angulo;                    /// em relação ao eixo x
+
+    float dano;
 };
 
 
