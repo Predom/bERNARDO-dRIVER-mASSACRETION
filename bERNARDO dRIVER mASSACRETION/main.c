@@ -44,10 +44,13 @@ int main()
 	bool in_play_button = false;
 	bool in_config_button = false;
 	bool in_credit_button = false;
-    int vx = 0;
+    int vx_1 = 0;
+    int vx_2 = WIDTH;
     int vy = 0;
+    int bg_1 = 0;
+    int bg_2 = 0;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
-    struct Ponto2D vert_car[4] = {{150,200},{450,200},{450,400},{150,400}};
+    struct Ponto2D vert_car[4] = {{200,200},{450,200},{450,350},{200,350}};
 
 
     setlocale(LC_ALL,"portuguese");
@@ -293,14 +296,14 @@ int main()
 	rua_vazia = al_load_bitmap("Bitmaps\\Rua_vazia.bmp");
 	rua_bus = al_load_bitmap("Bitmaps\\Rua_bus.bmp");
 	rua_lojas = al_load_bitmap("Bitmaps\\Rua_lojas.bmp");
-	rua_obstaculo = al_load_bitmap("Bitmaps\\Rua_obstaculo.bmp");
+	rua_obstaculo = al_load_bitmap("Bitmaps\\Rua_obstaculo.bmp");//N홒 USAR
 
 	int rua_width = al_get_bitmap_width(rua_vazia);
 	int rua_height = al_get_bitmap_height(rua_vazia);
 
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
-	timer = al_create_timer(0.0167);
+	timer = al_create_timer(0.001);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -317,21 +320,36 @@ int main()
             redraw = true;
 
             if(keys[UP])                    //FALTA A FUN플O PARA VIRAR PARA A ESQUERDA
-                vy-=5;
+                vy--;
             if(keys[DOWN])                  //FALTA A FUN플O PARA VIRAR PARA A DIREITA
-                vy+=5;
+                vy++;
             if(keys[RIGHT])                 //FALTA A FUN플O PARA MOVIMENTAR PARA FRENTE
             {
-                if(vx<=-3*WIDTH)
-                    vx=0;
+                if(vx_1<-WIDTH+2)
+                {
+                     vx_1=WIDTH;
+                     bg_1 = rand()%3;
+                }
+
                 else
-                    vx-=10;
+                    vx_1--;
+                if(vx_2<-WIDTH+2)
+                {
+                     vx_2=WIDTH;
+                     bg_2 = rand()%3;
+                }
+                else
+                    vx_2--;
             }
 
             if(keys[LEFT])                  //FALTA A FUN플O PARA FREAR
-                vx+=10;
+            {
+                vx_1++;
+                vx_2++;
+            }
+
             if(keys[SPACE])                 //FALTA A FUN플O A PARA BOZINAR(?)
-                printf(" _ KEY SCAPE ");
+                ;
             if(!isGameOver)
             {
                 //CRIA NOVOS CARROS NA PISTA
@@ -403,9 +421,18 @@ int main()
             if(!isGameOver)
             {
                 //DESENHA TUDO
-                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx,0,WIDTH,HEIGHT,0);
-                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,WIDTH+vx,0,WIDTH,HEIGHT,0);
-                al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,2*WIDTH+vx,0,WIDTH,HEIGHT,0);
+                //if(bg_1 == 0)
+                    al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
+                //else if(bg_1 == 1)
+                    //al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
+               // else if(bg_1 == 2)
+                    //al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
+               // if(bg_2 == 0)
+                    al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
+               // else if(bg_2 == 1)
+                    //al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
+               // else if(bg_2 == 2)
+                    //al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
 
                 al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
