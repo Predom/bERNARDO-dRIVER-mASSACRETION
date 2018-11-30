@@ -7,18 +7,18 @@
 #include "entidades.h"
 
 /**************************************
- * Essa é a header da fisica.c        *
+ * Essa Ã© a header da fisica.c        *
  **************************************/
 
-struct Carro
-{
-    int ID;
-    struct Ponto2D v[5];              /// Vertieces do poligono
-    struct Ponto2D centro;
-    float angulo;                    /// em relação ao eixo x
 
+///Player func
 
-};
+void atualizarPlayer(struct Player *P);
+
+///carros func
+
+void atualizaCarro(struct Carro *c);
+
 
 
 
