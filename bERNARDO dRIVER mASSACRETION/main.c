@@ -47,8 +47,6 @@ int main()
     int vx_1 = 0;
     int vx_2 = WIDTH;
     int vy = 0;
-    int bg_1 = 0;
-    int bg_2 = 0;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
     struct Ponto2D vert_car[4] = {{200,200},{450,200},{450,350},{200,350}};
 
@@ -303,7 +301,7 @@ int main()
 
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
-	timer = al_create_timer(0.001);
+	timer = al_create_timer(0.008);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -325,27 +323,25 @@ int main()
                 vy++;
             if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
-                if(vx_1<-WIDTH+2)
+                if(vx_1<-WIDTH+6)
                 {
                      vx_1=WIDTH;
-                     bg_1 = rand()%3;
                 }
 
                 else
-                    vx_1--;
-                if(vx_2<-WIDTH+2)
+                    vx_1-=3;
+                if(vx_2<-WIDTH+6)
                 {
                      vx_2=WIDTH;
-                     bg_2 = rand()%3;
                 }
                 else
-                    vx_2--;
+                    vx_2-=3;
             }
 
             if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
             {
-                vx_1++;
-                vx_2++;
+                vx_1+=3;
+                vx_2+=3;
             }
 
             if(keys[SPACE])                 //FALTA A FUNÇÃO A PARA BOZINAR(?)
@@ -420,26 +416,16 @@ int main()
 
             if(!isGameOver)
             {
-                //DESENHA TUDO
-                //if(bg_1 == 0)
+                ///DESENHA TUDO
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
-                //else if(bg_1 == 1)
-                    //al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
-               // else if(bg_1 == 2)
-                    //al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
-               // if(bg_2 == 0)
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
-               // else if(bg_2 == 1)
-                    //al_draw_scaled_bitmap(rua_vazia,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
-               // else if(bg_2 == 2)
-                    //al_draw_scaled_bitmap(rua_lojas,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
 
                 al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
             else
             {
+                ///DESENHA A TELA DE GAME OVER
                 printf("GAME OVER");
-                //DESENHA A TELA DE GAME OVER
             }
 
             al_flip_display();
