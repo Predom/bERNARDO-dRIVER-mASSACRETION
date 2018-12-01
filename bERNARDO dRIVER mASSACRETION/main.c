@@ -302,7 +302,7 @@ int main()
 
 
 	///AUDIO-------------------------------------------------------------------------------
-    vrum = al_load_audio_stream("Sons\\Vrum.wav",80,50);
+    vrum = al_load_audio_stream("Sons\\Vrum_short.ogg",255,100);
     al_attach_audio_stream_to_mixer(vrum, al_get_default_mixer());
     al_set_audio_stream_playmode(vrum, ALLEGRO_PLAYMODE_LOOP);
 
@@ -340,8 +340,8 @@ int main()
                 vy++;
             if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
-                if(x<2.5)
-                    x+=0.01;
+                if(x<3)
+                    x+=0.001;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
                 if(vx_1<-WIDTH+6)
