@@ -154,9 +154,9 @@ void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct
 
 void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 
-    float grausConv=(graus/180)*M_PI;
-    float s=cos(grausConv);
-    float c=sin(grausConv);
+    float grausConv=graus*(M_PI/180);
+    float s=sin(grausConv);
+    float c=cos(grausConv);
 
     struct Matriz2x2 matriz={c,-s,s,c};
 
@@ -167,8 +167,8 @@ void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus){
 
     float grausConv=(graus/180)* M_PI;
-    float s=cos(grausConv);
-    float c=sin(grausConv);
+    float s=sin(grausConv);
+    float c=cos(grausConv);
 
     struct Matriz2x2 matriz={c,-s,s,c};
 
