@@ -461,6 +461,6 @@ int main()
     al_destroy_timer(timer);
     al_destroy_display(display);
 
-
+    //teste
     return 0;
 }
