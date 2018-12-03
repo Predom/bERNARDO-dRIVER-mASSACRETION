@@ -302,7 +302,7 @@ int main()
 
 
 	///AUDIO-------------------------------------------------------------------------------
-    vrum = al_load_audio_stream("Sons\\Vrum_short.ogg",255,100);
+    vrum = al_load_audio_stream("Sons\\Brum.ogg",255,100);
     al_attach_audio_stream_to_mixer(vrum, al_get_default_mixer());
     al_set_audio_stream_playmode(vrum, ALLEGRO_PLAYMODE_LOOP);
 
