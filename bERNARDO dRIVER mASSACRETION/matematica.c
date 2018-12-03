@@ -103,6 +103,19 @@ float returnComp(struct Vetor2D *V){
     return sqrt(SQUAR(V->x)+SQUAR(V->y));
 }
 
+void normalizeVet(struct Vetor2D *V){
+    float comp = returnVetComp(V);
+    V->x = V->x/comp;
+    V->y = V->y/comp;
+}
+
+void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino){
+    float comp = returnVetComp(V);
+    destino->x=V->x/comp;
+    destino->y=V->y/comp};
+};
+
+
 
 
 /***********************************************************************************

@@ -41,6 +41,8 @@ struct CONVEXPOLYGON
                                      /// é obtido transformando o modelo pelo ângulo atual
     float angulo;                    /// em relação ao eixo x
 
+    struct Vetor2D velocidade;
+
 
 };
 

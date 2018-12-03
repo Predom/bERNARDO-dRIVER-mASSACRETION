@@ -15,3 +15,16 @@
  * descrevam IA ou algo do tipo, apenas o comportamento *
  * físico (sem "tomada de decisões").                   *
  ********************************************************/
+
+ ///Player func
+
+void atualizarPlayer(struct Player *P){
+    if(P->velocidade.x!=0|P->velocidade.y!=0)
+    P->angulo=retornarAngulo(P->velocidade);
+
+}
+
+///carros func
+
+void atualizaCarro(struct Carro *c, struct Player *P){
+}

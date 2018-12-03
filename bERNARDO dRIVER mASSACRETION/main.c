@@ -33,6 +33,13 @@ const int windowY = 0;
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE, ENTER};
 bool keys[6] = {false, false, false, false, false, false};
 
+///player declaração e init
+struct Ponto2D PLAYERMODELSOURCE[4]={{-200,-100},{-200,100},{200,100},{200,-100}};
+
+struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
+struct Ponto2D PLAYERMODELCACHE[4]};
+struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,PLAYERMODEL.NumVertices},0};
+
 int main()
 {
     bool play = false;
@@ -49,7 +56,8 @@ int main()
     int vy = 0;
     float x = 1;
     int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
-    struct Ponto2D vert_car[4] = {{200,200},{450,200},{450,350},{200,350}};
+
+    ///ANTIGA DECL PLAYER
 
 
     setlocale(LC_ALL,"portuguese");
