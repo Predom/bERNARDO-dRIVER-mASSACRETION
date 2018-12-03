@@ -16,6 +16,8 @@
 #include <allegro5/allegro_acodec.h>
 
 
+//teste
+
 void error_msg(char *text){
 	al_show_native_message_box(NULL,"ERRO",
 		"Ocorreu o seguinte erro e o programa sera finalizado:",
