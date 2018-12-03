@@ -33,7 +33,8 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
+			<Add option="-pedantic" />
+			<Add option="-Wfatal-errors" />
 			<Add directory="../allegro/include" />
 		</Compiler>
 		<Linker>

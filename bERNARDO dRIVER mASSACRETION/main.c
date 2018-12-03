@@ -37,8 +37,8 @@ bool keys[6] = {false, false, false, false, false, false};
 struct Ponto2D PLAYERMODELSOURCE[4]={{-200,-100},{-200,100},{200,100},{200,-100}};
 
 struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
-struct Ponto2D PLAYERMODELCACHE[4]};
-struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,PLAYERMODEL.NumVertices},0};
+struct Ponto2D PLAYERMODELCACHE[4];
+struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0};
 
 int main()
 {
@@ -451,7 +451,6 @@ int main()
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
 
-                al_draw_filled_rectangle(vert_car[0].coord[0],vert_car[0].coord[1]+vy,vert_car[2].coord[0],vert_car[2].coord[1]+vy,al_map_rgb(255,0,0));
             }
             else
             {

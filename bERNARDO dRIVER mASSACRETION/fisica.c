@@ -19,8 +19,8 @@
  ///Player func
 
 void atualizarPlayer(struct Player *P){
-    if(P->velocidade.x!=0|P->velocidade.y!=0)
-    P->angulo=retornarAngulo(P->velocidade);
+    if(P->velocidade.x!=0|P->velocidade.y!=0){}
+    //P->angulo=retornarAngulo(P->velocidade);
 
 }
 

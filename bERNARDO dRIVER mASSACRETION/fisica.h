@@ -17,7 +17,7 @@ void atualizarPlayer(struct Player *P);
 
 ///carros func
 
-void atualizaCarro(struct Carro *c);
+void atualizaCarro(struct Carro *c, struct Player *P);
 
 
 

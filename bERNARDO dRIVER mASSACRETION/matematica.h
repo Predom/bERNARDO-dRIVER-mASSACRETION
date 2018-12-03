@@ -52,7 +52,7 @@ float returnComp(struct Vetor2D *V);
 
 void normalizeVet(struct Vetor2D *V);
 
-void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino)
+void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino);
 
 //transformar e girar vetores
 void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);

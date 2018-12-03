@@ -15,16 +15,6 @@
  *******************************************************/
 
 
-/*********************************************
-* Operção de subtração entre dois Pontos2D.  *
-* Recebe um ponteiro para cada Ponto2D       *
-*********************************************/
-void Sub(struct Ponto2D *a, struct Ponto2D *b, struct Vetor2D *z)
-{
-        z->x = a->x - b->x;
-        z->y = a->y - b->y;
-}
-
 /**************************************************
 * Operações de soma e subtração com ponto e vetor *
 ***************************************************/
@@ -38,7 +28,7 @@ void Sub(struct Ponto2D *a, struct Ponto2D *b, struct Vetor2D *z)
  * Ponto - Vetor = Ponto
  *
  * Vetor + Ponto = ??? <- O que você tá tentando fazer?
- * Vetor - Ponto = ??? <-            \\
+ * Vetor - Ponto = ??? <-
  *
  * Vetor + Vetor = Vetor
  * Vetor - Vetor = Vetor
@@ -104,16 +94,16 @@ float returnComp(struct Vetor2D *V){
 }
 
 void normalizeVet(struct Vetor2D *V){
-    float comp = returnVetComp(V);
+    float comp = returnComp(V);
     V->x = V->x/comp;
     V->y = V->y/comp;
 }
 
 void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino){
-    float comp = returnVetComp(V);
+    float comp = returnComp(V);
     destino->x=V->x/comp;
-    destino->y=V->y/comp};
-};
+    destino->y=V->y/comp;
+}
 
 
 
@@ -171,7 +161,11 @@ void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
     float s=sin(grausConv);
     float c=cos(grausConv);
 
-    struct Matriz2x2 matriz={c,-s,s,c};
+    struct Matriz2x2 matriz;
+    matriz.elementos[0][0]=c;
+    matriz.elementos[0][1]=-s;
+    matriz.elementos[1][0]=s;
+    matriz.elementos[1][1]=c;
 
     transVet2DRetOrig(vetor,&matriz);
 
@@ -183,7 +177,12 @@ void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, f
     float s=sin(grausConv);
     float c=cos(grausConv);
 
-    struct Matriz2x2 matriz={c,-s,s,c};
+    struct Matriz2x2 matriz;
+    matriz.elementos[0][0]=c;
+    matriz.elementos[0][1]=-s;
+    matriz.elementos[1][0]=s;
+    matriz.elementos[1][1]=c;
+
 
     transVet2D(vetorEntrada,vetorSaida,&matriz);
 
@@ -232,9 +231,13 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
         {
             // Usar uma aresta de B como um Separation Axis
             struct Vetor2D e, d;
+            float xm, ym;
             diferencaEntrePontos(&cpB->v[i+1>cpB->NumVertices?0:i+1], &cpB->v[i], &e);
             // Rotacionando em 90º
-            e.x = -e.x;
+            xm = e.x;
+            ym = e.y;
+            e.x = -ym;
+            e.y = xm;
 
             int b = 0;
 
@@ -249,16 +252,20 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
             }
 
             if(b) //Existe um Separation Axis
-                    return 0;
+                return 0;
         }
 
         for(i=0; i>cpB->NumVertices; i++)
         {
             // Usar uma aresta de A como um Separation Axis
             struct Vetor2D e, d;
+            float xm, ym;
             diferencaEntrePontos(&cpA->v[i+1>cpA->NumVertices?0:i+1], &cpA->v[i], &e);
             // Rotacionando em 90º
-            e.x = -e.x;
+            xm = e.x;
+            ym = e.y;
+            e.x = -ym;
+            e.y = xm;
 
             int b = 0;
 
@@ -312,7 +319,7 @@ int TestCheckPenetration()
     }
     else
         return 1;
-}
+  }
 
 
 
