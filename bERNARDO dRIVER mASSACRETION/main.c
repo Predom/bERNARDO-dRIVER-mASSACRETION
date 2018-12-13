@@ -54,8 +54,7 @@ int main()
     int vx_1 = 0;
     int vx_2 = WIDTH;
     int vy = 0;
-    float x = 1;
-    int vet_linhas[] = {0,WIDTH-1000,WIDTH-700,WIDTH-400,WIDTH-100};
+    float x = 0.1;
 
     ///ANTIGA DECL PLAYER
 
@@ -348,7 +347,7 @@ int main()
                 vy++;
             if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
-                if(x<3)
+                if(x<2)
                     x+=0.001;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
@@ -369,7 +368,7 @@ int main()
 
             if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
             {
-                if(x>1)
+                if(x>0.02)
                     x-=0.01;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
