@@ -458,7 +458,7 @@ int main()
             }
 
             al_flip_display();
-			al_clear_to_color(al_map_rgb(100,100,100));
+			al_clear_to_color(al_map_rgb(0,0,0));
         }
 
     }

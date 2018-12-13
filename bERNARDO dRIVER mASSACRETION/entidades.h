@@ -43,6 +43,10 @@ struct CONVEXPOLYGON
 
     struct Vetor2D velocidade;
 
+    int marcha;                      /// marcha do carro para as funções de áudio
+    int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio
+    int volume;                      /// volume do som do motor para as funções de áudio
+
 
 };
 
