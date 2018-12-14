@@ -15,7 +15,7 @@
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 
-1544764657 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1544766042 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -604,9 +604,9 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1544740172 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.h
+1544767079 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.h
+	<allegro5\allegro.h>
 	<allegro5/allegro_audio.h>
-	<allegro5/allegro_acodec.h>
 	"audio.h"
 	"entidades.h"
 
