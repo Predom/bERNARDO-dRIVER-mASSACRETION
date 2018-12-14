@@ -227,7 +227,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
     {
         // Entrando no SAT
         int i;
-        for(i = 0; i > cpB->NumVertices; i++)
+        for(i = 0; i<cpB->NumVertices; i++)
         {
             // Usar uma aresta de B como um Separation Axis
             struct Vetor2D e, d;
@@ -239,12 +239,12 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
             e.x = -ym;
             e.y = xm;
 
-            int b = 0;
+            int b = 1;
 
             for(int j=0; j<cpA->NumVertices; j++)
             {
-                diferencaEntrePontos(&cpA->v[j], &cpB->v[i], &d);//errado
-                if(DotProduct(&d, &e))
+                diferencaEntrePontos(&cpA->v[j], &cpB->v[i], &d);
+                if(DotProduct(&d, &e)<0)
                 {
                     b = 0;
                     break;
@@ -255,7 +255,7 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
                 return 0;
         }
 
-        for(i=0; i>cpB->NumVertices; i++)
+        for(i=0; i<cpB->NumVertices; i++)
         {
             // Usar uma aresta de A como um Separation Axis
             struct Vetor2D e, d;
@@ -267,12 +267,12 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
             e.x = -ym;
             e.y = xm;
 
-            int b = 0;
+            int b = 1;
 
             for(int j=0; j<cpB->NumVertices; j++)
             {
                 diferencaEntrePontos(&cpB->v[j], &cpA->v[i], &d);
-                if(DotProduct(&d, &e))
+                if(DotProduct(&d, &e)<0)
                 {
                         b = 0;
                         break;
@@ -281,7 +281,6 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
 
             if(b) //Existe um Separation Axis. Não há penetração
                 return 0;
-
         }
         //  Não há Separation Axis. Há penetração
         return 1;
@@ -296,8 +295,8 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB)
 
 int TestCheckPenetration()
 {
-    struct Ponto2D vetorA[] = {{3, 5}, {2, 1}, {-1, 3}, {1, 7}};
-    struct Ponto2D vetorB[] = {{6, 8}, {5, 3}, {2, 6}, {4, 10}};
+    struct Ponto2D vetorA[] = {{1.5, 3.5}, {3.5, 3.5}, {3.5, 1.5}, {1.5, 1.5}};
+    struct Ponto2D vetorB[] = {{4, 6}, {6, 4}, {5, 3}, {3, 5}};
     struct CONVEXPOLYGON cpA;
     struct CONVEXPOLYGON cpB;
     cpA.v = vetorA;
@@ -305,14 +304,14 @@ int TestCheckPenetration()
     cpB.v = vetorB;
     cpB.NumVertices = 4;
 
-    if(CheckPenetration(&cpA, &cpB))
+    if(!CheckPenetration(&cpA, &cpB))
     {
-        struct Ponto2D vetorC[] = {{7, 9}, {6, 4}, {3, 7}, {5, 11}};
+        struct Ponto2D vetorC[] = {{4, 6}, {6, 4}, {4, 2}, {2, 4}};
         struct CONVEXPOLYGON cpC;
         cpC.v = vetorC;
         cpC.NumVertices = 4;
 
-        if(!CheckPenetration(&cpA, &cpC))
+        if(CheckPenetration(&cpA, &cpC))
             return 0;
         else
             return 1;

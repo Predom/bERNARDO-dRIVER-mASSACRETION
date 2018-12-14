@@ -15,12 +15,13 @@
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 
-1544669235 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1544764657 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"fisica.h"
 	"desenho.h"
+	"audio.h"
 	"entidades.h"
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
@@ -41,7 +42,7 @@
 	<math.h>
 	"entidades.h"
 
-1543117354 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
+1544730029 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -293,7 +294,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1543870861 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1544764041 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
@@ -602,4 +603,16 @@
 1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_acodec.h
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
+
+1544740172 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.h
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"audio.h"
+	"entidades.h"
+
+1544740191 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.c
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"audio.h"
+	"entidades.h"
 
