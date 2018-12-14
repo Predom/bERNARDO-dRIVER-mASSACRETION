@@ -7,3 +7,5 @@
 /**************************************
  * Essa é a header do desenho.c
  **************************************/
+
+ desenhaPayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy);

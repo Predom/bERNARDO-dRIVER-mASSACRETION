@@ -596,7 +596,8 @@ int main()
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
 
-                    al_draw_bitmap(PLAYER.sprite_player,WIDTH/2-500,HEIGHT/2+vy,0);
+                    desenhaPayer(&PLAYER,WIDTH,HEIGHT,vy);
+
 
             }
             else

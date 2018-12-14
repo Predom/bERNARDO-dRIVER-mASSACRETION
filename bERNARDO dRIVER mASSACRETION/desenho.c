@@ -10,3 +10,8 @@
  * que plotam na tela as entidades fisicas e exibem *
  * de alguma forma seu comportamento.               *
  ***************************************************/
+
+desenhaPayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy){
+
+    al_draw_bitmap(jogador->sprite_player,WIDTH/2-500,HEIGHT/2+vy,0);
+}

@@ -105,6 +105,11 @@ void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino){
     destino->y=V->y/comp;
 }
 
+float returnVetDirec(struct Vetor2D V){
+    normalizeVet(&V);
+    if(V.y>0)return acos(V.x);
+    return acos(V.x)+M_PI;
+}
 
 
 
