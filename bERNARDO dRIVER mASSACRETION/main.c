@@ -3,7 +3,6 @@
 #include <locale.h>
 #include "fisica.h"
 #include "desenho.h"
-#include "audio.h"
 #include "entidades.h"
 #undef x
 #undef y
@@ -34,13 +33,6 @@ const int windowY = 0;
 enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE, ENTER};
 bool keys[6] = {false, false, false, false, false, false};
 
-///player declaração e init
-struct Ponto2D PLAYERMODELSOURCE[4]={{-200,-100},{-200,100},{200,100},{200,-100}};
-
-struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
-struct Ponto2D PLAYERMODELCACHE[4];
-struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0};
-
 int main()
 {
     enum PAGES {GAME, MENU, LORE, CREDIT};
@@ -53,13 +45,10 @@ int main()
 	bool in_lore_button = false;
 	bool in_credit_button = false;
 	bool in_back_button = false;
-    int vx_1 = 0;
-    int vx_2 = WIDTH;
+    float vx_1 = 0;
+    float vx_2 = WIDTH;
     int vy = 0;
-    float x = 1;
-
-    ///ANTIGA DECL PLAYER
-
+    float x = 0.5;
 
     setlocale(LC_ALL,"portuguese");
 
@@ -85,6 +74,12 @@ int main()
     ALLEGRO_SAMPLE *click = NULL;
     ALLEGRO_SAMPLE *select = NULL;
 
+    ///player declaração e init
+    struct Ponto2D PLAYERMODELSOURCE[4]={{-200,-100},{-200,100},{200,100},{200,-100}};
+
+    struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
+    struct Ponto2D PLAYERMODELCACHE[4];
+    struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0,0,1,1,1};
 
     srand(time(NULL));
 
@@ -471,6 +466,8 @@ int main()
 	int rua_width = al_get_bitmap_width(rua_bus);
 	int rua_height = al_get_bitmap_height(rua_bus);
 
+    PLAYER.sprite_player = al_load_bitmap("Bitmaps\\sprite_player.bmp");
+
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.008);
@@ -500,24 +497,24 @@ int main()
                     x+=0.001;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
-                if(vx_1<-WIDTH+6)
-                {
-                     vx_1=WIDTH;
-                }
 
-                else
-                    vx_1-=3;
-                if(vx_2<-WIDTH+6)
+                if(vx_1-10*x<=-WIDTH)
                 {
-                     vx_2=WIDTH;
+                     vx_1=WIDTH+WIDTH+vx_1-10*x;
                 }
                 else
-                    vx_2-=3;
+                    vx_1-=10*x;
+                if(vx_2-10*x<=-WIDTH)
+                {
+                     vx_2=WIDTH+WIDTH+vx_2-10*x;
+                }
+                else
+                    vx_2-=10*x;
             }
 
             if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
             {
-                if(x>0.02)
+                if(x>0.5)
                     x-=0.01;
                 al_set_audio_stream_gain(vrum,x);
                 al_set_audio_stream_speed(vrum,x);
@@ -598,6 +595,8 @@ int main()
                 ///DESENHA TUDO
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
                     al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
+
+                    al_draw_bitmap(PLAYER.sprite_player,WIDTH/2-500,HEIGHT/2+vy,0);
 
             }
             else
