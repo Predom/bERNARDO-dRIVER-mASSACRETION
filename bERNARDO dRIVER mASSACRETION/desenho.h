@@ -8,4 +8,4 @@
  * Essa é a header do desenho.c
  **************************************/
 
- desenhaPayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy);
+desenhaPlayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy,int player_width,int player_height);

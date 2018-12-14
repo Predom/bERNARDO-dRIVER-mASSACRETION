@@ -15,6 +15,14 @@
 
 void atualizarPlayer(struct Player *P);
 
+void aceleraPlayer(struct Player *P);
+
+void RePlayer(struct Player *P);
+
+void viraPraDireita(struct Player *P);
+
+void viraPraEsquerda(struct Player *P);
+
 ///carros func
 
 void atualizaCarro(struct Carro *c, struct Player *P);

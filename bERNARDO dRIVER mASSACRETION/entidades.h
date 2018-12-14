@@ -42,6 +42,7 @@ struct CONVEXPOLYGON
     float angulo;                    /// em relação ao eixo x
 
     struct Vetor2D velocidade;
+    float velocidadeModulo;
 
     int marcha;                      /// marcha do carro para as funções de áudio
     int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio

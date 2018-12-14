@@ -59,15 +59,24 @@ void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr)
     Vr->x = Va->x + Vb->x;
     Vr->y = Va->y + Vb->y;
 }
+void somaVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb)
+{
+    Va->x +=Vb->x;
+    Va->y +=Vb->y;
+}
 
 void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr)
 {
     Vr->x = Va->x - Vb->x;
     Vr->y = Va->y - Vb->y;
 }
-
+void subtraiVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb)
+{
+    Va->x -=Vb->x;
+    Va->y -=Vb->y;
+}
 //Pra multiplicar um vetor por uma escalar
-void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar){
+void produtoVetEscaLRetPontOrig(struct Vetor2D *V, float Escalar){
     V->x=V->x*Escalar;
     V->y=V->y*Escalar;
 }
@@ -75,6 +84,17 @@ void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar){
 void produtoVetEscaL(struct Vetor2D *VA, struct Vetor2D *VR, float Escalar){
     VR->x=VA->x*Escalar;
     VR->y=VA->y*Escalar;
+}
+void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar){
+    V->x*=Escalar;
+    V->y*=Escalar;
+}
+
+struct Vetor2D produtoVetEscaLRet(struct Vetor2D VA, float Escalar){
+    struct Vetor2D retorno;
+    retorno.x=VA.x*Escalar;
+    retorno.y=VA.y*Escalar;
+    return retorno;
 }
 
 /*********************************************
@@ -104,11 +124,18 @@ void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino){
     destino->x=V->x/comp;
     destino->y=V->y/comp;
 }
+struct Vetor2D retornarNormalizadoSPont(struct Vetor2D *V){
+    float comp = returnComp(V);
+    struct Vetor2D destino = {0,0};
+    if(V->x==0&&V->y==0)return destino;
+    destino.x=V->x/comp;
+    destino.y=V->y/comp;
+    return destino;
+}
 
 float returnVetDirec(struct Vetor2D V){
     normalizeVet(&V);
-    if(V.y>0)return acos(V.x);
-    return acos(V.x)+M_PI;
+    return atan2(V.y,V.x);//primeiro Quadrante
 }
 
 

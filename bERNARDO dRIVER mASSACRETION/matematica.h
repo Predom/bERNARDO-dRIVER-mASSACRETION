@@ -42,6 +42,8 @@ void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
 void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
+void subtraiVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
+
 void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar);
 
 void produtoVetEscaL(struct Vetor2D *VA, struct Vetor2D *VR, float Escalar);
@@ -55,6 +57,10 @@ void normalizeVet(struct Vetor2D *V);
 void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino);
 
 float returnVetDirec(struct Vetor2D V);
+
+struct Vetor2D produtoVetEscaLRet(struct Vetor2D VA, float Escalar);
+
+struct Vetor2D retornarNormalizadoSPont(struct Vetor2D *V);
 
 //transformar e girar vetores
 void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);

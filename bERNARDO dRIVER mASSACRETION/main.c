@@ -47,7 +47,7 @@ int main()
 	bool in_back_button = false;
     float vx_1 = 0;
     float vx_2 = WIDTH;
-    int vy = 0;
+    float vy = 0;
     float x = 0.5;
 
     setlocale(LC_ALL,"portuguese");
@@ -468,6 +468,9 @@ int main()
 
     PLAYER.sprite_player = al_load_bitmap("Bitmaps\\sprite_player.bmp");
 
+    int player_width = al_get_bitmap_width(PLAYER.sprite_player);
+    int player_height = al_get_bitmap_height(PLAYER.sprite_player);
+
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
 	timer = al_create_timer(0.008);
@@ -487,43 +490,43 @@ int main()
         {
             redraw = true;
 
-            if(keys[UP])                    //FALTA A FUNÇÃO PARA VIRAR PARA A ESQUERDA
-                vy--;
-            if(keys[DOWN])                  //FALTA A FUNÇÃO PARA VIRAR PARA A DIREITA
-                vy++;
-            if(keys[RIGHT])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
+            if(keys[LEFT])                    //FALTA A FUNÇÃO PARA VIRAR PARA A ESQUERDA
+                viraPraEsquerda(&PLAYER);
+            if(keys[RIGHT])                  //FALTA A FUNÇÃO PARA VIRAR PARA A DIREITA
+                viraPraDireita(&PLAYER);
+            if(keys[UP])                 //FALTA A FUNÇÃO PARA MOVIMENTAR PARA FRENTE
             {
-                if(x<2)
-                    x+=0.001;
-                al_set_audio_stream_gain(vrum,x);
-                al_set_audio_stream_speed(vrum,x);
-
-                if(vx_1-10*x<=-WIDTH)
-                {
-                     vx_1=WIDTH+WIDTH+vx_1-10*x;
-                }
-                else
-                    vx_1-=10*x;
-                if(vx_2-10*x<=-WIDTH)
-                {
-                     vx_2=WIDTH+WIDTH+vx_2-10*x;
-                }
-                else
-                    vx_2-=10*x;
+                aceleraPlayer(&PLAYER);
             }
 
-            if(keys[LEFT])                  //FALTA A FUNÇÃO PARA FREAR
+            if(keys[DOWN])                  //FALTA A FUNÇÃO PARA FREAR
             {
-                if(x>0.5)
-                    x-=0.01;
-                al_set_audio_stream_gain(vrum,x);
-                al_set_audio_stream_speed(vrum,x);
+                RePlayer(&PLAYER);
+                //if(x>0.5)
+                  //  x-=0.01;
+                //al_set_audio_stream_gain(vrum,x);
+                //al_set_audio_stream_speed(vrum,x);
             }
 
             if(keys[SPACE])                 //FALTA A FUNÇÃO A PARA BOZINAR(?)
                 ;
             if(!isGameOver)
             {
+                vy+=PLAYER.velocidade.coord[1];
+                x+=PLAYER.velocidade.coord[0];
+                atualizarPlayer(&PLAYER);
+                if(vx_1-PLAYER.velocidade.coord[0]<=-WIDTH)
+                {
+                     vx_1=WIDTH+WIDTH+vx_1-PLAYER.velocidade.coord[0];
+                }
+                else
+                    vx_1-=PLAYER.velocidade.coord[0];
+                if(vx_2-PLAYER.velocidade.coord[0]<=-WIDTH)
+                {
+                     vx_2=WIDTH+WIDTH+vx_2-PLAYER.velocidade.coord[0];
+                }
+                else
+                    vx_2-=PLAYER.velocidade.coord[0];
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
@@ -593,11 +596,12 @@ int main()
             if(!isGameOver)
             {
                 ///DESENHA TUDO
-                    al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
-                    al_draw_scaled_bitmap(rua_bus,0,0,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
+                    al_draw_scaled_bitmap(rua_bus,0,vy,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
+                    al_draw_scaled_bitmap(rua_bus,0,vy,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
 
-                    desenhaPayer(&PLAYER,WIDTH,HEIGHT,vy);
+                    desenhaPlayer(&PLAYER,WIDTH,HEIGHT,0,player_width,player_height);
 
+                    printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
 
             }
             else
