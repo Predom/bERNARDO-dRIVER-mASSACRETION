@@ -29,6 +29,11 @@ float retornaOtimeRate(){
     return timeRate;
 }
 
+struct Vetor2D retornaVelocidadeDoJogador(){
+    return VELPLAYER;
+}
+
+
  ///corpos fisicos de uma maneira geral
 
 void atualizaCorpoFisico(struct CorpoFisico *corpo){
