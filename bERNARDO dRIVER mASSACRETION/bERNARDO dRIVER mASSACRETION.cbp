@@ -40,6 +40,10 @@
 		<Linker>
 			<Add library="../allegro/lib/liballegro-5.0.10-monolith-mt.a" />
 		</Linker>
+		<Unit filename="audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="audio.h" />
 		<Unit filename="desenho.c">
 			<Option compilerVar="CC" />
 		</Unit>

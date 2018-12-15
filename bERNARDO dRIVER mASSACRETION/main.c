@@ -4,6 +4,7 @@
 #include "fisica.h"
 #include "desenho.h"
 #include "entidades.h"
+#include "audio.h"
 #undef x
 #undef y
 #include <allegro5\allegro.h>
