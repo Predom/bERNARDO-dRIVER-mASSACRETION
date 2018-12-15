@@ -13,6 +13,7 @@
  ///pra mexer nas globais a partir da main.c
 void mudaOtimeRate(float novoTimeRate);
 float retornaOtimeRate();
+struct Vetor2D retornaVelocidadeDoJogador();
 
  ///corpos fisicos de uma maneira geral
 void atualizaCorpoFisico(struct CorpoFisico *corpo);
