@@ -10,6 +10,11 @@
  * Essa é a header da fisica.c        *
  **************************************/
 
+ ///pra mexer nas globais a partir da main.c
+void mudaOtimeRate(float novoTimeRate);
+
+ ///corpos fisicos de uma maneira geral
+void atualizaCorpoFisico(struct CorpoFisico *corpo);
 
 ///Player func
 

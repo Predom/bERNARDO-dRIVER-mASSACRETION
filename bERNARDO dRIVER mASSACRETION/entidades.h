@@ -32,9 +32,8 @@ struct CONVEXPOLYGON
     int NumVertices;
 };
 
- struct Player
+struct CorpoFisico
 {
-
     struct CONVEXPOLYGON *modelo;    /// endereço do modelo
 
     struct CONVEXPOLYGON locAtual;   /// para ser usado nas funções de desenho e detecção de colisão
@@ -43,6 +42,16 @@ struct CONVEXPOLYGON
 
     struct Vetor2D velocidade;
     float velocidadeModulo;
+
+    struct Vetor2D aceleracao;
+    float aceleracaoModulo;
+
+    float massa;
+};
+
+ struct Player
+{
+    struct CorpoFisico corpo;
 
     int marcha;                      /// marcha do carro para as funções de áudio
     int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio
@@ -54,14 +63,8 @@ struct CONVEXPOLYGON
 struct Carro
 {
     int ID;
-    struct CONVEXPOLYGON *modelo;    /// endereço do modelo
-
-    struct CONVEXPOLYGON locAtual;   /// para ser usado nas funções de desenho e detecção de colisão
-                                     /// é obtido transformando o modelo pelo ângulo atual+ânugo do player e
-                                     /// somando o vetor local.
-
+    struct CorpoFisico corpo;
     struct Vetor2D local;            ///localização em relação ao player
-    float angulo;                    /// em relação ao eixo x
 
     float dano;
     float massa;

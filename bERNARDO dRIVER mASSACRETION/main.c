@@ -80,7 +80,7 @@ int main()
 
     struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
     struct Ponto2D PLAYERMODELCACHE[4];
-    struct Player PLAYER={&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0,0,1,1,1};
+    struct Player PLAYER={{&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0,0,0,0,10},1,1,1};
 
     srand(time(NULL));
 
@@ -467,25 +467,27 @@ int main()
                 RePlayer(&PLAYER);
             }
 
-            if(keys[SPACE])                 //FALTA A FUNÇÃO A PARA BOZINAR(?)
-                ;
+            if(keys[SPACE])
+            {
+                mudaOtimeRate(0.25); //FALTA A FUNÇÃO A PARA BOZINAR(?)
+            }else mudaOtimeRate(1);
             if(!isGameOver)
             {
-                vy+=PLAYER.velocidade.coord[1];
-                x+=PLAYER.velocidade.coord[0];
+                vy+=PLAYER.corpo.velocidade.coord[1];
+                x+=PLAYER.corpo.velocidade.coord[0];
                 atualizarPlayer(&PLAYER);
-                if(vx_1-PLAYER.velocidade.coord[0]<=-WIDTH)
+                if(vx_1-PLAYER.corpo.velocidade.coord[0]<=-WIDTH)
                 {
-                     vx_1=WIDTH+WIDTH+vx_1-PLAYER.velocidade.coord[0];
+                     vx_1=WIDTH+WIDTH+vx_1-PLAYER.corpo.velocidade.coord[0];
                 }
                 else
-                    vx_1-=PLAYER.velocidade.coord[0];
-                if(vx_2-PLAYER.velocidade.coord[0]<=-WIDTH)
+                    vx_1-=PLAYER.corpo.velocidade.coord[0];
+                if(vx_2-PLAYER.corpo.velocidade.coord[0]<=-WIDTH)
                 {
-                     vx_2=WIDTH+WIDTH+vx_2-PLAYER.velocidade.coord[0];
+                     vx_2=WIDTH+WIDTH+vx_2-PLAYER.corpo.velocidade.coord[0];
                 }
                 else
-                    vx_2-=PLAYER.velocidade.coord[0];
+                    vx_2-=PLAYER.corpo.velocidade.coord[0];
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
@@ -558,7 +560,7 @@ int main()
                 desenha_ruas(rua_bus,rua_width,rua_height,vx_1,vx_2,vy,WIDTH,HEIGHT);
                 desenhaPlayer(&PLAYER,WIDTH,HEIGHT,0,player_width,player_height);
 
-                printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
+                //printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
 
             }
             else
