@@ -39,6 +39,8 @@ struct CorpoFisico
     struct CONVEXPOLYGON locAtual;   /// para ser usado nas funções de desenho e detecção de colisão
                                      /// é obtido transformando o modelo pelo ângulo atual
     float angulo;                    /// em relação ao eixo x
+    float movimentoAngular;          ///rate de modif do angulo
+    float aceleracaoAngular;         ///rate de modif da vel angular
 
     struct Vetor2D velocidade;
     float velocidadeModulo;
@@ -67,8 +69,6 @@ struct Carro
     struct Vetor2D local;            ///localização em relação ao player
 
     float dano;
-    float massa;
-
 };
 
 #endif

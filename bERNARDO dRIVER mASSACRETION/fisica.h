@@ -12,6 +12,7 @@
 
  ///pra mexer nas globais a partir da main.c
 void mudaOtimeRate(float novoTimeRate);
+float retornaOtimeRate();
 
  ///corpos fisicos de uma maneira geral
 void atualizaCorpoFisico(struct CorpoFisico *corpo);

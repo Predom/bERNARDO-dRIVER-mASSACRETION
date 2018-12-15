@@ -471,6 +471,7 @@ int main()
             {
                 mudaOtimeRate(0.25); //FALTA A FUNÇÃO A PARA BOZINAR(?)
             }else mudaOtimeRate(1);
+
             if(!isGameOver)
             {
                 vy+=PLAYER.corpo.velocidade.coord[1];
@@ -560,7 +561,7 @@ int main()
                 desenha_ruas(rua_bus,rua_width,rua_height,vx_1,vx_2,vy,WIDTH,HEIGHT);
                 desenhaPlayer(&PLAYER,WIDTH,HEIGHT,0,player_width,player_height);
 
-                //printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
+                printf("Velocidade\n x: %f      y: %f      direcao: %f    TMR: %f\n",PLAYER.corpo.velocidade.coord[0],PLAYER.corpo.velocidade.coord[1],PLAYER.corpo.angulo,retornaOtimeRate());
 
             }
             else

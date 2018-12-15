@@ -62,6 +62,8 @@ struct Vetor2D produtoVetEscaLRet(struct Vetor2D VA, float Escalar);
 
 struct Vetor2D retornarNormalizadoSPont(struct Vetor2D *V);
 
+void somaVetorAoPoligonoRetOrig(struct CONVEXPOLYGON *poligonoentrada,struct CONVEXPOLYGON *poligonosaida,struct Vetor2D *V);
+
 //transformar e girar vetores
 void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);
 

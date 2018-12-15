@@ -137,8 +137,11 @@ float returnVetDirec(struct Vetor2D V){
     normalizeVet(&V);
     return atan2(V.y,V.x);//primeiro Quadrante
 }
-
-
+/*
+void somaVetorAoPoligonoRetOrig(struct CONVEXPOLYGON *poligonoentrada,struct CONVEXPOLYGON *poligonosaida,struct Vetor2D *V){
+    for(int i=1;i<(poligonoentrada->NumVertices+1);i++)somaVetorAoPonto(poligonoentrada->v[i],V,poligonosaida->v[i]);
+}
+*/
 
 /***********************************************************************************
  *  Essas funções obétm o produto do vetor pela matriz para aplicar a transformação
