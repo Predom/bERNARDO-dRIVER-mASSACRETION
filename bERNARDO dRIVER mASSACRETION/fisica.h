@@ -21,6 +21,7 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo);
 
 void atualizarPlayer(struct Player *P);
 
+//controles
 void aceleraPlayer(struct Player *P);
 
 void RePlayer(struct Player *P);

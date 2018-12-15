@@ -19,7 +19,7 @@
  ///globais
 
  float timeRate=1;
- struct Vetor2D VELPLAYER={0,0};;
+ struct Vetor2D VELPLAYER={0,0};
 
  void mudaOtimeRate(float novoTimeRate){
     timeRate=novoTimeRate;
@@ -33,8 +33,12 @@ float retornaOtimeRate(){
 
 void atualizaCorpoFisico(struct CorpoFisico *corpo){
 
+    somaVetoresRetOrig(&corpo->velocidade,&corpo->aceleracao);
     corpo->aceleracaoModulo=returnComp(&corpo->aceleracao);
+    produtoVetEscaLRetOrig(&corpo->aceleracao,0);
 
+
+/*
     //provisório
     if(corpo->velocidade.x!=0||corpo->velocidade.y!=0)
     corpo->angulo=returnVetDirec(corpo->velocidade);
@@ -45,7 +49,7 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo){
     //vel = vel + acel
     somaVetoresRetOrig(&corpo->velocidade,&corpo->aceleracao);
     produtoVetEscaLRetOrig(&corpo->aceleracao,0);
-/*
+
     //provisório
     //atrito com o ar
         if(corpo->velocidadeModulo>0){
@@ -78,7 +82,8 @@ void atualizarPlayer(struct Player *P){
 
 //void acelerar
 void aceleraPlayer(struct Player *P){
-
+    P->corpo.aceleracao.x++;
+/*
     float acelrat = timeRate;
     if(P->corpo.velocidadeModulo>0){
 
@@ -92,7 +97,7 @@ void aceleraPlayer(struct Player *P){
     }else{
         P->corpo.velocidade.x+=cos(P->corpo.angulo)*acelrat;
         P->corpo.velocidade.y+=sin(P->corpo.angulo)*acelrat;
-    }
+    }*/
 }
 
 void RePlayer(struct Player *P){
