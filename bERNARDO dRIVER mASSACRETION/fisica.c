@@ -29,18 +29,18 @@ void atualizarPlayer(struct Player *P){
 
     //atrito com o ar
         if(P->velocidadeModulo>0){
-        float atritoModulo=SQUAR(P->velocidadeModulo)*0.0003;
+        float atritoModulo=SQUAR(P->velocidadeModulo)*0.00003;
         struct Vetor2D atrito;
         atrito=produtoVetEscaLRet(retornarNormalizadoSPont(&P->velocidade),atritoModulo);
         subtraiVetoresRetOrig(&P->velocidade,&atrito);
     }
     //atrito com o eixo
-    if(P->velocidadeModulo>0.03){
+    if(P->velocidadeModulo>0.08){
         float atritoSupModulo=0.03;
         struct Vetor2D atritoSup;
         atritoSup=produtoVetEscaLRet(retornarNormalizadoSPont(&P->velocidade),atritoSupModulo);
         subtraiVetoresRetOrig(&P->velocidade,&atritoSup);
-    }else if(P->velocidadeModulo<0.03){
+    }else if(P->velocidadeModulo<0.08){
         P->velocidade.x=0;
         P->velocidade.y=0;
     }
