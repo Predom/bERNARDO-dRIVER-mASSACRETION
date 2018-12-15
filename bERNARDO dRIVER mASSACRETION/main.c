@@ -374,56 +374,18 @@ int main()
 
             if(pag[MENU]&&!pag[LORE]&&!pag[CREDIT])
             {
-                al_draw_scaled_bitmap(imagem_menu,0,0,imagem_menu_width,imagem_menu_height,0,0,WIDTH,HEIGHT,0);
-
-                for(int k=110; k<=310; k+=100)
-                {
-                    al_draw_filled_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(34,31,117));
-                    al_draw_rounded_rectangle(WIDTH/2-100,HEIGHT/2+k,WIDTH/2+100,HEIGHT/2+k+70,10,10,al_map_rgb(0,0,0), 5);
-                }
-
-                al_draw_text(font_menu_48, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+120,ALLEGRO_ALIGN_CENTRE,"Play");
-                al_draw_text(font_menu_48, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+220,ALLEGRO_ALIGN_CENTRE,"Lore");
-                al_draw_text(font_menu_40, al_map_rgb(0,0,0),WIDTH/2,HEIGHT/2+320,ALLEGRO_ALIGN_CENTRE,"Credits");
-                al_draw_rounded_rectangle(WIDTH/2-100,selecty*100+HEIGHT/2+110,WIDTH/2+100,selecty*100+HEIGHT/2+180,10,10,al_map_rgb(255,255,255), 5);
+                desenha_fundo(imagem_menu,imagem_menu_width,imagem_menu_height,WIDTH,HEIGHT);
+                desenha_botoes(font_menu_48,font_menu_40,selecty,WIDTH,HEIGHT);
             }
             else if(pag[MENU]&&pag[LORE]&&!pag[CREDIT])
             {
-                al_clear_to_color(al_map_rgb(0,0,0));
-                al_draw_filled_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(34,31,117));
-                al_draw_filled_triangle(10,32.5,32.5,10,32.5,55,al_map_rgb(255,255,255));
-                al_draw_filled_rectangle(32.5,26,55,39,al_map_rgb(255,255,255));
-                al_draw_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(0,0,0),5);
-                if(in_back_button)
-                    al_draw_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(255,255,255),5);
-                al_draw_line(WIDTH/2-75,HEIGHT/2-300,WIDTH/2+75,HEIGHT/2-300,al_map_rgb(255,255,255),3);
-                al_draw_rounded_rectangle(WIDTH/2-550,HEIGHT/2-275,WIDTH/2+550,HEIGHT/2+125,20,20,al_map_rgb(255,255,255),5);
-                al_draw_text(font_menu_48, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-350,ALLEGRO_ALIGN_CENTRE,"LORE");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-415,HEIGHT/2-250,0,"Depois de se tornar o homem mais based  do  mundo,");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2-200,0,"Bernardo   eh   perseguido   pelos    seus   inumeros   crimes.");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2-150,0,"Com incontaveis organizacoes governamentais no seu rastro,");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2-100,0,"voce  deve  assumir o volante e despistar seus perseguidores");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2-50,0,"com seu carro blindado feito em sua garagem.");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-415,HEIGHT/2,0,"Bernardo  tenta  fugir  de tudo e todos  dirigindo  como");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2+50,0,"se nao tivesse medo de morrer, apenas de ser pego.");
+                desenha_back_button(in_back_button);
+                desenha_lore(font_menu_48,font_menu_40,WIDTH,HEIGHT);
             }
             else if(pag[MENU]&&!pag[LORE]&&pag[CREDIT])
             {
-                al_draw_scaled_bitmap(imagem_menu,0,0,imagem_menu_width,imagem_menu_height,0,0,WIDTH,HEIGHT,0);
-                al_draw_filled_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(34,31,117));
-                al_draw_filled_triangle(10,32.5,32.5,10,32.5,55,al_map_rgb(255,255,255));
-                al_draw_filled_rectangle(32.5,26,55,39,al_map_rgb(255,255,255));
-                al_draw_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(0,0,0),5);
-                if(in_back_button)
-                    al_draw_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(255,255,255),5);
-                al_draw_filled_rectangle(WIDTH/2-350,HEIGHT,WIDTH/2+350,0,al_map_rgb(0,0,0));
-                al_draw_line(WIDTH/2-110,HEIGHT/2-300,WIDTH/2+110,HEIGHT/2-300,al_map_rgb(255,255,255),3);
-                al_draw_text(font_menu_48, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-350,ALLEGRO_ALIGN_CENTRE,"CREDITS");
-                al_draw_text(font_menu_48, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-270,ALLEGRO_ALIGN_CENTRE,"Desenvolvedores:");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-200,ALLEGRO_ALIGN_CENTRE,"Theo Pires");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-150,ALLEGRO_ALIGN_CENTRE,"Pedro de Lima Batista");
-                al_draw_text(font_menu_48, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2-70,ALLEGRO_ALIGN_CENTRE,"Efeitos sonoros:");
-                al_draw_text(font_menu_40, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2,ALLEGRO_ALIGN_CENTRE,"bERNARDO bORGES sANDOVAL");
+                desenha_back_button(in_back_button);
+                desenha_creditos(font_menu_48,font_menu_40,WIDTH,HEIGHT);
             }
 
             al_flip_display();
@@ -490,22 +452,18 @@ int main()
         {
             redraw = true;
 
-            if(keys[LEFT])                    //FALTA A FUN플O PARA VIRAR PARA A ESQUERDA
+            if(keys[UP])
                 viraPraEsquerda(&PLAYER);
-            if(keys[RIGHT])                  //FALTA A FUN플O PARA VIRAR PARA A DIREITA
+            if(keys[DOWN])
                 viraPraDireita(&PLAYER);
-            if(keys[UP])                 //FALTA A FUN플O PARA MOVIMENTAR PARA FRENTE
+            if(keys[RIGHT])
             {
                 aceleraPlayer(&PLAYER);
             }
 
-            if(keys[DOWN])                  //FALTA A FUN플O PARA FREAR
+            if(keys[LEFT])
             {
                 RePlayer(&PLAYER);
-                //if(x>0.5)
-                  //  x-=0.01;
-                //al_set_audio_stream_gain(vrum,x);
-                //al_set_audio_stream_speed(vrum,x);
             }
 
             if(keys[SPACE])                 //FALTA A FUN플O A PARA BOZINAR(?)
@@ -596,12 +554,10 @@ int main()
             if(!isGameOver)
             {
                 ///DESENHA TUDO
-                    al_draw_scaled_bitmap(rua_bus,0,vy,rua_width,rua_height,vx_1,0,WIDTH,HEIGHT,0);
-                    al_draw_scaled_bitmap(rua_bus,0,vy,rua_width,rua_height,vx_2,0,WIDTH,HEIGHT,0);
+                desenha_ruas(rua_bus,rua_width,rua_height,vx_1,vx_2,vy,WIDTH,HEIGHT);
+                desenhaPlayer(&PLAYER,WIDTH,HEIGHT,0,player_width,player_height);
 
-                    desenhaPlayer(&PLAYER,WIDTH,HEIGHT,0,player_width,player_height);
-
-                    printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
+                printf("Velocidade\n x: %f      y: %f      direcao: %f     velocidade_modulo\n",PLAYER.velocidade.coord[0],PLAYER.velocidade.coord[1],PLAYER.angulo,PLAYER.velocidadeModulo);
 
             }
             else
