@@ -41,11 +41,6 @@ int main()
 
 	int selecty = 0;
 
-    float vx_1 = 0;
-    float vx_2 = WIDTH;
-    float vy = 0;
-    float x = 0.5;
-
     setlocale(LC_ALL,"portuguese");
 
     ALLEGRO_DISPLAY *display = NULL;
@@ -72,7 +67,7 @@ int main()
 
     #include "INICIALIZAR_ALLEGRO_MENU.h"
 
-    //importa_width_height(WIDTH,HEIGHT);
+    importa_width_height(WIDTH,HEIGHT);
 
     ///START MENU =======================================================================================
     #include "MENU.h"

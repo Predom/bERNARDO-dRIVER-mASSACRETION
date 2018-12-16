@@ -84,6 +84,11 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 }
 
 /// Desenhos durante o Jogo
+void atualiza_localRua(struct Ponto2D *localRua)
+{
+
+}
+
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     al_draw_scaled_bitmap(imagem,0,VelPlayer.coord[1],imagem_width,imagem_height,VelPlayer.coord[0],0,WIDTH,HEIGHT,0);
