@@ -68,17 +68,16 @@ void aplicarForca(struct CorpoFisico *corpo, struct Vetor2D forca){
 }
 
 void aplicarAtritoAr(struct CorpoFisico *corpo){
-    if(corpo->velocidadeModulo>0){
-        float atritoModulo=SQUAR(corpo->velocidadeModulo)*0.0003;
-        struct Vetor2D atrito;
-        atrito=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),-atritoModulo);
-        somaVetoresRetOrig(&corpo,&atrito);
+    if(corpo->velocidadeModulo!=0){
+        float moduloAtrito=corpo->velocidadeModulo*0.003;
+        struct Vetor2D atrito = produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade), -moduloAtrito);
+        somaVetoresRetOrig(&corpo->aceleracao,&atrito);
     }
 }
 
 void aplicarAtritoChao(struct CorpoFisico *corpo){
     if(corpo->velocidadeModulo>0.08){
-        float atritoSupModulo=0.03;
+        float atritoSupModulo=0.003;
         struct Vetor2D atritoSup;
         atritoSup=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),atritoSupModulo);
         subtraiVetoresRetOrig(&corpo->velocidade,&atritoSup);
@@ -94,8 +93,8 @@ void atualizarPlayer(struct Player *P){
     aplicarAtritoAr(&P->corpo);
     aplicarAtritoChao(&P->corpo);
     atualizaCorpoFisico(&P->corpo);
-    printf("\nvelocidade modulo = %f \n",P->corpo.velocidadeModulo);
     produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
+
 
     VELPLAYER.x=P->corpo.velocidade.x*timeRate;
     VELPLAYER.y=P->corpo.velocidade.y*timeRate;
@@ -105,7 +104,16 @@ void atualizarPlayer(struct Player *P){
 
 //void acelerar
 void aceleraPlayer(struct Player *P){
-    P->corpo.aceleracao.x=1;
+    if(P->corpo.velocidadeModulo>0){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
+        somaVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
+    }else if(P->corpo.velocidadeModulo<0){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
+        somaVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
+    }else{
+        P->corpo.velocidade.x+=cos(P->corpo.angulo);
+        P->corpo.velocidade.y+=sin(P->corpo.angulo);
+    }
 }
 
 void RePlayer(struct Player *P){
