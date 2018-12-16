@@ -91,11 +91,11 @@ void atualiza_localRua()
     }
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT-100)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-150)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT-100;
+            localRuas[i].coord[1]=HEIGHT/2-150;
         }
     }
     else
