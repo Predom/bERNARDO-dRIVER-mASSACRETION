@@ -106,10 +106,10 @@
                 ///DESENHA TUDO
                 atualiza_velplayer(retornaVelocidadeDoJogador());
                 desenha_ruas(rua_bus,rua_width,rua_height);
-                desenha_metros(font_menu_48);
+                desenha_metros(font_menu_40);
                 desenhaPlayer(&PLAYER,0,player_width,player_height);
 
-                printf("Velocidade\n x: %f      y: %f      direcao: %f    TMR: %f\n",PLAYER.corpo.velocidade.coord[0],PLAYER.corpo.velocidade.coord[1],PLAYER.corpo.angulo,retornaOtimeRate());
+                //printf("Velocidade\n x: %f      y: %f      direcao: %f    TMR: %f\n",PLAYER.corpo.velocidade.coord[0],PLAYER.corpo.velocidade.coord[1],PLAYER.corpo.angulo,retornaOtimeRate());
 
             }
             else

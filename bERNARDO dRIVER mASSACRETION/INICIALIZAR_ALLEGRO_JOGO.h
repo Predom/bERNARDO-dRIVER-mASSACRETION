@@ -30,7 +30,7 @@
 
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
-	timer = al_create_timer(0.008);
+	timer = al_create_timer(0.01);
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 	al_register_event_source(event_queue, al_get_timer_event_source(timer));

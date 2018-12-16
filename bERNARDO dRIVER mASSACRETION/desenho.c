@@ -14,6 +14,7 @@
 struct Vetor2D VelPlayer={0,0};
 struct Ponto2D localRuas[]={{0,0},{WIDTH,0}};
 int metrosPercorridos=0;
+float cache;
 
 void atualiza_velplayer(struct Vetor2D v)
 {
@@ -78,9 +79,8 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 }
 
 /// Desenhos durante o Jogo
-void desenha_metros(ALLEGRO_FONT *font48)
+void desenha_metros(ALLEGRO_FONT *font40)
 {
-    float cache=0;
     if(cache+VelPlayer.coord[0]>=87)
     {
         metrosPercorridos++;
@@ -89,7 +89,7 @@ void desenha_metros(ALLEGRO_FONT *font48)
     else
         cache+=VelPlayer.coord[0];
 
-    //al_draw_text(font40, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2,ALLEGRO_ALIGN_CENTRE,"bERNARDO bORGES sANDOVAL");
+    al_draw_textf(font40, al_map_rgb(255,255,255),10,10,ALLEGRO_ALIGN_LEFT,"%d METROS", metrosPercorridos);
 }
 
 void atualiza_localRua(struct Player *PLAYER)
