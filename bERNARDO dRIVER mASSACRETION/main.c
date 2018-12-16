@@ -16,12 +16,6 @@
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 
-///GLOBALS
-const int Width = 1300;
-const int Height = 800;
-const int windowX = 100;
-const int windowY = 0;
-
 int main()
 {
     enum KEYS {UP, DOWN, RIGHT, LEFT, SPACE, ENTER};

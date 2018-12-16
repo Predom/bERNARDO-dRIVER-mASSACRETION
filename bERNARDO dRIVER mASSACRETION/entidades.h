@@ -10,6 +10,10 @@
 #include <allegro5/allegro.h>
 #define x coord<:0:>
 #define y coord<:1:>
+#define Width 1300
+#define Height 800
+#define windowX 100
+#define windowY 0
 
 struct Ponto2D
 {

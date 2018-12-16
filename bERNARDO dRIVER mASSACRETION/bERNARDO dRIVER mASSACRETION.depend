@@ -15,7 +15,7 @@
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 
-1544938215 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1544938960 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -294,10 +294,10 @@
 1543117349 c:\users\theo-\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1544926514 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1544939144 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 	<allegro5/allegro.h>
 
-1544938157 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
+1544938795 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"fisica.h"
@@ -635,13 +635,13 @@
 
 1544922009 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro.h
 
-1544931232 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\menu.h
+1544938660 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\menu.h
 
-1544931232 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_menu.h
+1544938522 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_menu.h
 
 1544927368 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_menu.h
 
-1544927722 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
+1544938733 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
 
 1544938254 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
 
