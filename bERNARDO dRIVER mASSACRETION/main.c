@@ -61,8 +61,6 @@ int main()
 
     #include "INICIALIZAR_ALLEGRO_MENU.h"
 
-
-
     ///START MENU =======================================================================================
     #include "MENU.h"
 

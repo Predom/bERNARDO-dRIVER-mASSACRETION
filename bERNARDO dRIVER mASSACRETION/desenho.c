@@ -13,6 +13,7 @@
 
 struct Vetor2D VelPlayer={0,0};
 struct Ponto2D localRuas[]={{0,0},{WIDTH,0}};
+int metrosPercorridos=0;
 
 void atualiza_velplayer(struct Vetor2D v)
 {
@@ -77,6 +78,20 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 }
 
 /// Desenhos durante o Jogo
+void desenha_metros(ALLEGRO_FONT *font48)
+{
+    float cache=0;
+    if(cache+VelPlayer.coord[0]>=87)
+    {
+        metrosPercorridos++;
+        cache=87-cache+VelPlayer.coord[0];
+    }
+    else
+        cache+=VelPlayer.coord[0];
+
+    //al_draw_text(font40, al_map_rgb(255,255,255),WIDTH/2,HEIGHT/2,ALLEGRO_ALIGN_CENTRE,"bERNARDO bORGES sANDOVAL");
+}
+
 void atualiza_localRua(struct Player *PLAYER)
 {
     /// PARTE X -----------------------------------------------------------------------------
@@ -120,7 +135,6 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
         {
             al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],-114+2*fabs(VelPlayer.coord[0]),WIDTH,HEIGHT+234-4*fabs(VelPlayer.coord[0]),0);
         }
-
 }
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
