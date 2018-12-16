@@ -11,14 +11,29 @@
  * de alguma forma seu comportamento.               *
  ***************************************************/
 
+struct Vetor2D VelPlayer={0,0};
+int WIDTH;
+int HEIGHT;
+
+void importa_width_height(const int L, const int A)
+{
+    WIDTH = L;
+    HEIGHT = A;
+}
+
+void atualiza_velplayer(struct Vetor2D v)
+{
+    VelPlayer.coord[0] = v.coord[0];
+    VelPlayer.coord[1] = v.coord[1];
+}
 
 ///Desenhos do Menu
-void desenha_fundo(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height, const int WIDTH, const int HEIGHT)
+void desenha_fundo(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     al_draw_scaled_bitmap(imagem,0,0,imagem_width,imagem_height,0,0,WIDTH,HEIGHT,0);
 }
 
-void desenha_botoes(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, int select,const int WIDTH, const int HEIGHT)
+void desenha_botoes(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, int select)
 {
     for(int k=110; k<=310; k+=100)
     {
@@ -42,7 +57,7 @@ void desenha_back_button(int in_back_button)
         al_draw_rounded_rectangle(5,5,60,60,10,10,al_map_rgb(255,255,255),5);
 }
 
-void desenha_lore(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDTH, const int HEIGHT)
+void desenha_lore(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 {
     al_draw_line(WIDTH/2-75,HEIGHT/2-300,WIDTH/2+75,HEIGHT/2-300,al_map_rgb(255,255,255),3);
     al_draw_rounded_rectangle(WIDTH/2-550,HEIGHT/2-275,WIDTH/2+550,HEIGHT/2+125,20,20,al_map_rgb(255,255,255),5);
@@ -56,7 +71,7 @@ void desenha_lore(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDTH, c
     al_draw_text(font40, al_map_rgb(255,255,255),WIDTH/2-535,HEIGHT/2+50,0,"se nao tivesse medo de morrer, apenas de ser pego.");
 }
 
-void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDTH, const int HEIGHT)
+void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 {
     al_draw_filled_rectangle(WIDTH/2-350,HEIGHT,WIDTH/2+350,0,al_map_rgb(0,0,0));
     al_draw_line(WIDTH/2-110,HEIGHT/2-300,WIDTH/2+110,HEIGHT/2-300,al_map_rgb(255,255,255),3);
@@ -69,13 +84,12 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDT
 }
 
 /// Desenhos durante o Jogo
-void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height, float vx_1, float vx_2, float vy, const int WIDTH, const int HEIGHT)
+void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
-    al_draw_scaled_bitmap(imagem,0,vy,imagem_width,imagem_height,vx_1,0,WIDTH,HEIGHT,0);
-    al_draw_scaled_bitmap(imagem,0,vy,imagem_width,imagem_height,vx_2,0,WIDTH,HEIGHT,0);
+    al_draw_scaled_bitmap(imagem,0,VelPlayer.coord[1],imagem_width,imagem_height,VelPlayer.coord[0],0,WIDTH,HEIGHT,0);
+    al_draw_scaled_bitmap(imagem,0,VelPlayer.coord[1],imagem_width,imagem_height,WIDTH,0,VelPlayer.coord[0]+WIDTH,HEIGHT,0);
 }
-
-void desenhaPlayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy,int player_width,int player_height){
+void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
     al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2,HEIGHT/2,jogador->corpo.angulo,0);
 }

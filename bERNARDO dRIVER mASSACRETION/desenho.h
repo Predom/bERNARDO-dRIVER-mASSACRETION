@@ -1,3 +1,6 @@
+#ifndef DESENHO_H
+#define DESENHO_H
+
 #include "matematica.h"
 #include "fisica.h"
 #include "entidades.h"
@@ -13,15 +16,19 @@
  * Essa é a header do desenho.c
  **************************************/
 
+/// Função para atualizar as variaveis globais
+void atualiza_velplayer(struct Vetor2D v);
+void importa_width_height(const int L, const int A);
 
 /// Desenhos do Menu
-void desenha_fundo(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height, const int WIDTH, const int HEIGHT);
-void desenha_botoes(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, int select,const int WIDTH, const int HEIGHT);
+void desenha_fundo(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height);
+void desenha_botoes(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, int select);
 void desenha_back_button(int in_back_button);
-void desenha_lore(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDTH, const int HEIGHT);
-void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40, const int WIDTH, const int HEIGHT);
+void desenha_lore(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40);
+void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40);
 
 /// Desenhos durante o jogo
-void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height, float vx_1, float vx_2, float vy, const int WIDTH, const int HEIGHT);
-void desenhaPlayer(struct Player *jogador,int WIDTH,int HEIGHT, int vy,int player_width,int player_height);
+void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height);
+void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height);
 
+#endif // DESENHO_H

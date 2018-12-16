@@ -1,22 +1,22 @@
     while(pag[MENU])
     {
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
+        ALLEGRO_EVENT ev;                                                               // CRIA VARIAVEL DE EVENTO
+        al_wait_for_event(event_queue, &ev);                                            // ESPERA POR UM EVENTO
 
-        if(ev.type == ALLEGRO_EVENT_TIMER)
+        if(ev.type == ALLEGRO_EVENT_TIMER)                                              // EVENTO TIMER PARA ATUALIZAR A JANELA
         {
             redraw = true;
         }
 
-        if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+        if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)                                       // EVENTO DE FECHAMENTO DA JANELA
         {
             pag[MENU] = false;
             pag[GAME] = false;
         }
 
-        else if(ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+        else if(ev.type == ALLEGRO_EVENT_MOUSE_AXES)                                     // EVENTO MOVIMENTO DO MOUSEE
         {
-            if(pag[MENU]&&!pag[LORE]&&!pag[CREDIT])
+            if(pag[MENU]&&!pag[LORE]&&!pag[CREDIT])                                      // TESTA SE ESTÁ NA PAGINA MENU
             {
                 if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(play_button)&&
                 ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(play_button)&&
@@ -218,18 +218,18 @@
 
             if(pag[MENU]&&!pag[LORE]&&!pag[CREDIT])
             {
-                desenha_fundo(imagem_menu,imagem_menu_width,imagem_menu_height,WIDTH,HEIGHT);
-                desenha_botoes(font_menu_48,font_menu_40,selecty,WIDTH,HEIGHT);
+                desenha_fundo(imagem_menu,imagem_menu_width,imagem_menu_height);
+                desenha_botoes(font_menu_48,font_menu_40,selecty);
             }
             else if(pag[MENU]&&pag[LORE]&&!pag[CREDIT])
             {
                 desenha_back_button(in_back_button);
-                desenha_lore(font_menu_48,font_menu_40,WIDTH,HEIGHT);
+                desenha_lore(font_menu_48,font_menu_40);
             }
             else if(pag[MENU]&&!pag[LORE]&&pag[CREDIT])
             {
                 desenha_back_button(in_back_button);
-                desenha_creditos(font_menu_48,font_menu_40,WIDTH,HEIGHT);
+                desenha_creditos(font_menu_48,font_menu_40);
             }
 
             al_flip_display();
