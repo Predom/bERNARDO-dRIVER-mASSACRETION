@@ -30,6 +30,7 @@
             if(!isGameOver)
             {
                 atualizarPlayer(&PLAYER);
+                atualiza_localRua();
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES

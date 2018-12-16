@@ -10,7 +10,8 @@
 
         if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)                                       // EVENTO DE FECHAMENTO DA JANELA
         {
-            pag[MENU] = false;
+            pag[MENU] = false
+            ;
             pag[GAME] = false;
         }
 
@@ -18,10 +19,10 @@
         {
             if(pag[MENU]&&!pag[LORE]&&!pag[CREDIT])                                      // TESTA SE ESTÁ NA PAGINA MENU
             {
-                if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(play_button)&&
-                ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(play_button)&&
-                ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(play_button) * 11 &&
-                ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
+                if (ev.mouse.x >= Width / 2 - al_get_bitmap_width(play_button)&&
+                ev.mouse.x <= Width / 2 + al_get_bitmap_width(play_button)&&
+                ev.mouse.y >= Height / 2 + al_get_bitmap_height(play_button) * 11 &&
+                ev.mouse.y <= Height / 2 + al_get_bitmap_height(play_button) * 18)
                 {
                     if(!in_play_button)
                         al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
@@ -31,10 +32,10 @@
                 else
                     in_play_button = false;
 
-                if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(lore_button) &&
-                    ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(lore_button) &&
-                    ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(lore_button) * 21 &&
-                    ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(lore_button) * 28)
+                if (ev.mouse.x >= Width / 2 - al_get_bitmap_width(lore_button) &&
+                    ev.mouse.x <= Width / 2 + al_get_bitmap_width(lore_button) &&
+                    ev.mouse.y >= Height / 2 + al_get_bitmap_height(lore_button) * 21 &&
+                    ev.mouse.y <= Height / 2 + al_get_bitmap_height(lore_button) * 28)
                 {
                     if(!in_lore_button)
                         al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
@@ -44,10 +45,10 @@
                 else
                     in_lore_button = false;
 
-                if (ev.mouse.x >= WIDTH / 2 - al_get_bitmap_width(credit_button) &&
-                    ev.mouse.x <= WIDTH / 2 + al_get_bitmap_width(credit_button) &&
-                    ev.mouse.y >= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 31 &&
-                    ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 38)
+                if (ev.mouse.x >= Width / 2 - al_get_bitmap_width(credit_button) &&
+                    ev.mouse.x <= Width / 2 + al_get_bitmap_width(credit_button) &&
+                    ev.mouse.y >= Height / 2 + al_get_bitmap_height(credit_button) * 31 &&
+                    ev.mouse.y <= Height / 2 + al_get_bitmap_height(credit_button) * 38)
                 {
                     if(!in_credit_button)
                         al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);

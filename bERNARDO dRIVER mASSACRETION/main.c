@@ -17,8 +17,8 @@
 #include <allegro5/allegro_acodec.h>
 
 ///GLOBALS
-const int WIDTH = 1300;
-const int HEIGHT = 800;
+const int Width = 1300;
+const int Height = 800;
 const int windowX = 100;
 const int windowY = 0;
 
@@ -40,8 +40,6 @@ int main()
 	bool in_back_button = false;
 
 	int selecty = 0;
-
-	struct Ponto2D localRua;
 
     setlocale(LC_ALL,"portuguese");
 
@@ -69,7 +67,7 @@ int main()
 
     #include "INICIALIZAR_ALLEGRO_MENU.h"
 
-    importa_width_height(WIDTH,HEIGHT);
+    importa_width_height(Width,Height);
 
     ///START MENU =======================================================================================
     #include "MENU.h"
