@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1544816614 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1544939343 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"fisica.h"
 	"desenho.h"
 	"entidades.h"
+	"audio.h"
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	<allegro5/allegro_native_dialog.h>
@@ -14,6 +15,13 @@
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
+	"INICIALIZAR_ALLEGRO_MENU.h"
+	"MENU.h"
+	"DESTRUIR_MENU.h"
+	"INICIALIZAR_ENTIDADES.h"
+	"INICIALIZAR_ALLEGRO_JOGO.h"
+	"JOGO.h"
+	"DESTRUIR_JOGO.h"
 
 1544939559 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
@@ -309,7 +317,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1544810612 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1544938568 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -545,34 +553,36 @@
 1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1544800725 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1544938568 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1544797947 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1544939343 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 	<allegro5/allegro.h>
 
-1544808759 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
+1544926280 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
 	"entidades.h"
 
-1544808389 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
-	<allegro5\allegro.h>
-	<allegro5\allegro_primitives.h>
+1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	"matematica.h"
 	"fisica.h"
 	"entidades.h"
+	<allegro5\allegro.h>
+	<allegro5\allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
 
-1544817221 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
+1544939171 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"fisica.h"
 	"matematica.h"
 	"entidades.h"
 
-1544816849 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1544938568 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
@@ -648,4 +658,36 @@
 1544928045 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_jogo.h
 
 1544929156 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
+
+1544926377 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.c
+	<allegro5\allegro.h>
+	<allegro5\allegro_primitives.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"matematica.h"
+	"fisica.h"
+	"audio.h"
+	"entidades.h"
+
+1544926377 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.h
+	"matematica.h"
+	"fisica.h"
+	"entidades.h"
+	<allegro5\allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+
+1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_menu.h
+
+1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\menu.h
+
+1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_menu.h
+
+1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
+
+1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
+
+1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
+
+1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_jogo.h
 
