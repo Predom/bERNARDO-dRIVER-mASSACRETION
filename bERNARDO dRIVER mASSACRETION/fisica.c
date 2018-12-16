@@ -52,35 +52,26 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo){
     if(corpo->velocidadeModulo!=0)
         corpo->angulo=returnVetDirec(corpo->velocidade);
 
-/*
-    //provisório
+}
 
+void aplicarForcaPont(struct CorpoFisico *corpo, struct Vetor2D *forca){
+    struct Vetor2D deltaAcel;
+    deltaAcel.x=forca/corpo->massa;
+    deltaAcel.y=forca/corpo->massa;
+    somaVetoresRetOrig(&corpo->aceleracao,&deltaAcel);
+}
 
+void aplicarForca(struct CorpoFisico *corpo, struct Vetor2D forca){
+    forca/=corpo->massa;
+    forca/=corpo->massa;
+    somaVetoresRetOrig(&corpo->aceleracao,&forca);
+}
 
+void aplicarAtritoAr(struct CorpoFisico *corpo){
 
+}
 
-
-
-    //provisório
-    //atrito com o ar
-        if(corpo->velocidadeModulo>0){
-        float atritoModulo=SQUAR(corpo->velocidadeModulo)*0.0003*timeRate;
-        struct Vetor2D atrito;
-        atrito=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),atritoModulo);
-        subtraiVetoresRetOrig(&corpo->velocidade,&atrito);
-    }
-
-    //atrito com o eixo
-    if(corpo->velocidadeModulo>0.08){
-        float atritoSupModulo=0.008*timeRate;
-        struct Vetor2D atritoSup;
-        atritoSup=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),atritoSupModulo);
-        subtraiVetoresRetOrig(&corpo->velocidade,&atritoSup);
-    }else if(corpo->velocidadeModulo<0.08){
-        corpo->velocidade.x=0;
-        corpo->velocidade.y=0;
-    }
-    */
+void aplicarAtritoChao(struct CorpoFisico *corpo){
 
 }
 

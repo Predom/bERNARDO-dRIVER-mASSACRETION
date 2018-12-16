@@ -42,6 +42,9 @@ struct CorpoFisico
     float movimentoAngular;          ///rate de modif do angulo
     float aceleracaoAngular;         ///rate de modif da vel angular
 
+    struct Vetor2D forcas;
+    float forcasModulo;
+
     struct Vetor2D velocidade;
     float velocidadeModulo;
 

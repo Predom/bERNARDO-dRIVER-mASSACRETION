@@ -18,6 +18,14 @@ struct Vetor2D retornaVelocidadeDoJogador();
  ///corpos fisicos de uma maneira geral
 void atualizaCorpoFisico(struct CorpoFisico *corpo);
 
+void aplicarForcaPont(struct CorpoFisico *corpo, struct Vetor2D *forca);
+
+void aplicarForca(struct CorpoFisico *corpo, struct Vetor2D forca);
+
+void aplicarAtritoAr(struct CorpoFisico *corpo);
+
+void aplicarAtritoChao(struct CorpoFisico *corpo);
+
 ///Player func
 
 void atualizarPlayer(struct Player *P);
