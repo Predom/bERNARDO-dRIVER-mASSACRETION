@@ -88,14 +88,18 @@ void aplicarAtritoChao(struct CorpoFisico *corpo){
     }
 }
 
- ///Player func
+///Player func
 
 void atualizarPlayer(struct Player *P){
     aplicarAtritoAr(&P->corpo);
-    //aplicarAtritoChao(&P->corpo);
+    aplicarAtritoChao(&P->corpo);
     atualizaCorpoFisico(&P->corpo);
     printf("\nvelocidade modulo = %f \n",P->corpo.velocidadeModulo);
     produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
+
+    VELPLAYER.x=P->corpo.velocidade.x*timeRate;
+    VELPLAYER.y=P->corpo.velocidade.y*timeRate;
+
 
 }
 
