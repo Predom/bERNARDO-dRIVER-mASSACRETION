@@ -91,11 +91,18 @@ void atualiza_localRua()
     }
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-150)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-190)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT/2-150;
+            localRuas[i].coord[1]=HEIGHT/2-190;
+        }
+    }
+    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-640)
+    {
+        for(int i=0;i<2;i++)
+        {
+            localRuas[i].coord[1]=HEIGHT/2-640;
         }
     }
     else
@@ -117,6 +124,6 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 }
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
-    al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2,HEIGHT/2,-jogador->corpo.angulo,0);
+    al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2-300,HEIGHT/2,-jogador->corpo.angulo,0);
 }
 
