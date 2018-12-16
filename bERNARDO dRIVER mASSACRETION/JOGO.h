@@ -8,16 +8,16 @@
         {
             redraw = true;
 
-            if(keys[UP])
+            if(keys[LEFT])
                 viraPraEsquerda(&PLAYER);
-            if(keys[DOWN])
-                viraPraDireita(&PLAYER);
             if(keys[RIGHT])
+                viraPraDireita(&PLAYER);
+            if(keys[UP])
             {
                 aceleraPlayer(&PLAYER);
             }
 
-            if(keys[LEFT])
+            if(keys[DOWN])
             {
                 RePlayer(&PLAYER);
             }
