@@ -121,11 +121,19 @@ void RePlayer(struct Player *P){
 }
 
 void viraPraDireita(struct Player *P){
-
+    struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
+    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo);
+    subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
+    rotacionarVet2DRetOrig(&Giro,90);
+    somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
 }
 
 void viraPraEsquerda(struct Player *P){
-
+    struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
+    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo);
+    subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
+    rotacionarVet2DRetOrig(&Giro,-90);
+    somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
 }
 
 
