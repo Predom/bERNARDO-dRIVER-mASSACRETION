@@ -62,6 +62,8 @@ struct CorpoFisico
 {
     struct CorpoFisico corpo;
 
+    float intencaoDeGiro;
+
     int marcha;                      /// marcha do carro para as funções de áudio
     int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio
     int volume;                      /// volume do som do motor para as funções de áudio
