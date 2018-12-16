@@ -1,5 +1,5 @@
     ///DISPLAY-------------------------------------------------------------------------
-    display = al_create_display(Width, Height);			//create our display object
+    display = al_create_display(WIDTH,HEIGHT);			//create our display object
 
     if(!display)										//test display object
 		return -1;

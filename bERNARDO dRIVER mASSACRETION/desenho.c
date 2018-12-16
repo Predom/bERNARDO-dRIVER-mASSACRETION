@@ -13,15 +13,7 @@
 
 struct Vetor2D VelPlayer={0,0};
 struct Ponto2D localRua_A={0,0};
-struct Ponto2D localRua_B={0,0};
-int WIDTH;
-int HEIGHT;
-
-void importa_width_height(const int L, const int A)
-{
-    WIDTH = L;
-    HEIGHT = A;
-}
+struct Ponto2D localRua_B={WIDTH,0};
 
 void atualiza_velplayer(struct Vetor2D v)
 {
