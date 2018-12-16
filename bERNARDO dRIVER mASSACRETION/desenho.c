@@ -77,7 +77,7 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 }
 
 /// Desenhos durante o Jogo
-void atualiza_localRua()
+void atualiza_localRua(struct Player *PLAYER)
 {
     /// PARTE X -----------------------------------------------------------------------------
     for(int i=0;i<2;i++)
@@ -91,18 +91,18 @@ void atualiza_localRua()
     }
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-190)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-180)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT/2-190;
+            localRuas[i].coord[1]=HEIGHT/2-180;
         }
     }
-    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-640)
+    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-620)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT/2-640;
+            localRuas[i].coord[1]=HEIGHT/2-620;
         }
     }
     else
@@ -118,7 +118,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     for(int i=0;i<2;i++)
         {
-            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1]+100,imagem_width,imagem_height,localRuas[i].coord[0],0,WIDTH,HEIGHT+200,0);
+            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],-114+2*fabs(VelPlayer.coord[0]),WIDTH,HEIGHT+234-4*fabs(VelPlayer.coord[0]),0);
         }
 
 }
