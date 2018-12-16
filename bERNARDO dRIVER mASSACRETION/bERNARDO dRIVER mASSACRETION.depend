@@ -15,7 +15,7 @@
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 
-1544931416 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1544932434 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -45,11 +45,11 @@
 	"matematica.h"
 	"entidades.h"
 
-1544918217 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1544931830 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1544931440 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
+1544932890 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	"matematica.h"
 	"fisica.h"
 	"entidades.h"
@@ -58,7 +58,7 @@
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
 
-1544931232 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1544932890 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -297,7 +297,7 @@
 1544926514 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 	<allegro5/allegro.h>
 
-1544927128 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
+1544931830 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"fisica.h"
@@ -643,7 +643,7 @@
 
 1544927722 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
 
-1544931232 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
+1544932890 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
 
 1544928045 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_jogo.h
 

@@ -1,3 +1,6 @@
+#ifndef DESENHO_H
+#define DESENHO_H
+
 #include "matematica.h"
 #include "fisica.h"
 #include "entidades.h"
@@ -28,3 +31,4 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40);
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height);
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height);
 
+#endif // DESENHO_H

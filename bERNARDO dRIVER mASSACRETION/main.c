@@ -72,7 +72,7 @@ int main()
 
     #include "INICIALIZAR_ALLEGRO_MENU.h"
 
-    importa_width_height(WIDTH,HEIGHT);
+    //importa_width_height(WIDTH,HEIGHT);
 
     ///START MENU =======================================================================================
     #include "MENU.h"

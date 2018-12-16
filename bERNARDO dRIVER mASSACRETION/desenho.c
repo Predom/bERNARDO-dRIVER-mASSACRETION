@@ -11,7 +11,7 @@
  * de alguma forma seu comportamento.               *
  ***************************************************/
 
-struct Vetor2D VELPLAYER={0,0};
+struct Vetor2D VelPlayer={0,0};
 int WIDTH;
 int HEIGHT;
 
@@ -23,8 +23,8 @@ void importa_width_height(const int L, const int A)
 
 void atualiza_velplayer(struct Vetor2D v)
 {
-    VELPLAYER.coord[0] = v.coord[0];
-    VELPLAYER.coord[1] = v.coord[1];
+    VelPlayer.coord[0] = v.coord[0];
+    VelPlayer.coord[1] = v.coord[1];
 }
 
 ///Desenhos do Menu
@@ -86,10 +86,9 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 /// Desenhos durante o Jogo
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
-    al_draw_scaled_bitmap(imagem,0,VELPLAYER.coord[1],imagem_width,imagem_height,VELPLAYER.coord[0],0,WIDTH,HEIGHT,0);
-    al_draw_scaled_bitmap(imagem,0,VELPLAYER.coord[1],imagem_width,imagem_height,VELPLAYER.coord[0]+WIDTH,0,WIDTH,HEIGHT,0);
+    al_draw_scaled_bitmap(imagem,0,VelPlayer.coord[1],imagem_width,imagem_height,VelPlayer.coord[0],0,WIDTH,HEIGHT,0);
+    al_draw_scaled_bitmap(imagem,0,VelPlayer.coord[1],imagem_width,imagem_height,WIDTH,0,VelPlayer.coord[0]+WIDTH,HEIGHT,0);
 }
-
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
     al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2,HEIGHT/2,jogador->corpo.angulo,0);
