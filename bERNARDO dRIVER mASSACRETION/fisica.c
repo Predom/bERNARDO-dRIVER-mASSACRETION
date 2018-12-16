@@ -38,22 +38,28 @@ struct Vetor2D retornaVelocidadeDoJogador(){
 
 void atualizaCorpoFisico(struct CorpoFisico *corpo){
 
-    somaVetoresRetOrig(&corpo->velocidade,&corpo->aceleracao);
+    //guarda o módulo da aceleração
     corpo->aceleracaoModulo=returnComp(&corpo->aceleracao);
+
+    //atualiza velocidade e zera aceleração
+    produtoVetEscaLRetOrig(&corpo->aceleracao,timeRate);
+    somaVetoresRetOrig(&corpo->velocidade,&corpo->aceleracao);
     produtoVetEscaLRetOrig(&corpo->aceleracao,0);
 
+    //guarda o módulo da velocidade
+    corpo->velocidadeModulo=returnComp(&corpo->velocidade);
+
+    if(corpo->velocidadeModulo!=0)
+        corpo->angulo=returnVetDirec(corpo->velocidade);
 
 /*
     //provisório
-    if(corpo->velocidade.x!=0||corpo->velocidade.y!=0)
-    corpo->angulo=returnVetDirec(corpo->velocidade);
 
 
 
 
-    //vel = vel + acel
-    somaVetoresRetOrig(&corpo->velocidade,&corpo->aceleracao);
-    produtoVetEscaLRetOrig(&corpo->aceleracao,0);
+
+
 
     //provisório
     //atrito com o ar
