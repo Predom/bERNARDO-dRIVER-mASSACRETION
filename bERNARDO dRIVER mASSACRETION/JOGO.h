@@ -29,9 +29,7 @@
 
             if(!isGameOver)
             {
-                vy+=PLAYER.corpo.velocidade.coord[1];
-                x+=PLAYER.corpo.velocidade.coord[0];
-                atualizarPlayer(&PLAYER);
+                /*atualizarPlayer(&PLAYER);
                 if(vx_1-PLAYER.corpo.velocidade.coord[0]<=-WIDTH)
                 {
                      vx_1=WIDTH+WIDTH+vx_1-PLAYER.corpo.velocidade.coord[0];
@@ -43,7 +41,7 @@
                      vx_2=WIDTH+WIDTH+vx_2-PLAYER.corpo.velocidade.coord[0];
                 }
                 else
-                    vx_2-=PLAYER.corpo.velocidade.coord[0];
+                    vx_2-=PLAYER.corpo.velocidade.coord[0];*/
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
