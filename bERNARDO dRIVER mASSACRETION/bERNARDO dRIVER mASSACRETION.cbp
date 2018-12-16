@@ -40,10 +40,20 @@
 		<Linker>
 			<Add library="../allegro/lib/liballegro-5.0.10-monolith-mt.a" />
 		</Linker>
+		<Unit filename="DESTRUIR_JOGO.h" />
+		<Unit filename="DESTRUIR_MENU.h" />
+		<Unit filename="INICIALIZAR_ALLEGRO_JOGO.h" />
+		<Unit filename="INICIALIZAR_ALLEGRO_MENU.h" />
+		<Unit filename="INICIALIZAR_ENTIDADES.h" />
+		<Unit filename="JOGO.h" />
+		<Unit filename="MENU.h" />
 		<Unit filename="audio.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="audio.h" />
+		<Unit filename="bERNARDO dRIVER mASSACRETION.cbp" />
+		<Unit filename="bERNARDO dRIVER mASSACRETION.depend" />
+		<Unit filename="bERNARDO dRIVER mASSACRETION.layout" />
 		<Unit filename="desenho.c">
 			<Option compilerVar="CC" />
 		</Unit>

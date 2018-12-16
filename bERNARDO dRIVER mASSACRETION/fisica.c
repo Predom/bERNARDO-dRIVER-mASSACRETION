@@ -115,7 +115,10 @@ void aceleraPlayer(struct Player *P){
 }
 
 void RePlayer(struct Player *P){
-
+    if(P->corpo.velocidadeModulo>1.1){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
+        subtraiVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
+    }
 }
 
 void viraPraDireita(struct Player *P){
