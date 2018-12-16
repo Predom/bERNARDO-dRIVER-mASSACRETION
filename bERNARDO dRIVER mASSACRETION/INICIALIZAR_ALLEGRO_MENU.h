@@ -1,5 +1,3 @@
-    if(!al_init())										//initialize Allegro
-		return -1;
     ///DISPLAY-------------------------------------------------------------------------
     display = al_create_display(WIDTH, HEIGHT);			//create our display object
 
