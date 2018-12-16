@@ -53,7 +53,7 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo){
         corpo->angulo=returnVetDirec(corpo->velocidade);
 
 }
-
+/*
 void aplicarForcaPont(struct CorpoFisico *corpo, struct Vetor2D *forca){
     struct Vetor2D deltaAcel;
     deltaAcel.x=forca->x/corpo->massa;
@@ -77,9 +77,20 @@ void aplicarAtritoAr(struct CorpoFisico *corpo){
 }
 
 void aplicarAtritoChao(struct CorpoFisico *corpo){
-
+    if(corpo->velocidadeModulo>0){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&corpo->velocidade);
+        produtoVetEscaLRetOrig(&aceleracau,timeRate);
+        somaVetoresRetOrig(corpo->velocidade,&aceleracau);
+    }else if(corpo->velocidadeModulo<0){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&corpo->velocidade);
+        produtoVetEscaLRetOrig(&aceleracau,timeRate);
+        somaVetoresRetOrig(&corpo->velocidade,&aceleracau);
+    }else{
+        corpo->velocidade.x+=cos(corpo->angulo)*timeRate;
+        corpo->velocidade.y+=sin(corpo->angulo)*timeRate;
+    }
 }
-
+*/
  ///Player func
 
 void atualizarPlayer(struct Player *P){
@@ -89,7 +100,7 @@ void atualizarPlayer(struct Player *P){
 
 //void acelerar
 void aceleraPlayer(struct Player *P){
-    P->corpo.aceleracao.x++;
+    P->corpo.aceleracao.x+=50;
 /*
     float acelrat = timeRate;
     if(P->corpo.velocidadeModulo>0){

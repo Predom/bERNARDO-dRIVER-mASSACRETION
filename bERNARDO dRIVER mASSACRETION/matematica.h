@@ -40,6 +40,8 @@ void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D 
 
 void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
+void somaVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
+
 void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
 void subtraiVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
