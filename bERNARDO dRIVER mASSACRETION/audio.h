@@ -4,7 +4,11 @@
 #undef x
 #undef y
 #include <allegro5\allegro.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 
 /**************************************
  * Essa é a header do audio.c         *
  **************************************/
+
+ void ligar_carro(bool *pag, ALLEGRO_SAMPLE *start);
