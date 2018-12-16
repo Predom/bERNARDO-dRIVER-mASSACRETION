@@ -54,6 +54,21 @@ void somaVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb)
     Pa->y += Vb->y;
 }
 
+void subtraiVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb)
+{
+    Pa->x -= Vb->x;
+    Pa->y -= Vb->y;
+}
+
+float retornaSubVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, int s)
+{
+    struct Ponto2D retorno;
+    retorno.x = Pa->x - Vb->x;
+    retorno.y = Pa->y - Vb->y;
+
+    return retorno.coord[s];
+}
+
 void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr)
 {
     Pr->x = Pa->x - Vb->x;

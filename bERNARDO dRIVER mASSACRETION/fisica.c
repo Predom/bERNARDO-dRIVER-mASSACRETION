@@ -94,7 +94,6 @@ void atualizarPlayer(struct Player *P){
     aplicarAtritoAr(&P->corpo);
     //aplicarAtritoChao(&P->corpo);
     atualizaCorpoFisico(&P->corpo);
-    printf("\nvelocidade modulo = %f \n",P->corpo.velocidadeModulo);
     produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
 
 }

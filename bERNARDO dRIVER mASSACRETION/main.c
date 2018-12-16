@@ -41,6 +41,8 @@ int main()
 
 	int selecty = 0;
 
+	struct Ponto2D localRua;
+
     setlocale(LC_ALL,"portuguese");
 
     ALLEGRO_DISPLAY *display = NULL;
