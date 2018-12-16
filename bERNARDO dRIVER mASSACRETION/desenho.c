@@ -124,6 +124,6 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 }
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
-    al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2-300,HEIGHT/2,-jogador->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2-300,HEIGHT/2,1-fabs(VelPlayer.coord[0])/57,1-fabs(VelPlayer.coord[0])/57,-jogador->corpo.angulo,0);
 }
 
