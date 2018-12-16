@@ -90,9 +90,9 @@ void aplicarAtritoChao(struct CorpoFisico *corpo){
 ///Player func
 
 void atualizarPlayer(struct Player *P){
+    atualizaCorpoFisico(&P->corpo);
     aplicarAtritoAr(&P->corpo);
     aplicarAtritoChao(&P->corpo);
-    atualizaCorpoFisico(&P->corpo);
     produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
 
 
