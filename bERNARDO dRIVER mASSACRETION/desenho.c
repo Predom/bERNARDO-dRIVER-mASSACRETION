@@ -12,8 +12,7 @@
  ***************************************************/
 
 struct Vetor2D VelPlayer={0,0};
-struct Ponto2D localRua_A={0,0};
-struct Ponto2D localRua_B={WIDTH,0};
+struct Ponto2D localRuas[]={{0,0},{WIDTH,0}};
 
 void atualiza_velplayer(struct Vetor2D v)
 {
@@ -81,34 +80,40 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 void atualiza_localRua()
 {
     /// PARTE X -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRua_A,&VelPlayer,0)<=-WIDTH)
+    for(int i=0;i<2;i++)
     {
-        localRua_A.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_A,&VelPlayer,0);
+        if(retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0)<=-WIDTH)
+        {
+            localRuas[i].coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0);
+        }
+        else
+            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,0);
     }
-    else
-        subtraiVetorAoPontoRetOrig(&localRua_A,&VelPlayer);
-    if(retornaSubVetorAoPonto(&localRua_B,&VelPlayer,0)<=-WIDTH)
-    {
-        localRua_B.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_B,&VelPlayer,0);
-    }
-    else
-        subtraiVetorAoPontoRetOrig(&localRua_B,&VelPlayer);
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRua_A,&VelPlayer,1)>=200)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=150)
     {
-        localRua_A.coord[1]=200;
-        localRua_B.coord[1]=200;
+        for(int i=0;i<2;i++)
+        {
+            localRuas[i].coord[1]=150;
+        }
     }
     else
-        subElementVetorAoPontoRetOrig(&localRua_A,&VelPlayer,1);
-        subElementVetorAoPontoRetOrig(&localRua_B,&VelPlayer,1);
+    {
+        for(int i=0;i<2;i++)
+        {
+            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,1);
+        }
+    }
 }
 
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
-    al_draw_scaled_bitmap(imagem,0,localRua_A.coord[1],imagem_width,imagem_height,localRua_A.coord[0],0,WIDTH,HEIGHT,0);
-    al_draw_scaled_bitmap(imagem,0,localRua_B.coord[1],imagem_width,imagem_height,localRua_B.coord[0],0,WIDTH,HEIGHT,0);
+    for(int i=0;i<2;i++)
+        {
+            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],0,WIDTH,HEIGHT,0);
+        }
+
 }
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
