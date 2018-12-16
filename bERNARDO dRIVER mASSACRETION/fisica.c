@@ -101,6 +101,20 @@ void atualizarPlayer(struct Player *P){
     VELPLAYER.y=P->corpo.velocidade.y*timeRate;
 
 
+    //virar
+    struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
+    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo*timeRate);
+    subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
+    rotacionarVet2DRetOrig(&Giro,P->intencaoDeGiro);
+    somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
+
+    if(P->intencaoDeGiro<0)P->intencaoDeGiro+=1.5;
+    else if(P->intencaoDeGiro>0)P->intencaoDeGiro-=1.5;
+
+    if(P->intencaoDeGiro>90)P->intencaoDeGiro=90;
+    else if(P->intencaoDeGiro<-90)P->intencaoDeGiro=-90;
+
+
 }
 
 //void acelerar
@@ -122,19 +136,11 @@ void RePlayer(struct Player *P){
 }
 
 void viraPraDireita(struct Player *P){
-    struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
-    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo);
-    subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
-    rotacionarVet2DRetOrig(&Giro,-90);
-    somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
+    P->intencaoDeGiro-=2;
 }
 
 void viraPraEsquerda(struct Player *P){
-    struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
-    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo);
-    subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
-    rotacionarVet2DRetOrig(&Giro,90);
-    somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
+    P->intencaoDeGiro+=2;
 }
 
 
