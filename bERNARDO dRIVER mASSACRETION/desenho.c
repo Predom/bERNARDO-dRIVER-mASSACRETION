@@ -12,7 +12,7 @@
  ***************************************************/
 
 struct Vetor2D VelPlayer={0,0};
-struct Ponto2D localRuas[]={{0,0},{0,HEIGHT}};
+struct Ponto2D localRuas[]={{0,0},{WIDTH,0}};
 
 void atualiza_velplayer(struct Vetor2D v)
 {
@@ -79,30 +79,30 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 /// Desenhos durante o Jogo
 void atualiza_localRua()
 {
-    /// PARTE Y -----------------------------------------------------------------------------
+    /// PARTE X -----------------------------------------------------------------------------
     for(int i=0;i<2;i++)
     {
-        if(retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,1)<=-HEIGHT)
+        if(retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0)<=-WIDTH)
         {
-            localRuas[i].coord[1]=2*HEIGHT+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,1);
+            localRuas[i].coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0);
         }
         else
-            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,1);
+            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,0);
     }
 
-    /// PARTE X -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,0)>=WIDTH/2-150)
+    /// PARTE Y -----------------------------------------------------------------------------
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-150)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[0]=WIDTH/2-150;
+            localRuas[i].coord[1]=HEIGHT/2-150;
         }
     }
     else
     {
         for(int i=0;i<2;i++)
         {
-            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,0);
+            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,1);
         }
     }
 }
@@ -111,7 +111,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     for(int i=0;i<2;i++)
         {
-            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,0,0,WIDTH,HEIGHT,0);
+            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1]+100,imagem_width,imagem_height,localRuas[i].coord[0],0,WIDTH,HEIGHT+200,0);
         }
 
 }

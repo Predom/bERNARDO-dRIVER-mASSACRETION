@@ -18,7 +18,7 @@
     //al_set_audio_stream_playmode(vrum, ALLEGRO_PLAYMODE_LOOP);
 
 	///IMAGENS-----------------------------------------------------------------------------
-	rua_bus = al_load_bitmap("Bitmaps\\sanic.bmp");
+	rua_bus = al_load_bitmap("Bitmaps\\rua_bus_4.bmp");
 
 	int rua_width = al_get_bitmap_width(rua_bus);
 	int rua_height = al_get_bitmap_height(rua_bus);
