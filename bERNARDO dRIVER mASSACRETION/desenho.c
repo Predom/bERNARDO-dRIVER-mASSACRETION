@@ -80,20 +80,29 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 /// Desenhos durante o Jogo
 void atualiza_localRua()
 {
+    /// PARTE X -----------------------------------------------------------------------------
     if(retornaSubVetorAoPonto(&localRua_A,&VelPlayer,0)<=-WIDTH)
     {
-            localRua_A.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_A,&VelPlayer,0);
+        localRua_A.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_A,&VelPlayer,0);
     }
     else
         subtraiVetorAoPontoRetOrig(&localRua_A,&VelPlayer);
     if(retornaSubVetorAoPonto(&localRua_B,&VelPlayer,0)<=-WIDTH)
     {
-            localRua_B.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_B,&VelPlayer,0);
+        localRua_B.coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRua_B,&VelPlayer,0);
     }
     else
         subtraiVetorAoPontoRetOrig(&localRua_B,&VelPlayer);
 
-
+    /// PARTE Y -----------------------------------------------------------------------------
+    if(retornaSubVetorAoPonto(&localRua_A,&VelPlayer,1)>=200)
+    {
+        localRua_A.coord[1]=200;
+        localRua_B.coord[1]=200;
+    }
+    else
+        subElementVetorAoPontoRetOrig(&localRua_A,&VelPlayer,1);
+        subElementVetorAoPontoRetOrig(&localRua_B,&VelPlayer,1);
 }
 
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
@@ -103,6 +112,6 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 }
 void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height){
 
-    al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2,HEIGHT/2,jogador->corpo.angulo,0);
+    al_draw_rotated_bitmap(jogador->sprite_player,player_width/2-70,player_height/2,WIDTH/2,HEIGHT/2,-jogador->corpo.angulo,0);
 }
 

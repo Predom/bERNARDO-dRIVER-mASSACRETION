@@ -60,6 +60,11 @@ void subtraiVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb)
     Pa->y -= Vb->y;
 }
 
+void subElementVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb, int s)
+{
+    Pa->coord[s] -= Vb->coord[s];
+}
+
 float retornaSubVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, int s)
 {
     struct Ponto2D retorno;

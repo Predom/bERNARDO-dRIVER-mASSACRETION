@@ -42,6 +42,8 @@ void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D 
 
 void subtraiVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb);
 
+void subElementVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
+
 float retornaSubVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
 
 void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
