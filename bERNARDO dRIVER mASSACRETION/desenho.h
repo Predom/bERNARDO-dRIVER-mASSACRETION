@@ -18,7 +18,6 @@
 
 /// Função para atualizar as variaveis globais
 void atualiza_velplayer(struct Vetor2D v);
-void importa_width_height(const int L, const int A);
 void atualiza_localRua();
 
 /// Desenhos do Menu
