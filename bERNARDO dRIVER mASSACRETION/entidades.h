@@ -73,8 +73,18 @@ struct CorpoFisico
 
 struct Carro
 {
+
     int ID;
     struct CorpoFisico corpo;
+
+    float intencaoDeGiro;
+
+    int marcha;                      /// marcha do carro para as funções de áudio
+    int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio
+    int volume;                      /// volume do som do motor para as funções de áudio
+
+    ALLEGRO_BITMAP *sprite_player;
+
     struct Vetor2D local;            ///localização em relação ao player
 
     float dano;
