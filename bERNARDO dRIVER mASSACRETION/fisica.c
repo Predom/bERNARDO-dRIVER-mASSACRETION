@@ -56,19 +56,24 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo){
 
 void aplicarForcaPont(struct CorpoFisico *corpo, struct Vetor2D *forca){
     struct Vetor2D deltaAcel;
-    deltaAcel.x=forca/corpo->massa;
-    deltaAcel.y=forca/corpo->massa;
+    deltaAcel.x=forca->x/corpo->massa;
+    deltaAcel.y=forca->y/corpo->massa;
     somaVetoresRetOrig(&corpo->aceleracao,&deltaAcel);
 }
 
 void aplicarForca(struct CorpoFisico *corpo, struct Vetor2D forca){
-    forca/=corpo->massa;
-    forca/=corpo->massa;
+    forca.x/=corpo->massa;
+    forca.y/=corpo->massa;
     somaVetoresRetOrig(&corpo->aceleracao,&forca);
 }
 
 void aplicarAtritoAr(struct CorpoFisico *corpo){
-
+    if(corpo->velocidadeModulo>0){
+        float atritoModulo=SQUAR(corpo->velocidadeModulo)*0.0003*timeRate;
+        struct Vetor2D atrito;
+        atrito=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),atritoModulo);
+        subtraiVetoresRetOrig(&corpo->velocidade,&atrito);
+    }
 }
 
 void aplicarAtritoChao(struct CorpoFisico *corpo){
