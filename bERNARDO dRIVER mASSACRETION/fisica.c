@@ -49,8 +49,7 @@ void atualizaCorpoFisico(struct CorpoFisico *corpo){
     //guarda o módulo da velocidade
     corpo->velocidadeModulo=returnComp(&corpo->velocidade);
 
-    if(corpo->velocidadeModulo!=0)
-        corpo->angulo=returnVetDirec(corpo->velocidade);
+    if(corpo->velocidadeModulo!=0)corpo->angulo=returnVetDirec(corpo->velocidade);
 
 }
 
@@ -69,21 +68,23 @@ void aplicarForca(struct CorpoFisico *corpo, struct Vetor2D forca){
 
 void aplicarAtritoAr(struct CorpoFisico *corpo){
     if(corpo->velocidadeModulo!=0){
-        float moduloAtrito=corpo->velocidadeModulo*0.003;
+        float moduloAtrito=SQUAR(corpo->velocidadeModulo)*0.0003;
         struct Vetor2D atrito = produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade), -moduloAtrito);
         somaVetoresRetOrig(&corpo->aceleracao,&atrito);
     }
 }
 
 void aplicarAtritoChao(struct CorpoFisico *corpo){
-    if(corpo->velocidadeModulo>0.08){
-        float atritoSupModulo=0.003;
+    if(corpo->velocidadeModulo>0.8){
+        float atritoSupModulo=0.03;
         struct Vetor2D atritoSup;
         atritoSup=produtoVetEscaLRet(retornarNormalizadoSPont(&corpo->velocidade),atritoSupModulo);
         subtraiVetoresRetOrig(&corpo->velocidade,&atritoSup);
-    }else if(corpo->velocidadeModulo<0.08){
+    }else if(corpo->velocidadeModulo<0.8){
         corpo->velocidade.x=0;
         corpo->velocidade.y=0;
+        corpo->aceleracao.x=0;
+        corpo->aceleracao.y=0;
     }
 }
 
@@ -107,9 +108,6 @@ void aceleraPlayer(struct Player *P){
     if(P->corpo.velocidadeModulo>0){
         struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
         somaVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
-    }else if(P->corpo.velocidadeModulo<0){
-        struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
-        subtraiVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
     }else{
         P->corpo.velocidade.x+=cos(P->corpo.angulo);
         P->corpo.velocidade.y+=sin(P->corpo.angulo);
