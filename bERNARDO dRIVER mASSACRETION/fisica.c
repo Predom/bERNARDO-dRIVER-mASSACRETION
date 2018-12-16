@@ -109,7 +109,7 @@ void aceleraPlayer(struct Player *P){
         somaVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
     }else if(P->corpo.velocidadeModulo<0){
         struct Vetor2D aceleracau=retornarNormalizadoSPont(&P->corpo.velocidade);
-        somaVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
+        subtraiVetoresRetOrig(&P->corpo.aceleracao,&aceleracau);
     }else{
         P->corpo.velocidade.x+=cos(P->corpo.angulo);
         P->corpo.velocidade.y+=sin(P->corpo.angulo);
