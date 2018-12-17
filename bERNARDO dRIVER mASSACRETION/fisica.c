@@ -148,7 +148,14 @@ void viraPraEsquerda(struct Player *P){
 ///carros func
 
 void atualizaCarro(struct Carro *c){
+    atualizaCorpoFisico(&c->corpo);
+    aplicarAtritoAr(&c->corpo);
+    aplicarAtritoChao(&c->corpo);
 
+    //soma a velocidade do player e do próprio carro à localização atual
+    struct Vetor2D variacaoLocRelPlayer;
+    subtraiVetores(&c->corpo.velocidade,&VELPLAYER,&variacaoLocRelPlayer);
+    somaVetorAoPontoRetOrig(&c->local,&variacaoLocRelPlayer);
 }
 
 void aceleraCarro(struct Carro *c){
@@ -156,10 +163,13 @@ void aceleraCarro(struct Carro *c){
 }
 
 void ReCarro(struct Carro *c){
+
 }
 
 void viraCarroParaADireita(struct Carro *c){
+
 }
 
 void viraCarroParaAEsquerda(struct Carro *c){
+
 }
