@@ -170,5 +170,5 @@ void desenhaPlayer(struct Player *jogador){
 
 void desenharCarro(struct Carro *carro)
 {
-    al_draw_scaled_rotated_bitmap(carro->sprite_carro,carro_width/2-70,carro_height/2,carro->local.coord[0],-carro->local.coord[1],1-moduloVeloc/234,1-moduloVeloc/234,-carro->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(carro->sprite_carro,carro_width/2-70,carro_height/2,carro->local.coord[0],carro->local.coord[1],1-moduloVeloc/234,1-moduloVeloc/234,-carro->corpo.angulo,0);
 }
