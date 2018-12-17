@@ -42,7 +42,7 @@ void viraPraEsquerda(struct Player *P);
 ///carros func
 void atualizaCarro(struct Carro *c);
 
-void aceleraCarro(struct Carro *c);
+void aceleraCarro(struct Carro *c, float velProporcao);
 
 void ReCarro(struct Carro *c);
 

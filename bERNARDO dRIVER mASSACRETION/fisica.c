@@ -155,10 +155,30 @@ void atualizaCarro(struct Carro *c){
     //soma a velocidade do player e do próprio carro à localização atual
     c->local.x+=c->corpo.velocidade.x*timeRate;
     c->local.y+=c->corpo.velocidade.y*timeRate;
+
+    //virar
+    struct Vetor2D Giro = retornarNormalizadoSPont(&c->corpo.velocidade);
+    produtoVetEscaLRetOrig(&Giro,0.02*c->corpo.velocidadeModulo*timeRate);
+    subtraiVetoresRetOrig(&c->corpo.velocidade,&Giro);
+    rotacionarVet2DRetOrig(&Giro,c->intencaoDeGiro);
+    somaVetoresRetOrig(&c->corpo.velocidade,&Giro);
+
+    if(c->intencaoDeGiro<0)c->intencaoDeGiro+=1.5;
+    else if(c->intencaoDeGiro>0)c->intencaoDeGiro-=1.5;
+
+    if(c->intencaoDeGiro>90)c->intencaoDeGiro=90;
+    else if(c->intencaoDeGiro<-90)c->intencaoDeGiro=-90;
 }
 
-void aceleraCarro(struct Carro *c){
-
+void aceleraCarro(struct Carro *c, float velProporcao){
+    if(c->corpo.velocidadeModulo>0){
+        struct Vetor2D aceleracau=retornarNormalizadoSPont(&c->corpo.velocidade);
+        produtoVetEscaLRetOrig(&aceleracau,velProporcao);
+        somaVetoresRetOrig(&c->corpo.aceleracao,&aceleracau);
+    }else{
+        c->corpo.velocidade.x+=cos(c->corpo.angulo);
+        c->corpo.velocidade.y+=sin(c->corpo.angulo);
+    }
 }
 
 void ReCarro(struct Carro *c){
@@ -166,9 +186,9 @@ void ReCarro(struct Carro *c){
 }
 
 void viraCarroParaADireita(struct Carro *c){
-
+    c->intencaoDeGiro-=2;
 }
 
 void viraCarroParaAEsquerda(struct Carro *c){
-
+    c->intencaoDeGiro-=2;
 }
