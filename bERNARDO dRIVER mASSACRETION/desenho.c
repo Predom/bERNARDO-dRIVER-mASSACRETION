@@ -4,6 +4,7 @@
 #include "fisica.h"
 #include "desenho.h"
 #include "entidades.h"
+#include <math.h>
 
 /****************************************************
  *  Este arquivo deve conter as funções de desenho  *
@@ -19,6 +20,7 @@ int carro_height=0;
 int metrosPercorridos=0;
 float cache;
 int player_cx=-70;
+struct Ponto2D k = {WIDTH/2-300,HEIGHT/2};
 
 void atualizaCarroDimensoes(int x, int y)
 {
@@ -26,14 +28,22 @@ void atualizaCarroDimensoes(int x, int y)
     carro_height=y;
 }
 
-void driftOn()
+void driftOn(struct Player *car)
 {
     player_cx=70;
+    struct Vetor2D v;
+    struct Ponto2D Pa = {WIDTH/2-300,HEIGHT/2};
+    struct Ponto2D Pb = {0.5*Pa.coord[0]*cos(car->corpo.angulo),0.5*Pa.coord[1]*sin(car->corpo.angulo)};
+    diferencaEntrePontos(&Pa,&Pb,&v);
+    rotacionarVet2DRetOrig(&v,180);
+    somaVetorAoPonto(&Pb,&k,&v);
 }
 
 void driftOff()
 {
     player_cx=-70;
+    k.coord[0]=WIDTH/2-300;
+    k.coord[1]=HEIGHT/2;
 }
 
 void atualiza_velplayer(struct Vetor2D v)
@@ -163,7 +173,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 
 void desenhaPlayer(struct Player *jogador){
 
-    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2-300,HEIGHT/2,1-moduloVeloc/234,1-moduloVeloc/234,-jogador->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,k.coord[0],k.coord[1],1-moduloVeloc/234,1-moduloVeloc/234,-jogador->corpo.angulo,0);
 }
 
 void desenharCarro(struct Carro *carro)

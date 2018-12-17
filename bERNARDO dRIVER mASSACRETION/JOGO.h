@@ -29,7 +29,7 @@
 
             if(keys[LEFT]&&keys[DOWN]&&keys[RIGHT])
             {
-                driftOn();
+                driftOn(&PLAYER);
                 TokyoDrift(tokyo_drift,true);
             }
             else
