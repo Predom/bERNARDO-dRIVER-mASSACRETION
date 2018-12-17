@@ -17,6 +17,7 @@
  **************************************/
 
 /// Função para atualizar as variaveis globais
+void atualizaCarroDimensoes(int x, int y);
 void atualiza_velplayer(struct Vetor2D v);
 void atualiza_localRua();
 
@@ -30,6 +31,6 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40);
 /// Desenhos durante o jogo
 void desenha_metros(ALLEGRO_FONT *font48);
 void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height);
-void desenhaPlayer(struct Player *jogador, int vy,int player_width,int player_height);
+void desenhaPlayer(struct Player *jogador);
 
 #endif // DESENHO_H

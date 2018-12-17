@@ -25,8 +25,10 @@
 
     PLAYER.sprite_player = al_load_bitmap("Bitmaps\\sprite_player.bmp");
 
-    int player_width = al_get_bitmap_width(PLAYER.sprite_player);
-    int player_height = al_get_bitmap_height(PLAYER.sprite_player);
+    int playerWidth = al_get_bitmap_width(PLAYER.sprite_player);
+    int playerHeight = al_get_bitmap_height(PLAYER.sprite_player);
+
+    atualizaCarroDimensoes(playerWidth,playerHeight);
 
     ///EVENTOS-----------------------------------------------------------------------------
 	event_queue = al_create_event_queue();
