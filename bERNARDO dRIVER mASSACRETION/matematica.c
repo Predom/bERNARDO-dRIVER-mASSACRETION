@@ -215,6 +215,20 @@ void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct
 
 }
 /******************************************************************************/
+void rotacionarVet2DRetOrigRad(struct Vetor2D *vetor, float rad){
+
+    float s=sin(rad);
+    float c=cos(rad);
+
+    struct Matriz2x2 matriz;
+    matriz.elementos[0][0]=c;
+    matriz.elementos[0][1]=-s;
+    matriz.elementos[1][0]=s;
+    matriz.elementos[1][1]=c;
+
+    transVet2DRetOrig(vetor,&matriz);
+
+}
 
 void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus){
 

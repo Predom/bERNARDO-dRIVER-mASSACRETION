@@ -79,6 +79,8 @@ void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);
 
 void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz);
 
+void rotacionarVet2DRetOrigRad(struct Vetor2D *vetor, float rad);
+
 void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus);
 
 void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus);
