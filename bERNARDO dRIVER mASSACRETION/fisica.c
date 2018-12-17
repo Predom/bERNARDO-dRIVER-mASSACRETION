@@ -151,7 +151,7 @@ void atualizaCarro(struct Carro *c){
     aplicarAtritoChao(&c->corpo);
 
     //soma a velocidade do player e do próprio carro à localização atual
-    c->local.x+=c->corpo.velocidade.x*timeRate;
+    c->local.x+=(c->corpo.velocidade.x*timeRate-REFERENCIA_X);
     c->local.y+=c->corpo.velocidade.y*timeRate;
 
     //virar
