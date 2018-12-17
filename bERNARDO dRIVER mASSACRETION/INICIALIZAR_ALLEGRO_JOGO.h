@@ -27,6 +27,8 @@
 
     PLAYER.sprite_player = al_load_bitmap("Bitmaps\\sprite_player.bmp");
 
+    TESTER.sprite_carro = al_load_bitmap("Bitmaps\\sprite_player.bmp");
+
     int playerWidth = al_get_bitmap_width(PLAYER.sprite_player);
     int playerHeight = al_get_bitmap_height(PLAYER.sprite_player);
 
