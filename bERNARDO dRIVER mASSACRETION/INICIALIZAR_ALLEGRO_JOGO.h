@@ -22,7 +22,7 @@
     al_set_audio_stream_playing(tokyo_drift,false);
 
 	///IMAGENS-----------------------------------------------------------------------------
-	rua_bus = al_load_bitmap("Bitmaps\\sem_nada.bmp");
+	rua_bus = al_load_bitmap("Bitmaps\\Rua_bus_4.bmp");
 
 	ALLEGRO_COLOR grama = al_map_rgb(32,192,64);
 

@@ -120,7 +120,6 @@
             if(!isGameOver)
             {
                 ///DESENHA TUDO
-                al_clear_to_color(grama);
                 atualiza_velplayer(retornaVelocidadeDoJogador());
                 desenha_ruas(rua_bus,rua_width,rua_height);
                 desenha_metros(font_menu_40);

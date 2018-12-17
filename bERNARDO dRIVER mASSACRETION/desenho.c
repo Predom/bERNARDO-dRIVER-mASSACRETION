@@ -13,7 +13,7 @@
  ***************************************************/
 
 struct Vetor2D VelPlayer={0,0};
-struct Ponto2D localRuas[]={{WIDTH/2,HEIGHT/2},{WIDTH,HEIGHT/2}};
+struct Ponto2D localRuas[]={{WIDTH/2,HEIGHT/2},{3*WIDTH/2,HEIGHT/2}};
 float moduloVeloc=0;
 int carro_width=0;
 int carro_height=0;
@@ -122,7 +122,7 @@ void atualiza_localRua(struct Player *PLAYER)
     {
         if(retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0)<=-WIDTH/2)
         {
-            localRuas[i].coord[0]=WIDTH+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0);
+            localRuas[i].coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0);
         }
         else
             subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,0);
@@ -160,13 +160,13 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     for(int i=0;i<2;i++)
         {
-            al_draw_scaled_rotated_bitmap(imagem,imagem_width/2,imagem_height/2,localRuas[i].coord[0],localRuas[i].coord[1],1,1-moduloVeloc/234,0,0);
+            al_draw_scaled_rotated_bitmap(imagem,imagem_width/2,imagem_height/2,localRuas[i].coord[0],localRuas[i].coord[1],2.19,1-moduloVeloc/234,0,0);
         }
 }
 
 void desenhaPlayer(struct Player *jogador){
 
-    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2-300,HEIGHT/2,1-moduloVeloc/234,1-moduloVeloc/234,-jogador->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2,-jogador->local.coord[1],1-moduloVeloc/234,1-moduloVeloc/234,-jogador->corpo.angulo,0);
 }
 
 void desenharCarro(struct Carro *carro)
