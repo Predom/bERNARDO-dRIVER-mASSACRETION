@@ -155,7 +155,7 @@ void atualizaCarro(struct Carro *c){
     //soma a velocidade do player e do próprio carro à localização atual
     struct Vetor2D variacaoLocRelPlayer;
     subtraiVetores(&c->corpo.velocidade,&VELPLAYER,&variacaoLocRelPlayer);
-    somaVetorAoPontoRetOrig(&c->local,&variacaoLocRelPlayer);
+    somaVetoresRetOrig(&c->local,&variacaoLocRelPlayer);
 }
 
 void aceleraCarro(struct Carro *c){
