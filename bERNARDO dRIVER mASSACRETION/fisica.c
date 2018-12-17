@@ -96,7 +96,19 @@ void atualizarPlayer(struct Player *P){
     aplicarAtritoChao(&P->corpo);
 
     REFERENCIA_X=-P->corpo.velocidade.x*timeRate;
-    P->local.y+=P->corpo.velocidade.y*timeRate;
+
+    if(P->local.y+P->corpo.velocidade.y*timeRate>HEIGHT/2-600)
+    {
+        P->local.y=HEIGHT/2-600;
+        P->corpo.velocidade.y=0;
+    }
+    else if(P->local.y+P->corpo.velocidade.y*timeRate<HEIGHT/2-1000)
+    {
+        P->local.y=HEIGHT/2-1000;
+        P->corpo.velocidade.y=0;
+    }
+    else
+        P->local.y+=P->corpo.velocidade.y*timeRate;
 
 
     //virar
@@ -136,6 +148,7 @@ void viraPraDireita(struct Player *P){
 }
 
 void viraPraEsquerda(struct Player *P){
+
     P->intencaoDeGiro+=2;
 }
 

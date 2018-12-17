@@ -66,7 +66,7 @@
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
 
-1545040383 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1545043345 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -306,7 +306,7 @@
 1545035653 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 	<allegro5/allegro.h>
 
-1545040289 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
+1545043539 source:c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"fisica.h"
@@ -659,7 +659,7 @@
 
 1544928045 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_jogo.h
 
-1545035960 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
+1545043354 c:\users\theo-\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
 
 1545022148 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\audio.c
 	<allegro5\allegro.h>
