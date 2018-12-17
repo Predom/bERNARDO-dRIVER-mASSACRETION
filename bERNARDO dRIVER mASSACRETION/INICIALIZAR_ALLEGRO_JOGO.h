@@ -14,8 +14,12 @@
 
 	///AUDIO-------------------------------------------------------------------------------
     vrum = al_load_audio_stream("Sons\\Brum.ogg",255,100);
+    tokyo_drift = al_load_audio_stream("Sons\\TokyoDrift.ogg",4,1024);
     al_attach_audio_stream_to_mixer(vrum, al_get_default_mixer());
+    al_attach_audio_stream_to_mixer(tokyo_drift, al_get_default_mixer());
     //al_set_audio_stream_playmode(vrum, ALLEGRO_PLAYMODE_LOOP);
+    al_set_audio_stream_playmode(tokyo_drift,ALLEGRO_PLAYMODE_LOOP);
+    al_set_audio_stream_playing(tokyo_drift,false);
 
 	///IMAGENS-----------------------------------------------------------------------------
 	rua_bus = al_load_bitmap("Bitmaps\\sem_nada.bmp");

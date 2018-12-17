@@ -27,11 +27,26 @@
                  //FALTA A FUNÇÃO A PARA BOZINAR(?)
             }
 
+            if(keys[LEFT]&&keys[DOWN]&&keys[RIGHT])
+            {
+                driftOn();
+                TokyoDrift(tokyo_drift,true);
+            }
+            else
+            {
+                if(al_get_audio_stream_playing(tokyo_drift))
+                {
+                    driftOff();
+                    TokyoDrift(tokyo_drift,false);
+                }
+            }
+
             if(!isGameOver)
             {
                 atualizaCarro(&TESTER);
                 atualizarPlayer(&PLAYER);
                 atualiza_localRua();
+
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES

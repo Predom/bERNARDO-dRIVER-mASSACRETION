@@ -16,3 +16,5 @@ void ligar_carro(bool *pag, ALLEGRO_SAMPLE *start);
 void efeito_sonoro(ALLEGRO_SAMPLE *som, float vol, float vel);
 
 void atualizaSomPlayer(struct Player *PLAYER, ALLEGRO_AUDIO_STREAM *som);
+
+void TokyoDrift(ALLEGRO_AUDIO_STREAM *som, bool val);

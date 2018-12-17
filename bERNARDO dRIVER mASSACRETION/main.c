@@ -49,6 +49,7 @@ int main()
     ALLEGRO_FONT *font_menu_48 = NULL;
     ALLEGRO_FONT *font_menu_40 = NULL;
     ALLEGRO_AUDIO_STREAM *musica_menu = NULL;
+    ALLEGRO_AUDIO_STREAM *tokyo_drift = NULL;
     ALLEGRO_AUDIO_STREAM *vrum = NULL;
     ALLEGRO_SAMPLE *start_som = NULL;
     ALLEGRO_SAMPLE *click = NULL;

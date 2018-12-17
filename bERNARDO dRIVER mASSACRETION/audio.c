@@ -26,3 +26,8 @@ void atualizaSomPlayer(struct Player *PLAYER, ALLEGRO_AUDIO_STREAM *som)
     al_set_audio_stream_gain(som,calcNovoVolume(PLAYER));
     al_set_audio_stream_speed(som,calcNovaVeloc(PLAYER));
 }
+
+void TokyoDrift(ALLEGRO_AUDIO_STREAM *som, bool val)
+{
+    al_set_audio_stream_playing(som, val);
+}

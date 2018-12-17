@@ -17,11 +17,22 @@ int carro_width=0;
 int carro_height=0;
 int metrosPercorridos=0;
 float cache;
+int player_cx=-70;
 
 void atualizaCarroDimensoes(int x, int y)
 {
     carro_width=x;
     carro_height=y;
+}
+
+void driftOn()
+{
+    player_cx=70;
+}
+
+void driftOff()
+{
+    player_cx=-70;
 }
 
 void atualiza_velplayer(struct Vetor2D v)
@@ -147,7 +158,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 
 void desenhaPlayer(struct Player *jogador){
 
-    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2-70,carro_height/2,WIDTH/2-300,HEIGHT/2,1-fabs(VelPlayer.coord[0])/234,1-fabs(VelPlayer.coord[0])/234,-jogador->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2-300,HEIGHT/2,1-fabs(VelPlayer.coord[0])/234,1-fabs(VelPlayer.coord[0])/234,-jogador->corpo.angulo,0);
 }
 
 void desenharCarro(struct Carro *carro)
