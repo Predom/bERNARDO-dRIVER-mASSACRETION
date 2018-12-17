@@ -83,11 +83,16 @@ struct Carro
     int giro;                        /// velocidade de giro do motor para alterar a velociadade do áudio
     int volume;                      /// volume do som do motor para as funções de áudio
 
-    ALLEGRO_BITMAP *sprite_player;
+    ALLEGRO_BITMAP *sprite_carro;
 
     struct Vetor2D local;            ///localização em relação ao player
 
     float dano;
+};
+
+struct CarroPolicia
+{
+    Carro;
 };
 
 #endif
