@@ -160,7 +160,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     for(int i=0;i<2;i++)
         {
-            al_draw_scaled_rotated_bitmap(imagem,imagem_width/2,imagem_height/2,localRuas[i].coord[0],localRuas[i].coord[1],2.19,1-moduloVeloc/234,0,0);
+            al_draw_scaled_rotated_bitmap(imagem,imagem_width/2,imagem_height/2,localRuas[i].coord[0],localRuas[i].coord[1],2.171,1.15-moduloVeloc/234,0,0);
         }
 }
 
