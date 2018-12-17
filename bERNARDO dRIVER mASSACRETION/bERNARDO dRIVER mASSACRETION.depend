@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1544939343 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
+1545004467 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -317,7 +317,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1544938568 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
+1545006454 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.c
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
@@ -553,20 +553,20 @@
 1543013979 d:\usuario\documents\github\bernardo-driver-massacretion\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1544938568 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
+1544941559 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.h
 	<math.h>
 	"entidades.h"
 
-1544939343 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
+1545010210 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\entidades.h
 	<allegro5/allegro.h>
 
-1544926280 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
+1545010321 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\fisica.h
 	<allegro5\allegro.h>
 	<allegro5\allegro_primitives.h>
 	"matematica.h"
 	"entidades.h"
 
-1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
+1545004467 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\desenho.h
 	"matematica.h"
 	"fisica.h"
 	"entidades.h"
@@ -582,7 +582,7 @@
 	"matematica.h"
 	"entidades.h"
 
-1544938568 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
+1544941559 source:d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\matematica.c
 	<math.h>
 	"matematica.h"
 	"entidades.h"
@@ -677,17 +677,17 @@
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 
-1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_menu.h
+1544940300 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_menu.h
 
-1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\menu.h
+1544940300 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\menu.h
 
 1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_menu.h
 
-1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
+1545004356 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_entidades.h
 
-1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
+1545006454 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\inicializar_allegro_jogo.h
 
-1544938840 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
+1545006454 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\jogo.h
 
 1544934334 d:\usuario\documents\github\bernardo-driver-massacretion\bernardo driver massacretion\destruir_jogo.h
 

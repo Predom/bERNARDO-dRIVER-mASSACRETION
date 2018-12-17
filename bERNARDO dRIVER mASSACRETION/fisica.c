@@ -146,6 +146,19 @@ void viraPraEsquerda(struct Player *P){
 
 
 ///carros func
-/*
-void atualizaCarro(struct Carro *c, struct Player *P){
-}*/
+
+void atualizaCarro(struct Carro *c){
+
+}
+
+void aceleraCarro(struct Carro *c){
+}
+
+void ReCarro(struct Carro *c){
+}
+
+void viraCarroParaADireita(struct Carro *c){
+}
+
+void viraCarroParaAEsquerda(struct Carro *c){
+}

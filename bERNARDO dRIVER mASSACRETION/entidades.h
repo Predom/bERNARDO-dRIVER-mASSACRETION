@@ -90,9 +90,9 @@ struct Carro
     float dano;
 };
 
-struct CarroPolicia
+struct Policia
 {
-    Carro;
+    struct Carro carro;
 };
 
 #endif
