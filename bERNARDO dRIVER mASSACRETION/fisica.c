@@ -111,8 +111,6 @@ void atualizarPlayer(struct Player *P){
 
     if(P->intencaoDeGiro>90)P->intencaoDeGiro=90;
     else if(P->intencaoDeGiro<-90)P->intencaoDeGiro=-90;
-
-
 }
 
 //void acelerar
