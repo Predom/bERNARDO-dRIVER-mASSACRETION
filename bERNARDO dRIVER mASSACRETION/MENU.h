@@ -25,7 +25,7 @@
                 ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(play_button) * 18)
                 {
                     if(!in_play_button)
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                     in_play_button = true;
                     selecty = 0;
                 }
@@ -38,7 +38,7 @@
                     ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(lore_button) * 28)
                 {
                     if(!in_lore_button)
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                     in_lore_button = true;
                     selecty = 1;
                 }
@@ -51,7 +51,7 @@
                     ev.mouse.y <= HEIGHT / 2 + al_get_bitmap_height(credit_button) * 38)
                 {
                     if(!in_credit_button)
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                     in_credit_button = true;
                     selecty = 2;
                 }
@@ -64,7 +64,7 @@
                     ev.mouse.y >= 5 && ev.mouse.y <= 60)
                 {
                     if(!in_back_button)
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                       in_back_button = true;
                 }
                 else
@@ -76,7 +76,7 @@
                     ev.mouse.y >= 5 && ev.mouse.y <= 60)
                 {
                     if(!in_back_button)
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                       in_back_button = true;
                 }
                 else
@@ -90,17 +90,17 @@
             {
                 if (in_play_button)
                 {
-                    al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                    efeito_sonoro(select,1,1);
                     pag[MENU] = false;
                 }
                 else if (in_lore_button)
                 {
-                    al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                    efeito_sonoro(select,1,1);
                     pag[LORE] = true;
                 }
                 else if (in_credit_button)
                 {
-                    al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                    efeito_sonoro(select,1,1);
                     pag[CREDIT] = true;
                 }
             }
@@ -108,7 +108,7 @@
             {
                 if(in_back_button)
                 {
-                    al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                    efeito_sonoro(select,1,1);;
                     pag[LORE] = false;
                 }
 
@@ -117,7 +117,7 @@
             {
                 if(in_back_button)
                 {
-                    al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                    efeito_sonoro(select,1,1);
                     pag[CREDIT] = false;
                 }
             }
@@ -131,7 +131,7 @@
                 {
                     case ALLEGRO_KEY_ESCAPE:
                     {
-                        al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(select,1,1);
                         pag[MENU] = false;
                         pag[GAME] = false;
                     }break;
@@ -141,7 +141,7 @@
                             selecty = 2;
                         else
                             selecty--;
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                     }break;
                     case ALLEGRO_KEY_DOWN:
                     {
@@ -149,24 +149,24 @@
                             selecty = 0;
                         else
                             selecty++;
-                        al_play_sample(click,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(click,1,1);
                     }break;
                     case ALLEGRO_KEY_ENTER:
                     {
                         if(selecty==0)
                         {
                             pag[MENU] = false;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                         else if(selecty==1)
                         {
                             pag[LORE] = true;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                         else if (selecty==2)
                         {
                             pag[CREDIT] = true;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                     }break;
                     case ALLEGRO_KEY_SPACE:
@@ -174,17 +174,17 @@
                         if(selecty==0)
                         {
                             pag[MENU] = false;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                         else if(selecty==1)
                         {
                             pag[LORE] = true;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                         else if (selecty==2)
                         {
                             pag[CREDIT] = true;
-                            al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                            efeito_sonoro(select,1,1);
                         }
                     }break;
                 }
@@ -196,7 +196,7 @@
                     case ALLEGRO_KEY_ESCAPE:
                     {
                         pag[LORE] = false;
-                        al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(select,1,1);
                     }break;
                 }
             }
@@ -207,7 +207,7 @@
                     case ALLEGRO_KEY_ESCAPE:
                     {
                         pag[CREDIT] = false;
-                        al_play_sample(select,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+                        efeito_sonoro(select,1,1);
                     }break;
                 }
             }

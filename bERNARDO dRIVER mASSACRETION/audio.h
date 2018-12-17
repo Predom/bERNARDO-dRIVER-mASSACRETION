@@ -12,3 +12,5 @@
  **************************************/
 
  void ligar_carro(bool *pag, ALLEGRO_SAMPLE *start);
+
+ void efeito_sonoro(ALLEGRO_SAMPLE *som, float vol, float vel);
