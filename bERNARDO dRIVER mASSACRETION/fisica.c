@@ -95,7 +95,7 @@ void atualizarPlayer(struct Player *P){
     aplicarAtritoAr(&P->corpo);
     aplicarAtritoChao(&P->corpo);
 
-    REFERENCIA_X-=P->corpo.velocidade.x*timeRate;
+    REFERENCIA_X=-P->corpo.velocidade.x*timeRate;
     P->local.y+=P->corpo.velocidade.y*timeRate;
 
 
