@@ -42,6 +42,7 @@ void driftOff()
 void atualizaX(float x)
 {
     Ref_x=x;
+    moduloVeloc=fabs(x);
 }
 
 ///Desenhos do Menu
@@ -114,16 +115,16 @@ void desenha_metros(ALLEGRO_FONT *font40)
     al_draw_textf(font40, al_map_rgb(255,255,255),10,10,ALLEGRO_ALIGN_LEFT,"%d METROS", metrosPercorridos);
 }
 
-void atualiza_localRua(struct Player *PLAYER)
+void atualiza_localRua()
 {
     for(int i=0;i<2;i++)
     {
-        if(retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0)<=-WIDTH/2)
+        if(localRuas[i].coord[0]+Ref_x<=-WIDTH/2)
         {
-            localRuas[i].coord[0]=2*WIDTH+retornaSubVetorAoPonto(&localRuas[i],&VelPlayer,0);
+            localRuas[i].coord[0]=2*WIDTH+localRuas[i].coord[0]+Ref_x;
         }
         else
-            subElementVetorAoPontoRetOrig(&localRuas[i],&VelPlayer,0);
+            localRuas[i].coord[0]+=Ref_x;
     }
 }
 
