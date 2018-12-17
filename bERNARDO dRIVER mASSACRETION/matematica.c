@@ -381,7 +381,15 @@ int TestCheckPenetration()
         return 1;
   }
 
+//operaçoes com audio
+float calcNovoVolume(struct Player *PLAYER)
+{
 
+}
 
+float calcNovaVeloc(struct Player *PLAYER)
+{
+
+}
 
 

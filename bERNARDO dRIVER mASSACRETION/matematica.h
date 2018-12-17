@@ -83,9 +83,10 @@ void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus);
 
 void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus);
 
+//operaçoes com audio
+float calcNovoVolume(struct Player *PLAYER);
 
-
-
+float calcNovaVeloc(struct Player *PLAYER);
 
 
 
