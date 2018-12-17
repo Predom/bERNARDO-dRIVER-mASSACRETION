@@ -13,6 +13,7 @@
 
 struct Vetor2D VelPlayer={0,0};
 struct Ponto2D localRuas[]={{0,0},{WIDTH,0}};
+float moduloVeloc=0;
 int carro_width=0;
 int carro_height=0;
 int metrosPercorridos=0;
@@ -39,6 +40,8 @@ void atualiza_velplayer(struct Vetor2D v)
 {
     VelPlayer.coord[0] = v.coord[0];
     VelPlayer.coord[1] = v.coord[1];
+
+    moduloVeloc = fabs(VelPlayer.coord[0]);
 }
 
 ///Desenhos do Menu
@@ -100,13 +103,13 @@ void desenha_creditos(ALLEGRO_FONT *font48, ALLEGRO_FONT *font40)
 /// Desenhos durante o Jogo
 void desenha_metros(ALLEGRO_FONT *font40)
 {
-    if(cache+VelPlayer.coord[0]>=87)
+    if(cache+moduloVeloc>=87)
     {
         metrosPercorridos++;
-        cache=87-cache+VelPlayer.coord[0];
+        cache=87-cache+moduloVeloc;
     }
     else
-        cache+=VelPlayer.coord[0];
+        cache+=moduloVeloc;
 
     al_draw_textf(font40, al_map_rgb(255,255,255),10,10,ALLEGRO_ALIGN_LEFT,"%d METROS", metrosPercorridos);
 }
@@ -125,19 +128,21 @@ void atualiza_localRua(struct Player *PLAYER)
     }
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-70)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>HEIGHT/2-70)
     {
         for(int i=0;i<2;i++)
         {
             localRuas[i].coord[1]=HEIGHT/2-70;
         }
+        PLAYER->corpo.velocidade.coord[1]=0;
     }
-    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-970)
+    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<HEIGHT/2-970)
     {
         for(int i=0;i<2;i++)
         {
             localRuas[i].coord[1]=HEIGHT/2-970;
         }
+        PLAYER->corpo.velocidade.coord[1]=0;
     }
     else
     {
@@ -152,16 +157,16 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
 {
     for(int i=0;i<2;i++)
         {
-            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],-114+2*fabs(VelPlayer.coord[0]),WIDTH,HEIGHT+234-4*fabs(VelPlayer.coord[0]),0);
+            al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],-114+2*moduloVeloc,WIDTH,HEIGHT+234-4*moduloVeloc,0);
         }
 }
 
 void desenhaPlayer(struct Player *jogador){
 
-    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2-300,HEIGHT/2,1-fabs(VelPlayer.coord[0])/234,1-fabs(VelPlayer.coord[0])/234,-jogador->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2+player_cx,carro_height/2,WIDTH/2-300,HEIGHT/2,1-moduloVeloc/234,1-moduloVeloc/234,-jogador->corpo.angulo,0);
 }
 
 void desenharCarro(struct Carro *carro)
 {
-    al_draw_scaled_rotated_bitmap(carro->sprite_carro,carro_width/2-70,carro_height/2,carro->local.coord[0],carro->local.coord[1],1-fabs(VelPlayer.coord[0])/234,1-fabs(VelPlayer.coord[0])/234,-carro->corpo.angulo,0);
+    al_draw_scaled_rotated_bitmap(carro->sprite_carro,carro_width/2-70,carro_height/2,carro->local.coord[0],-carro->local.coord[1],1-moduloVeloc/234,1-moduloVeloc/234,-carro->corpo.angulo,0);
 }
