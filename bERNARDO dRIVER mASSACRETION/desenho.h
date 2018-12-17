@@ -20,7 +20,7 @@
 void atualizaCarroDimensoes(int x, int y);
 void atualiza_velplayer(struct Vetor2D v);
 void atualiza_localRua();
-void driftOn(struct Player *car);
+void driftOn();
 void driftOff();
 
 /// Desenhos do Menu
