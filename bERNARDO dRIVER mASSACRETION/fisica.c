@@ -97,8 +97,8 @@ void atualizarPlayer(struct Player *P){
     produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
 
 
-    VELPLAYER.x=P->corpo.velocidade.x*timeRate;
-    VELPLAYER.y=P->corpo.velocidade.y*timeRate;
+    P->local.x+=P->corpo.velocidade.x*timeRate;
+    P->local.y+=P->corpo.velocidade.y*timeRate;
 
 
     //virar
@@ -153,9 +153,8 @@ void atualizaCarro(struct Carro *c){
     aplicarAtritoChao(&c->corpo);
 
     //soma a velocidade do player e do próprio carro à localização atual
-    struct Vetor2D variacaoLocRelPlayer;
-    subtraiVetores(&c->corpo.velocidade,&VELPLAYER,&variacaoLocRelPlayer);
-    somaVetoresRetOrig(&c->local,&variacaoLocRelPlayer);
+    c->local.x+=c->corpo.velocidade.x*timeRate;
+    c->local.y+=c->corpo.velocidade.y*timeRate;
 }
 
 void aceleraCarro(struct Carro *c){
