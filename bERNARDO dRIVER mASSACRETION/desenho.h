@@ -18,7 +18,7 @@
 
 /// Função para atualizar as variaveis globais
 void atualizaCarroDimensoes(int x, int y);
-void atualiza_velplayer(struct Vetor2D v);
+void atualizaX(float x);
 void atualiza_localRua();
 void driftOn();
 void driftOff();

@@ -12,8 +12,9 @@
  * de alguma forma seu comportamento.               *
  ***************************************************/
 
-struct Vetor2D VelPlayer={0,0};
+float Ref_x;
 struct Ponto2D localRuas[]={{WIDTH/2,HEIGHT/2},{3*WIDTH/2,HEIGHT/2}};
+
 float moduloVeloc=0;
 int carro_width=0;
 int carro_height=0;
@@ -38,12 +39,9 @@ void driftOff()
     player_cx=-70;
 }
 
-void atualiza_velplayer(struct Vetor2D v)
+void atualizaX(float x)
 {
-    VelPlayer.coord[0] = v.coord[0];
-    VelPlayer.coord[1] = v.coord[1];
-
-    moduloVeloc = fabs(VelPlayer.coord[0]);
+    Ref_x=x;
 }
 
 ///Desenhos do Menu

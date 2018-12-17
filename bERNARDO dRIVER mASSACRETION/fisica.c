@@ -19,7 +19,7 @@
  ///globais
 
  float timeRate=1;
- struct Vetor2D VELPLAYER={0,0};
+float REFERENCIA_X;
 
  void mudaOtimeRate(float novoTimeRate){
     timeRate=novoTimeRate;
@@ -29,8 +29,8 @@ float retornaOtimeRate(){
     return timeRate;
 }
 
-struct Vetor2D retornaVelocidadeDoJogador(){
-    return VELPLAYER;
+float retornaREFERENCIA_X(){
+    return REFERENCIA_X;
 }
 
 
@@ -94,10 +94,8 @@ void atualizarPlayer(struct Player *P){
     atualizaCorpoFisico(&P->corpo);
     aplicarAtritoAr(&P->corpo);
     aplicarAtritoChao(&P->corpo);
-    produtoVetEscaL(&P->corpo.velocidade,&VELPLAYER,timeRate);
 
-
-    P->local.x+=P->corpo.velocidade.x*timeRate;
+    REFERENCIA_X-=P->corpo.velocidade.x*timeRate;
     P->local.y+=P->corpo.velocidade.y*timeRate;
 
 
