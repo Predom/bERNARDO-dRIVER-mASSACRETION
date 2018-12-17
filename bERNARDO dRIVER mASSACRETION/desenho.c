@@ -114,18 +114,18 @@ void atualiza_localRua(struct Player *PLAYER)
     }
 
     /// PARTE Y -----------------------------------------------------------------------------
-    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-180)
+    if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)>=HEIGHT/2-70)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT/2-180;
+            localRuas[i].coord[1]=HEIGHT/2-70;
         }
     }
-    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-620)
+    else if(retornaSubVetorAoPonto(&localRuas[0],&VelPlayer,1)<=HEIGHT/2-970)
     {
         for(int i=0;i<2;i++)
         {
-            localRuas[i].coord[1]=HEIGHT/2-620;
+            localRuas[i].coord[1]=HEIGHT/2-970;
         }
     }
     else
@@ -144,6 +144,7 @@ void desenha_ruas(ALLEGRO_BITMAP *imagem, int imagem_width, int imagem_height)
             al_draw_scaled_bitmap(imagem,0,localRuas[i].coord[1],imagem_width,imagem_height,localRuas[i].coord[0],-114+2*fabs(VelPlayer.coord[0]),WIDTH,HEIGHT+234-4*fabs(VelPlayer.coord[0]),0);
         }
 }
+
 void desenhaPlayer(struct Player *jogador){
 
     al_draw_scaled_rotated_bitmap(jogador->sprite_player,carro_width/2-70,carro_height/2,WIDTH/2-300,HEIGHT/2,1-fabs(VelPlayer.coord[0])/234,1-fabs(VelPlayer.coord[0])/234,-jogador->corpo.angulo,0);

@@ -103,7 +103,7 @@ void atualizarPlayer(struct Player *P){
 
     //virar
     struct Vetor2D Giro = retornarNormalizadoSPont(&P->corpo.velocidade);
-    produtoVetEscaLRetOrig(&Giro,0.005*P->corpo.velocidadeModulo*timeRate);
+    produtoVetEscaLRetOrig(&Giro,0.02*P->corpo.velocidadeModulo*timeRate);
     subtraiVetoresRetOrig(&P->corpo.velocidade,&Giro);
     rotacionarVet2DRetOrig(&Giro,P->intencaoDeGiro);
     somaVetoresRetOrig(&P->corpo.velocidade,&Giro);
@@ -152,6 +152,7 @@ void atualizaCarro(struct Carro *c){
 }
 
 void aceleraCarro(struct Carro *c){
+
 }
 
 void ReCarro(struct Carro *c){

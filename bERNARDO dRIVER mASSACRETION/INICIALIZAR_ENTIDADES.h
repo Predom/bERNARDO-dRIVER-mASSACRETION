@@ -4,3 +4,6 @@
     struct CONVEXPOLYGON PLAYERMODEL={PLAYERMODELSOURCE, 4};
     struct Ponto2D PLAYERMODELCACHE[4];
     struct Player PLAYER={{&PLAYERMODEL,{PLAYERMODELCACHE,4},0,0,0,0,0,0,0,0,0,10},0,1,1,1};
+
+
+    ///carros
