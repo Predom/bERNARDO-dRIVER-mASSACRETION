@@ -31,28 +31,33 @@ int CheckPenetration(struct CONVEXPOLYGON *cpA, struct CONVEXPOLYGON *cpB);
 
 int TestCheckPenetration();
 
-// Operação com vetores:
-void diferencaEntrePontos(struct Ponto2D *Pa, struct Ponto2D *Pb, struct Vetor2D *Vr);
+/// Operação com vetores:
 
-void somaVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+    //retora para um terceiro indereço
+    void diferencaEntrePontos(struct Ponto2D *Pa, struct Ponto2D *Pb, struct Vetor2D *Vr);
+    void somaVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+    void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+    void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
+    void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
-void somaVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb);
 
-void subtraiVetorDoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, struct Ponto2D *Pr);
+    //retorna para o primeiro parâmetro
+    void somaVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb);
+    void subtraiVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb);
+    void somaVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
+    void subtraiVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
 
-void subtraiVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb);
 
-void subElementVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
 
-float retornaSubVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
+    void subElementVetorAoPontoRetOrig(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
 
-void somaVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
-void somaVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
+    float retornaSubVetorAoPonto(struct Ponto2D *Pa, struct Vetor2D *Vb, int s);
+    float returnVetDirec(struct Vetor2D V);
 
-void subtraiVetores(struct Vetor2D *Va, struct Vetor2D *Vb, struct Vetor2D *Vr);
 
-void subtraiVetoresRetOrig(struct Vetor2D *Va, struct Vetor2D *Vb);
+
+
 
 void produtoVetEscaLRetOrig(struct Vetor2D *V, float Escalar);
 
@@ -66,7 +71,7 @@ void normalizeVet(struct Vetor2D *V);
 
 void retornarNormalizado(struct Vetor2D *V, struct Vetor2D *destino);
 
-float returnVetDirec(struct Vetor2D V);
+
 
 struct Vetor2D produtoVetEscaLRet(struct Vetor2D VA, float Escalar);
 
@@ -74,21 +79,22 @@ struct Vetor2D retornarNormalizadoSPont(struct Vetor2D *V);
 
 void somaVetorAoPoligonoRetOrig(struct CONVEXPOLYGON *poligonoentrada,struct CONVEXPOLYGON *poligonosaida,struct Vetor2D *V);
 
+
 //transformar e girar vetores
-void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);
+    void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus);
+    void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz);
 
-void transVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, struct Matriz2x2 *matriz);
+    void transVet2DRetOrig(struct Vetor2D *vetor, struct Matriz2x2 *matriz);
+    void rotacionarVet2DRetOrigRad(struct Vetor2D *vetor, float rad);
+    void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus);
 
-void rotacionarVet2DRetOrigRad(struct Vetor2D *vetor, float rad);
 
-void rotacionarVet2DRetOrig(struct Vetor2D *vetor, float graus);
 
-void rotacionarVet2D(struct Vetor2D *vetorEntrada, struct Vetor2D *vetorSaida, float graus);
+
 
 //operaçoes com audio
-float calcNovoVolume(struct Player *PLAYER);
-
-float calcNovaVeloc(struct Player *PLAYER);
+    float calcNovoVolume(struct Player *PLAYER);
+    float calcNovaVeloc(struct Player *PLAYER);
 
 
 
