@@ -43,10 +43,7 @@
 
             if(!isGameOver)
             {
-                atualizaCarro(&TESTER);
-                atualizarPlayer(&PLAYER);
-                atualiza_localRua();
-
+                #include "ATUALIZALOOP.h"
                 //CRIA NOVOS CARROS NA PISTA
                 //ATUALIZÃO TUDO
                 //TESTA COLISÕES
@@ -119,15 +116,8 @@
 
             if(!isGameOver)
             {
+                #include "DESENHOLOOP.h"
                 ///DESENHA TUDO
-                atualizaX(retornaREFERENCIA_X());
-                desenha_ruas(rua_bus,rua_width,rua_height);
-                desenha_metros(font_menu_40);
-                desenhaPlayer(&PLAYER);
-                desenharCarro(&TESTER);
-
-                //printf("Velocidade\n x: %f      y: %f      direcao: %f    TMR: %f\n",PLAYER.corpo.velocidade.coord[0],PLAYER.corpo.velocidade.coord[1],PLAYER.corpo.angulo,retornaOtimeRate());
-
             }
             else
             {

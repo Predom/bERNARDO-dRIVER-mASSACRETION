@@ -18,7 +18,7 @@
 
  ///globais
 
- float timeRate=1;
+float timeRate=1;
 float REFERENCIA_X;
 
  void mudaOtimeRate(float novoTimeRate){

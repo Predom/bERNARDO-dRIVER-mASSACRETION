@@ -97,5 +97,12 @@ struct Policia
     struct Carro carro;
 };
 
+struct cenario
+{
+    float bitMapsX;
+    float bitMapsY;
+    ALLEGRO_BITMAP *cenarioBitMap;
+};
+
 #endif
 
